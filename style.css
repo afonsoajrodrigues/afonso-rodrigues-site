@@ -716,6 +716,99 @@ a { color: inherit; }
   color: var(--muted);
 }
 
+/* === Série fotográfica (contact sheet) === */
+.series-section {
+  padding: 28px 56px 48px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.series-header {
+  margin-bottom: 32px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.series-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.series-title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(22px, 3vw, 32px);
+  margin: 0;
+  line-height: 1;
+}
+
+.location-group { margin-top: 32px; }
+
+.location-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.location-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--hair);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.contact-item {
+  cursor: zoom-in;
+  margin: 0;
+}
+
+.contact-img-wrap {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-bottom: 7px;
+}
+
+.contact-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.contact-item:hover .contact-img-wrap img { transform: scale(1.03); }
+
+.contact-caption {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+
+.contact-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--body);
+  margin: 0;
+}
+
 /* === Lightbox === */
 .lightbox {
   display: none;
@@ -849,6 +942,10 @@ a { color: inherit; }
   .gallery-grid { grid-template-columns: 1fr; }
   .gallery-card { padding-right: 0; border-right: none; }
   .gallery-card:nth-child(2n) { padding-left: 0; }
+
+  /* Série fotográfica */
+  .series-section { padding-left: 28px; padding-right: 28px; }
+  .contact-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
 }
 
 /* ============================================================
@@ -888,6 +985,9 @@ a { color: inherit; }
   .essay-panel { height: 280px; }
 
   .rent-map { height: 480px; }
+
+  .series-section { padding-left: 20px; padding-right: 20px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 10px; }
 
   .essay-caption { left: 20px; bottom: 20px; right: 20px; }
 
