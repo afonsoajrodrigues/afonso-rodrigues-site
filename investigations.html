@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Afonso Rodrigues — Photography &amp; Data Journalism</title>
-  <meta name="description" content="Documentary photography and data-driven investigations. Based in Lisbon, working worldwide.">
+  <title>Investigations — Afonso Rodrigues</title>
+  <meta name="description" content="Data-driven investigations on housing, migration, and inequality. By Afonso Rodrigues.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
     <div class="masthead-grid">
       <div class="masthead-meta">Est.<br>MMXXI</div>
       <div class="site-title">
-        <h1>Afonso Rodrigues</h1>
+        <h1><a href="index.html" style="text-decoration:none;color:inherit;">Afonso Rodrigues</a></h1>
         <div class="tagline">
           <span class="tagline-rule"></span>
           <span class="tagline-text" data-i18n="tagline-text">Photography &amp; Data Journalism</span>
@@ -40,21 +40,29 @@
     </div>
     <nav class="site-nav">
       <a href="photography.html" data-i18n="nav-photography">Photography</a>
-      <a href="investigations.html" data-i18n="nav-investigations">Investigations</a>
-      <span class="is-active" data-i18n="nav-data">Data</span>
+      <span class="is-active" data-i18n="nav-investigations">Investigations</span>
+      <a href="index.html" data-i18n="nav-data">Data</a>
       <a href="#" data-i18n="nav-about">About</a>
       <a href="#" data-i18n="nav-index">Index</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <div class="hero-label" data-i18n="hero-label">Nº 03 — Investigation · Interactive map</div>
-      <h2 class="hero-title" data-i18n="hero-title">Portugal's housing crisis reaches new <em>extremes</em></h2>
-      <p class="hero-intro" data-i18n="hero-intro"><span class="drop-cap">T</span>he median rent for a one-bedroom flat in Lisbon now stands at around <em>€784 a month</em> — swallowing 85% of a minimum-wage pay check. We mapped the price of a home across every municipality in the country.</p>
-      <div class="hero-byline">
+  <div class="page-header">
+    <div class="page-header-label" data-i18n="inv-page-label">Section — Investigations</div>
+    <h2 class="page-header-title"><em data-i18n="inv-page-title">Investigations</em></h2>
+  </div>
+
+  <section class="article-section">
+    <div class="article-body">
+      <div class="article-label" data-i18n="hero-label">Nº 03 — Investigation · Interactive map</div>
+      <h2 class="article-title" data-i18n="hero-title">Portugal's housing crisis reaches new <em>extremes</em></h2>
+      <div class="article-byline">
         <span class="byline-name" data-i18n="byline-name">By Afonso Rodrigues — reporting &amp; graphics</span>
-        <a href="#" class="byline-cta" data-i18n="byline-cta">Explore the map →</a>
+        <span class="article-date">June 2026</span>
+      </div>
+      <div class="article-text">
+        <p data-i18n="inv-body-1">The median rent for a one-bedroom flat in Lisbon now stands at around €784 a month — swallowing 85% of a minimum-wage pay check. Portugal's housing market has undergone a generational transformation. Between 2016 and 2026, the median rent per square metre rose by 74% nationally — outpacing wage growth by a factor of four.</p>
+        <p data-i18n="inv-body-2">The data, drawn from INE's quarterly rent index, shows a clear divide between inland and coastal Portugal. Municipalities in the Alentejo interior remain relatively affordable — the district median sits at €4.20/m² — while Greater Lisbon has crossed the €14/m² threshold for the first time. The gap has widened every year since 2019.</p>
       </div>
       <div class="stat-grid">
         <div class="stat-box">
@@ -72,7 +80,7 @@
       </div>
     </div>
 
-    <div class="hero-map">
+    <div class="article-map">
       <iframe
         class="rent-map"
         src="https://afonsoajrodrigues.github.io/portugal-rent-map/"
@@ -84,56 +92,23 @@
     </div>
   </section>
 
-  <section class="recent">
+  <section class="inv-index">
     <div class="section-header">
-      <h3 class="section-title"><span data-i18n="section-title">Recent work</span> <span class="section-count">/ 04</span></h3>
-      <span class="section-sub" data-i18n="section-sub">Trabalhos recentes</span>
+      <h3 class="section-title"><span data-i18n="inv-more-label">More investigations</span> <span class="section-count">/ 02</span></h3>
+      <span class="section-sub" data-i18n="inv-page-title">Investigations</span>
     </div>
-    <div class="work-grid">
-      <article class="work-card">
-        <div class="work-image">
-          <img src="images/above-the-haze.jpg" alt="Above the Haze" style="object-position:55% 45%;">
-        </div>
-        <div class="work-tag" data-i18n="work-tag-1">Photo Essay · Chiang Mai</div>
-        <h4 class="work-title" data-i18n="work-title-1">Above the Haze</h4>
-        <p class="work-desc" data-i18n="work-desc-1">A quiet hour at Doi Suthep, looking down on a valley the season keeps half-hidden.</p>
+    <div class="inv-grid">
+      <article class="inv-card">
+        <div class="inv-card-tag" data-i18n="work-tag-2">Investigation · Data</div>
+        <h4 class="inv-card-title" data-i18n="work-title-2">The Long Commute</h4>
+        <p class="inv-card-desc" data-i18n="work-desc-2">As rents climb, workers move further out. We tracked the widening gap between home and job.</p>
       </article>
-      <article class="work-card">
-        <div class="work-image work-image--dark">
-          <svg viewBox="0 0 240 180" style="width:80%; height:auto;">
-            <line x1="10" y1="160" x2="232" y2="160" stroke="#3A352C" stroke-width="1"></line>
-            <polyline points="10,150 44,144 78,132 112,128 146,108 180,92 214,58 232,40" fill="none" stroke="#E0A867" stroke-width="2.5"></polyline>
-            <polyline points="10,162 44,160 78,152 112,152 146,140 180,134 214,122 232,114" fill="none" stroke="#B6471F" stroke-width="2.5"></polyline>
-            <circle cx="232" cy="40" r="3.5" fill="#E0A867"></circle>
-          </svg>
-        </div>
-        <div class="work-tag" data-i18n="work-tag-2">Investigation · Data</div>
-        <h4 class="work-title" data-i18n="work-title-2">The Long Commute</h4>
-        <p class="work-desc" data-i18n="work-desc-2">As rents climb, workers move further out. We tracked the widening gap between home and job.</p>
-      </article>
-      <article class="work-card">
-        <div class="work-image">
-          <img src="images/night-kitchens.jpg" alt="Night Kitchens" style="object-position:50% 30%;">
-        </div>
-        <div class="work-tag" data-i18n="work-tag-3">Photo Essay · Bangkok</div>
-        <h4 class="work-title" data-i18n="work-title-3">Night Kitchens</h4>
-        <p class="work-desc" data-i18n="work-desc-3">After dark, Chinatown's lanes become a chain of lit rooms feeding the city until dawn.</p>
+      <article class="inv-card">
+        <div class="inv-card-tag" data-i18n="inv-salt-tag">Investigation · Environment</div>
+        <h4 class="inv-card-title" data-i18n="footer-link-salt">Salt &amp; Tide</h4>
+        <p class="inv-card-desc" data-i18n="inv-salt-desc">The coastal saltpans of Setúbal are disappearing. We documented what is being lost, and why it matters.</p>
       </article>
     </div>
-  </section>
-
-  <section class="essay-section">
-    <a href="photography.html" class="essay-panel">
-      <img src="images/night-kitchens.jpg" alt="The hours the city keeps">
-      <div class="essay-overlay"></div>
-      <div class="essay-caption">
-        <div class="essay-label" data-i18n="essay-label">Featured Photo Essay — Nº 01</div>
-        <div class="essay-bottom">
-          <h3 class="essay-title" data-i18n="essay-title">The hours the city keeps</h3>
-          <span class="essay-cta" data-i18n="essay-cta">View 24 frames →</span>
-        </div>
-      </div>
-    </a>
   </section>
 
   <footer class="site-footer">
