@@ -16,7 +16,6 @@
   <div class="topbar">
     <span data-i18n="topbar-location">Afonso Rodrigues — Lisbon</span>
     <span class="topbar-right">
-      <span data-i18n="topbar-date">27 June 2026</span>
       <button class="lang-toggle" aria-label="Mudar idioma / Switch language">
         <span class="lang-btn is-active" data-lang="en">EN</span>
         &nbsp;·&nbsp;
@@ -42,8 +41,7 @@
       <a href="photography.html" data-i18n="nav-photography">Photography</a>
       <span class="is-active" data-i18n="nav-investigations">Investigations</span>
       <a href="index.html" data-i18n="nav-data">Data</a>
-      <a href="#" data-i18n="nav-about">About</a>
-      <a href="#" data-i18n="nav-index">Index</a>
+      <a href="about.html" data-i18n="nav-about">About</a>
     </nav>
   </header>
 
@@ -52,9 +50,34 @@
     <h2 class="page-header-title"><em data-i18n="inv-page-title">Investigations</em></h2>
   </div>
 
-  <section class="article-section">
+  <!-- ── Índice de investigações ── -->
+  <section class="inv-toc">
+    <div class="section-header">
+      <h3 class="section-title"><span data-i18n="inv-all-label">All investigations</span></h3>
+    </div>
+    <div class="inv-toc-grid">
+      <a href="#housing" class="inv-toc-item">
+        <div class="inv-toc-tag">Investigation · Data</div>
+        <h4 class="inv-toc-title">Portugal's housing crisis reaches new <em>extremes</em></h4>
+        <span class="inv-toc-meta">June 2026 · Interactive map</span>
+      </a>
+      <a href="#commute" class="inv-toc-item">
+        <div class="inv-toc-tag" data-i18n="work-tag-2">Investigation · Data</div>
+        <h4 class="inv-toc-title" data-i18n="work-title-2">The Long Commute</h4>
+        <span class="inv-toc-meta">Coming soon</span>
+      </a>
+      <a href="#salt" class="inv-toc-item">
+        <div class="inv-toc-tag" data-i18n="inv-salt-tag">Investigation · Environment</div>
+        <h4 class="inv-toc-title" data-i18n="footer-link-salt">Salt &amp; Tide</h4>
+        <span class="inv-toc-meta">Coming soon</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Investigação 1: Habitação ── -->
+  <section id="housing" class="article-section">
     <div class="article-body">
-      <div class="article-label" data-i18n="hero-label">Nº 03 — Investigation · Interactive map</div>
+      <div class="article-label" data-i18n="hero-label">Investigation · Interactive map</div>
       <h2 class="article-title" data-i18n="hero-title">Portugal's housing crisis reaches new <em>extremes</em></h2>
       <div class="article-byline">
         <span class="byline-name" data-i18n="byline-name">By Afonso Rodrigues — reporting &amp; graphics</span>
@@ -92,22 +115,21 @@
     </div>
   </section>
 
-  <section class="inv-index">
-    <div class="section-header">
-      <h3 class="section-title"><span data-i18n="inv-more-label">More investigations</span> <span class="section-count">/ 02</span></h3>
-      <span class="section-sub" data-i18n="inv-page-title">Investigations</span>
+  <!-- ── Investigação 2: A Longa Deslocação ── -->
+  <section id="commute" class="inv-stub">
+    <div class="inv-stub-inner">
+      <div class="inv-stub-tag" data-i18n="work-tag-2">Investigation · Data</div>
+      <h2 class="inv-stub-title" data-i18n="work-title-2">The Long Commute</h2>
+      <p class="inv-stub-desc" data-i18n="work-desc-2">As rents climb, workers move further out. We tracked the widening gap between home and job.</p>
     </div>
-    <div class="inv-grid">
-      <article class="inv-card">
-        <div class="inv-card-tag" data-i18n="work-tag-2">Investigation · Data</div>
-        <h4 class="inv-card-title" data-i18n="work-title-2">The Long Commute</h4>
-        <p class="inv-card-desc" data-i18n="work-desc-2">As rents climb, workers move further out. We tracked the widening gap between home and job.</p>
-      </article>
-      <article class="inv-card">
-        <div class="inv-card-tag" data-i18n="inv-salt-tag">Investigation · Environment</div>
-        <h4 class="inv-card-title" data-i18n="footer-link-salt">Salt &amp; Tide</h4>
-        <p class="inv-card-desc" data-i18n="inv-salt-desc">The coastal saltpans of Setúbal are disappearing. We documented what is being lost, and why it matters.</p>
-      </article>
+  </section>
+
+  <!-- ── Investigação 3: Sal & Maré ── -->
+  <section id="salt" class="inv-stub">
+    <div class="inv-stub-inner">
+      <div class="inv-stub-tag" data-i18n="inv-salt-tag">Investigation · Environment</div>
+      <h2 class="inv-stub-title" data-i18n="footer-link-salt">Salt &amp; Tide</h2>
+      <p class="inv-stub-desc" data-i18n="inv-salt-desc">The coastal saltpans of Setúbal are disappearing. We documented what is being lost, and why it matters.</p>
     </div>
   </section>
 
@@ -134,24 +156,22 @@
         <div class="footer-links">
           <a href="photography.html" data-i18n="footer-link-photo">Photography</a>
           <a href="investigations.html" data-i18n="footer-link-inv">Investigations</a>
-          <a href="#" data-i18n="footer-link-about">About</a>
-          <a href="#" data-i18n="footer-link-index">Index</a>
+          <a href="about.html" data-i18n="footer-link-about">About</a>
         </div>
       </div>
       <div>
         <div class="footer-nav-label" data-i18n="footer-nav-inv">Investigations</div>
         <div class="footer-links">
-          <a href="investigations.html" data-i18n="footer-link-price">The Price of a Home</a>
-          <a href="investigations.html" data-i18n="footer-link-commute">The Long Commute</a>
-          <a href="investigations.html" data-i18n="footer-link-salt">Salt &amp; Tide</a>
+          <a href="#housing" data-i18n="footer-link-price">The Price of a Home</a>
+          <a href="#commute" data-i18n="footer-link-commute">The Long Commute</a>
+          <a href="#salt" data-i18n="footer-link-salt">Salt &amp; Tide</a>
         </div>
       </div>
       <div>
         <div class="footer-nav-label" data-i18n="footer-nav-contact">Contact</div>
         <div class="footer-links">
-          <span>hello@afonso.photo</span>
-          <span>Instagram</span>
-          <span>Bluesky</span>
+          <a href="mailto:afonsoajrodrigues@gmail.com">afonsoajrodrigues@gmail.com</a>
+          <a href="https://www.instagram.com/afonsoajrodrigues/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
     </div>
