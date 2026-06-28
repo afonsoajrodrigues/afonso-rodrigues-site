@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Afonso Rodrigues — Photography &amp; Data Journalism</title>
-  <meta name="description" content="Documentary photography and data-driven investigations. Based in Lisbon, working worldwide.">
+  <title>Photography — Afonso Rodrigues</title>
+  <meta name="description" content="Documentary photography across Southeast Asia, Europe and beyond. By Afonso Rodrigues.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
     <div class="masthead-grid">
       <div class="masthead-meta">Est.<br>MMXXI</div>
       <div class="site-title">
-        <h1>Afonso Rodrigues</h1>
+        <h1><a href="index.html" style="text-decoration:none;color:inherit;">Afonso Rodrigues</a></h1>
         <div class="tagline">
           <span class="tagline-rule"></span>
           <span class="tagline-text" data-i18n="tagline-text">Photography &amp; Data Journalism</span>
@@ -39,91 +39,59 @@
       <div class="masthead-meta masthead-meta--right">Edition<br>No. 14</div>
     </div>
     <nav class="site-nav">
-      <a href="photography.html" data-i18n="nav-photography">Photography</a>
+      <span class="is-active" data-i18n="nav-photography">Photography</span>
       <a href="investigations.html" data-i18n="nav-investigations">Investigations</a>
-      <span class="is-active" data-i18n="nav-data">Data</span>
+      <a href="index.html" data-i18n="nav-data">Data</a>
       <a href="#" data-i18n="nav-about">About</a>
       <a href="#" data-i18n="nav-index">Index</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <div class="hero-label" data-i18n="hero-label">Nº 03 — Investigation · Interactive map</div>
-      <h2 class="hero-title" data-i18n="hero-title">Portugal's housing crisis reaches new <em>extremes</em></h2>
-      <p class="hero-intro" data-i18n="hero-intro"><span class="drop-cap">T</span>he median rent for a one-bedroom flat in Lisbon now stands at around <em>€784 a month</em> — swallowing 85% of a minimum-wage pay check. We mapped the price of a home across every municipality in the country.</p>
-      <div class="hero-byline">
-        <span class="byline-name" data-i18n="byline-name">By Afonso Rodrigues — reporting &amp; graphics</span>
-        <a href="#" class="byline-cta" data-i18n="byline-cta">Explore the map →</a>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-box">
-          <div class="stat-value">€9.46</div>
-          <div class="stat-label" data-i18n="stat-label-1">National median /m²</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">+9.1%</div>
-          <div class="stat-label" data-i18n="stat-label-2">Year over year</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">€17.42</div>
-          <div class="stat-label" data-i18n="stat-label-3">Lisbon, highest</div>
-        </div>
-      </div>
-    </div>
+  <div class="page-header">
+    <div class="page-header-label" data-i18n="photo-page-label">Section — Photography</div>
+    <h2 class="page-header-title"><em data-i18n="photo-page-title">Photography</em></h2>
+  </div>
 
-    <div class="hero-map">
-      <iframe
-        class="rent-map"
-        src="https://afonsoajrodrigues.github.io/portugal-rent-map/"
-        width="100%"
-        height="900"
-        frameborder="0"
-        loading="lazy"
-        title="Portugal rent map — median rent per municipality"></iframe>
-    </div>
-  </section>
+  <section class="gallery-section">
+    <p class="gallery-intro" data-i18n="photo-intro">Documentary photography across Southeast Asia, Europe and beyond. Each series is a slow accumulation — returning to the same places, the same hours, until something reveals itself.</p>
 
-  <section class="recent">
-    <div class="section-header">
-      <h3 class="section-title"><span data-i18n="section-title">Recent work</span> <span class="section-count">/ 04</span></h3>
-      <span class="section-sub" data-i18n="section-sub">Trabalhos recentes</span>
-    </div>
-    <div class="work-grid">
-      <article class="work-card">
-        <div class="work-image">
+    <div class="gallery-grid">
+      <article class="gallery-card"
+        data-lightbox="images/above-the-haze.jpg"
+        data-alt="Above the Haze"
+        data-caption-en="Above the Haze · Doi Suthep, Chiang Mai · 2025"
+        data-caption-pt="Above the Haze · Doi Suthep, Chiang Mai · 2025">
+        <div class="gallery-img-wrap">
           <img src="images/above-the-haze.jpg" alt="Above the Haze" style="object-position:55% 45%;">
         </div>
-        <div class="work-tag" data-i18n="work-tag-1">Photo Essay · Chiang Mai</div>
-        <h4 class="work-title" data-i18n="work-title-1">Above the Haze</h4>
-        <p class="work-desc" data-i18n="work-desc-1">A quiet hour at Doi Suthep, looking down on a valley the season keeps half-hidden.</p>
+        <div class="gallery-tag" data-i18n="work-tag-1">Photo Essay · Chiang Mai</div>
+        <h4 class="gallery-title" data-i18n="work-title-1">Above the Haze</h4>
+        <p class="gallery-desc" data-i18n="work-desc-1">A quiet hour at Doi Suthep, looking down on a valley the season keeps half-hidden.</p>
+        <span class="gallery-cta" data-i18n="gallery-cta-essay">View essay →</span>
       </article>
-      <article class="work-card">
-        <div class="work-image work-image--dark">
-          <svg viewBox="0 0 240 180" style="width:80%; height:auto;">
-            <line x1="10" y1="160" x2="232" y2="160" stroke="#3A352C" stroke-width="1"></line>
-            <polyline points="10,150 44,144 78,132 112,128 146,108 180,92 214,58 232,40" fill="none" stroke="#E0A867" stroke-width="2.5"></polyline>
-            <polyline points="10,162 44,160 78,152 112,152 146,140 180,134 214,122 232,114" fill="none" stroke="#B6471F" stroke-width="2.5"></polyline>
-            <circle cx="232" cy="40" r="3.5" fill="#E0A867"></circle>
-          </svg>
-        </div>
-        <div class="work-tag" data-i18n="work-tag-2">Investigation · Data</div>
-        <h4 class="work-title" data-i18n="work-title-2">The Long Commute</h4>
-        <p class="work-desc" data-i18n="work-desc-2">As rents climb, workers move further out. We tracked the widening gap between home and job.</p>
-      </article>
-      <article class="work-card">
-        <div class="work-image">
+
+      <article class="gallery-card"
+        data-lightbox="images/night-kitchens.jpg"
+        data-alt="Night Kitchens"
+        data-caption-en="Night Kitchens · Yaowarat, Bangkok · 2024"
+        data-caption-pt="Cozinhas Noturnas · Yaowarat, Banguecoque · 2024">
+        <div class="gallery-img-wrap">
           <img src="images/night-kitchens.jpg" alt="Night Kitchens" style="object-position:50% 30%;">
         </div>
-        <div class="work-tag" data-i18n="work-tag-3">Photo Essay · Bangkok</div>
-        <h4 class="work-title" data-i18n="work-title-3">Night Kitchens</h4>
-        <p class="work-desc" data-i18n="work-desc-3">After dark, Chinatown's lanes become a chain of lit rooms feeding the city until dawn.</p>
+        <div class="gallery-tag" data-i18n="work-tag-3">Photo Essay · Bangkok</div>
+        <h4 class="gallery-title" data-i18n="work-title-3">Night Kitchens</h4>
+        <p class="gallery-desc" data-i18n="work-desc-3">After dark, Chinatown's lanes become a chain of lit rooms feeding the city until dawn.</p>
+        <span class="gallery-cta" data-i18n="gallery-cta-essay">View essay →</span>
       </article>
     </div>
   </section>
 
   <section class="essay-section">
-    <a href="photography.html" class="essay-panel">
+    <div class="essay-panel" style="cursor:zoom-in;"
+      data-lightbox="images/night-kitchens.jpg"
+      data-alt="The hours the city keeps"
+      data-caption-en="The hours the city keeps · Yaowarat, Bangkok · 2024"
+      data-caption-pt="As horas que a cidade guarda · Yaowarat, Banguecoque · 2024">
       <img src="images/night-kitchens.jpg" alt="The hours the city keeps">
       <div class="essay-overlay"></div>
       <div class="essay-caption">
@@ -133,7 +101,7 @@
           <span class="essay-cta" data-i18n="essay-cta">View 24 frames →</span>
         </div>
       </div>
-    </a>
+    </div>
   </section>
 
   <footer class="site-footer">
@@ -192,6 +160,50 @@
   </footer>
 
 </div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lightbox-close" id="lightbox-close">Close ×</button>
+  <img id="lightbox-img" class="lightbox-img" src="" alt="">
+  <span id="lightbox-caption" class="lightbox-caption"></span>
+</div>
+
 <script src="i18n.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lb     = document.getElementById('lightbox');
+    const lbImg  = document.getElementById('lightbox-img');
+    const lbCap  = document.getElementById('lightbox-caption');
+
+    document.querySelectorAll('[data-lightbox]').forEach(el => {
+      el.addEventListener('click', () => {
+        const lang = document.documentElement.lang || 'en';
+        lbImg.src        = el.dataset.lightbox;
+        lbImg.alt        = el.dataset.alt || '';
+        lbCap.textContent = el.dataset['caption' + lang.charAt(0).toUpperCase() + lang.slice(1)] || el.dataset.captionEn || '';
+        lb.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLb() {
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    document.getElementById('lightbox-close').addEventListener('click', e => {
+      e.stopPropagation();
+      closeLb();
+    });
+
+    lb.addEventListener('click', closeLb);
+    lbImg.addEventListener('click', e => e.stopPropagation());
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLb();
+    });
+  });
+</script>
 </body>
 </html>

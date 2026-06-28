@@ -49,6 +49,19 @@ const translations = {
     'footer-link-salt':    'Salt & Tide',
     'footer-copyright':    '© MMXXVI Afonso Rodrigues',
     'footer-coords':       'Lisbon · 38.72° N, 9.14° W',
+    // investigations.html
+    'inv-page-label':  'Section — Investigations',
+    'inv-page-title':  'Investigations',
+    'inv-body-1':      'The median rent for a one-bedroom flat in Lisbon now stands at around €784 a month — swallowing 85% of a minimum-wage pay check. Portugal's housing market has undergone a generational transformation. Between 2016 and 2026, the median rent per square metre rose by 74% nationally — outpacing wage growth by a factor of four.',
+    'inv-body-2':      'The data, drawn from INE's quarterly rent index, shows a clear divide between inland and coastal Portugal. Municipalities in the Alentejo interior remain relatively affordable — the district median sits at €4.20/m² — while Greater Lisbon has crossed the €14/m² threshold for the first time. The gap has widened every year since 2019.',
+    'inv-more-label':  'More investigations',
+    'inv-salt-tag':    'Investigation · Environment',
+    'inv-salt-desc':   'The coastal saltpans of Setúbal are disappearing. We documented what is being lost, and why it matters.',
+    // photography.html
+    'photo-page-label': 'Section — Photography',
+    'photo-page-title': 'Photography',
+    'photo-intro':      'Documentary photography across Southeast Asia, Europe and beyond. Each series is a slow accumulation — returning to the same places, the same hours, until something reveals itself.',
+    'gallery-cta-essay': 'View essay →',
   },
   pt: {
     'topbar-location': 'Afonso Rodrigues — Lisboa',
@@ -96,6 +109,19 @@ const translations = {
     'footer-link-salt':    'Sal & Maré',
     'footer-copyright':    '© MMXXVI Afonso Rodrigues',
     'footer-coords':       'Lisboa · 38.72° N, 9.14° W',
+    // investigations.html
+    'inv-page-label':  'Secção — Investigações',
+    'inv-page-title':  'Investigações',
+    'inv-body-1':      'A renda mediana de um T1 em Lisboa situa-se atualmente em cerca de €784 por mês — consumindo 85% do salário mínimo. O mercado habitacional português sofreu uma transformação geracional. Entre 2016 e 2026, a renda mediana por metro quadrado subiu 74% a nível nacional — ultrapassando o crescimento salarial por um fator de quatro.',
+    'inv-body-2':      'Os dados, recolhidos do índice trimestral de rendas do INE, mostram uma divisão clara entre o interior e o litoral de Portugal. Os municípios do Alentejo interior mantêm-se relativamente acessíveis — a mediana do distrito situa-se nos €4,20/m² — enquanto a Grande Lisboa ultrapassou pela primeira vez o limiar dos €14/m². O fosso tem vindo a alargar-se todos os anos desde 2019.',
+    'inv-more-label':  'Mais investigações',
+    'inv-salt-tag':    'Investigação · Ambiente',
+    'inv-salt-desc':   'As salinas costeiras de Setúbal estão a desaparecer. Documentámos o que se perde e por que razão isso importa.',
+    // photography.html
+    'photo-page-label': 'Secção — Fotografia',
+    'photo-page-title': 'Fotografia',
+    'photo-intro':      'Fotografia documental pelo Sudeste Asiático, Europa e além. Cada série é uma acumulação lenta — regressando aos mesmos lugares, às mesmas horas, até que algo se revela.',
+    'gallery-cta-essay': 'Ver ensaio →',
   },
 };
 
