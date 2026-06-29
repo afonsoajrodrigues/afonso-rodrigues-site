@@ -726,6 +726,40 @@ a { color: inherit; }
   margin-bottom: 32px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--ink);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.series-toggle-btn {
+  background: none;
+  border: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 16px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0 0 2px;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.3s ease, color 0.2s;
+}
+
+.series-section.is-collapsed .series-toggle-btn {
+  transform: rotate(-90deg);
+}
+
+.series-body {
+  overflow: hidden;
+  max-height: 6000px;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.series-section.is-collapsed .series-body {
+  max-height: 0;
+  opacity: 0;
 }
 
 .series-label {
