@@ -35,7 +35,7 @@
           <span class="tagline-rule"></span>
         </div>
       </div>
-      <div class="masthead-meta masthead-meta--right">Edition<br>No. 14</div>
+      <div class="masthead-meta masthead-meta--right"></div>
     </div>
     <nav class="site-nav">
       <span class="is-active" data-i18n="nav-photography">Photography</span>
@@ -54,12 +54,123 @@
     <p class="gallery-intro" data-i18n="photo-intro">Documentary photography across Southeast Asia, Europe and beyond. Each series is a slow accumulation — returning to the same places, the same hours, until something reveals itself.</p>
   </section>
 
+  <!-- ── Série: Lisboa ── -->
+  <section class="series-section">
+    <div class="series-header" onclick="toggleSeries(this)">
+      <div>
+        <div class="series-label">Photo Series — Lisbon</div>
+        <h3 class="series-title"><em>Lisbon, 2025</em></h3>
+      </div>
+      <button class="series-toggle-btn" aria-expanded="true" aria-label="Toggle collection">▾</button>
+    </div>
+    <div class="series-body">
+      <div class="location-group">
+        <div class="location-label">Lisbon</div>
+        <div class="contact-grid">
+
+          <figure class="contact-item"
+            data-lightbox="images/IMG_6710.JPG"
+            data-alt="Lisbon"
+            data-caption-en="Lisbon · 2025"
+            data-caption-pt="Lisboa · 2025">
+            <div class="contact-img-wrap">
+              <img src="images/IMG_6710.JPG" alt="Lisbon">
+            </div>
+            <figcaption class="contact-caption">2025</figcaption>
+          </figure>
+
+          <figure class="contact-item"
+            data-lightbox="images/IMG_6753.JPG"
+            data-alt="Lisbon"
+            data-caption-en="Lisbon · 2025"
+            data-caption-pt="Lisboa · 2025">
+            <div class="contact-img-wrap">
+              <img src="images/IMG_6753.JPG" alt="Lisbon">
+            </div>
+            <figcaption class="contact-caption">2025</figcaption>
+          </figure>
+
+          <figure class="contact-item"
+            data-lightbox="images/IMG_6792.JPG"
+            data-alt="Lisbon"
+            data-caption-en="Lisbon · 2025"
+            data-caption-pt="Lisboa · 2025">
+            <div class="contact-img-wrap">
+              <img src="images/IMG_6792.JPG" alt="Lisbon">
+            </div>
+            <figcaption class="contact-caption">2025</figcaption>
+          </figure>
+
+          <figure class="contact-item"
+            data-lightbox="images/IMG_6828.JPG"
+            data-alt="Lisbon"
+            data-caption-en="Lisbon · 2025"
+            data-caption-pt="Lisboa · 2025">
+            <div class="contact-img-wrap">
+              <img src="images/IMG_6828.JPG" alt="Lisbon">
+            </div>
+            <figcaption class="contact-caption">2025</figcaption>
+          </figure>
+
+          <figure class="contact-item"
+            data-lightbox="images/IMG_6864.JPG"
+            data-alt="Lisbon"
+            data-caption-en="Lisbon · 2025"
+            data-caption-pt="Lisboa · 2025">
+            <div class="contact-img-wrap">
+              <img src="images/IMG_6864.JPG" alt="Lisbon">
+            </div>
+            <figcaption class="contact-caption">2025</figcaption>
+          </figure>
+
+          <figure class="contact-item"
+            data-lightbox="images/IMG_7030.JPG"
+            data-alt="Lisbon"
+            data-caption-en="Lisbon · 2025"
+            data-caption-pt="Lisboa · 2025">
+            <div class="contact-img-wrap">
+              <img src="images/IMG_7030.JPG" alt="Lisbon">
+            </div>
+            <figcaption class="contact-caption">2025</figcaption>
+          </figure>
+
+          <figure class="contact-item"
+            data-lightbox="images/IMG_7823.JPG"
+            data-alt="Lisbon"
+            data-caption-en="Lisbon · 2025"
+            data-caption-pt="Lisboa · 2025">
+            <div class="contact-img-wrap">
+              <img src="images/IMG_7823.JPG" alt="Lisbon">
+            </div>
+            <figcaption class="contact-caption">2025</figcaption>
+          </figure>
+
+          <figure class="contact-item"
+            data-lightbox="images/IMG_7834.JPG"
+            data-alt="Lisbon"
+            data-caption-en="Lisbon · 2025"
+            data-caption-pt="Lisboa · 2025">
+            <div class="contact-img-wrap">
+              <img src="images/IMG_7834.JPG" alt="Lisbon">
+            </div>
+            <figcaption class="contact-caption">2025</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Série: Tailândia ── -->
   <section class="series-section">
-    <div class="series-header">
-      <div class="series-label" data-i18n="series-label-thai">Photo Series — Thailand</div>
-      <h3 class="series-title"><em data-i18n="series-title-thai">Thailand, 2025</em></h3>
+    <div class="series-header" onclick="toggleSeries(this)">
+      <div>
+        <div class="series-label" data-i18n="series-label-thai">Photo Series — Thailand</div>
+        <h3 class="series-title"><em data-i18n="series-title-thai">Thailand, 2025</em></h3>
+      </div>
+      <button class="series-toggle-btn" aria-expanded="true" aria-label="Toggle collection">▾</button>
     </div>
+    <div class="series-body">
 
     <!-- Bangkok -->
     <div class="location-group">
@@ -272,6 +383,7 @@
 
       </div>
     </div>
+    </div><!-- /series-body -->
   </section>
 
   <section class="essay-section">
@@ -356,6 +468,13 @@
 
 <script src="i18n.js"></script>
 <script>
+  function toggleSeries(header) {
+    const section = header.closest('.series-section');
+    const btn = header.querySelector('.series-toggle-btn');
+    const isCollapsed = section.classList.toggle('is-collapsed');
+    btn.setAttribute('aria-expanded', String(!isCollapsed));
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     const lb     = document.getElementById('lightbox');
     const lbImg  = document.getElementById('lightbox-img');
