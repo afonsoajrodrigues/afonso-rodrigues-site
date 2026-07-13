@@ -591,16 +591,10 @@ a { color: inherit; }
 
 .article-cta { display: inline-block; margin-top: 20px; }
 
-.inv-chart-panel { display: flex; flex-direction: column; gap: 30px; }
-.inv-chart { margin: 0; }
-.inv-chart svg { width: 100%; height: auto; display: block; }
-.chart-caption {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  letter-spacing: .02em;
-  line-height: 1.5;
-  color: var(--muted);
-  margin: 8px 0 0;
+.report-frame {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--ink);
 }
 
 /* === Índice de investigações === */
