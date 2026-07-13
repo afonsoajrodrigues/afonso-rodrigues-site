@@ -70,7 +70,7 @@
   </section>
 
   <!-- ── Investigação 2: Inovação ── -->
-  <section id="innovation" class="article-section article-section--single">
+  <section id="innovation" class="article-section">
     <div class="article-body">
       <div class="article-label" data-i18n="inv2-label">Investigation · Data report</div>
       <h2 class="article-title" data-i18n="inv2-title">Portugal's innovation boom wasn't built to <em>last</em></h2>
@@ -96,7 +96,18 @@
           <div class="stat-label" data-i18n="inv2-stat-label-3">Innovations with green benefit</div>
         </div>
       </div>
-      <a href="https://afonsoajrodrigues.github.io/portugal-innovation-2024/" target="_blank" rel="noopener" class="byline-cta article-cta" data-i18n="inv2-cta">Read the full interactive report →</a>
+      <a href="https://github.com/afonsoajrodrigues/portugal-innovation-2024" target="_blank" rel="noopener" class="byline-cta article-cta" data-i18n="inv2-cta">View data &amp; methodology on GitHub →</a>
+    </div>
+
+    <div class="article-map inv-chart-panel">
+      <figure class="inv-chart" id="chart-innovation-trend"></figure>
+      <p class="chart-caption" data-i18n="inv2-chart-1-caption">Share of companies reporting innovation activity, by type, 2016–2024. Source: INE / DGEEC.</p>
+
+      <figure class="inv-chart" id="chart-innovation-segments"></figure>
+      <p class="chart-caption" data-i18n="inv2-chart-2-caption">Share of companies reporting innovation activity, by group, 2022–2024.</p>
+
+      <figure class="inv-chart" id="chart-innovation-spending"></figure>
+      <p class="chart-caption" data-i18n="inv2-chart-3-caption">Innovation spending by region, 2024, € millions.</p>
     </div>
   </section>
 
@@ -195,5 +206,7 @@
 
 </div>
 <script src="i18n.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="investigations-charts.js"></script>
 </body>
 </html>

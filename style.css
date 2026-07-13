@@ -589,9 +589,19 @@ a { color: inherit; }
 
 .article-map { padding-left: 40px; }
 
-.article-section--single { grid-template-columns: 1fr; }
-.article-section--single .article-body { border-right: none; padding-right: 0; max-width: 780px; }
-.article-cta { display: inline-block; margin-top: 4px; }
+.article-cta { display: inline-block; margin-top: 20px; }
+
+.inv-chart-panel { display: flex; flex-direction: column; gap: 30px; }
+.inv-chart { margin: 0; }
+.inv-chart svg { width: 100%; height: auto; display: block; }
+.chart-caption {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .02em;
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 8px 0 0;
+}
 
 /* === Índice de investigações === */
 .inv-index { padding: 34px 56px; }
