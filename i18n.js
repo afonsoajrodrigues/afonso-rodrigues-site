@@ -1,6 +1,6 @@
 // Keys whose values contain HTML tags (<em>, <span>) and must use innerHTML.
 // Everything else uses textContent — safer against accidental XSS if translations grow.
-const HTML_KEYS = new Set(['hero-title', 'hero-intro', 'about-intro-p']);
+const HTML_KEYS = new Set(['hero-title', 'hero-intro', 'about-intro-p', 'inv2-title', 'inv2-toc-title']);
 
 const translations = {
   en: {
@@ -41,12 +41,24 @@ const translations = {
     'footer-link-inv':     'Investigations',
     'footer-link-about':   'About',
     'footer-link-price':   'The Price of a Home',
+    'footer-link-innovation': 'Portugal’s Innovation Boom',
     'footer-copyright':    '© MMXXVI Afonso Rodrigues',
     'footer-coords':       'Lisbon · 38.72° N, 9.14° W',
     // investigations.html
     'inv-page-label':  'Section — Investigations',
     'inv-page-title':  'Investigations',
     'inv-all-label':   'All investigations',
+    'inv2-toc-tag':    'Investigation · Data report',
+    'inv2-toc-title':  'Portugal’s innovation boom wasn’t built to <em>last</em>',
+    'inv2-toc-meta':   'July 2026 · Data report',
+    'inv2-label':      'Investigation · Data report',
+    'inv2-title':      'Portugal’s innovation boom wasn’t built to <em>last</em>',
+    'inv2-body-1':     'Between 2022 and 2024, 42.5% of Portuguese companies with 10 or more employees said they had done something innovative — a new product, a new process, an in-house R&D project, even an idea tried and abandoned. Taken alone, that sounds like a healthy, innovative economy. Look closer, and the number tells a different story: a pandemic-era spike that is still working its way back to earth.',
+    'inv2-body-2':     'Innovation surged as companies scrambled to survive lockdowns and disrupted supply chains, then began sliding back. Large companies — 250 employees or more — innovate at nearly double the national rate, and two industries, information & communication and financial & insurance services, pull the average up. Total spending reached €4,865 million in 2024, up from €3,382 million in 2022, even as the share of companies willing to take part keeps shrinking.',
+    'inv2-stat-label-1': 'Companies innovating, 2022–24',
+    'inv2-stat-label-2': 'Innovation spending, 2024',
+    'inv2-stat-label-3': 'Innovations with green benefit',
+    'inv2-cta':        'Read the full interactive report →',
     'inv-body-1':      'The median rent for a one-bedroom flat in Lisbon now stands at around €784 a month — swallowing 85% of a minimum-wage pay check. Portugal’s housing market has undergone a generational transformation. Between 2016 and 2026, the median rent per square metre rose by 74% nationally — outpacing wage growth by a factor of four.',
     'inv-body-2':      'The data, drawn from INE’s quarterly rent index, shows a clear divide between inland and coastal Portugal. Municipalities in the Alentejo interior remain relatively affordable — the district median sits at €4.20/m² — while Greater Lisbon has crossed the €14/m² threshold for the first time. The gap has widened every year since 2019.',
     'inv-more-label':  'More investigations',
@@ -125,12 +137,24 @@ const translations = {
     'footer-link-inv':     'Investigações',
     'footer-link-about':   'Sobre',
     'footer-link-price':   'O Preço de uma Casa',
+    'footer-link-innovation': 'O Boom da Inovação em Portugal',
     'footer-copyright':    '© MMXXVI Afonso Rodrigues',
     'footer-coords':       'Lisboa · 38.72° N, 9.14° W',
     // investigations.html
     'inv-page-label':  'Secção — Investigações',
     'inv-page-title':  'Investigações',
     'inv-all-label':   'Todas as investigações',
+    'inv2-toc-tag':    'Investigação · Relatório de dados',
+    'inv2-toc-title':  'O boom da inovação em Portugal não foi feito para <em>durar</em>',
+    'inv2-toc-meta':   'julho 2026 · Relatório de dados',
+    'inv2-label':      'Investigação · Relatório de dados',
+    'inv2-title':      'O boom da inovação em Portugal não foi feito para <em>durar</em>',
+    'inv2-body-1':     'Entre 2022 e 2024, 42,5% das empresas portuguesas com 10 ou mais trabalhadores afirmaram ter feito algo inovador — um novo produto, um novo processo, um projeto de I&D interno, ou até uma ideia tentada e depois abandonada. Isolado, o número soa a uma economia saudável e inovadora. Olhado de perto, conta outra história: um pico da era pandémica que ainda está a regressar à terra.',
+    'inv2-body-2':     'A inovação disparou quando as empresas se apressaram a sobreviver aos confinamentos e a cadeias de abastecimento interrompidas, e depois começou a recuar. As grandes empresas — 250 ou mais trabalhadores — inovam a um ritmo quase duplo da média nacional, e dois setores, informação e comunicação e atividades financeiras e de seguros, puxam essa média para cima. A despesa total atingiu os €4.865 milhões em 2024, face aos €3.382 milhões em 2022, mesmo com a fatia de empresas dispostas a participar a continuar a encolher.',
+    'inv2-stat-label-1': 'Empresas a inovar, 2022–24',
+    'inv2-stat-label-2': 'Despesa em inovação, 2024',
+    'inv2-stat-label-3': 'Inovações com benefício ambiental',
+    'inv2-cta':        'Ler o relatório interativo completo →',
     'inv-body-1':      'A renda mediana de um T1 em Lisboa situa-se atualmente em cerca de €784 por mês — consumindo 85% do salário mínimo. O mercado habitacional português sofreu uma transformação geracional. Entre 2016 e 2026, a renda mediana por metro quadrado subiu 74% a nível nacional — ultrapassando o crescimento salarial por um fator de quatro.',
     'inv-body-2':      'Os dados, recolhidos do índice trimestral de rendas do INE, mostram uma divisão clara entre o interior e o litoral de Portugal. Os municípios do Alentejo interior mantêm-se relativamente acessíveis — a mediana do distrito situa-se nos €4,20/m² — enquanto a Grande Lisboa ultrapassou pela primeira vez o limiar dos €14/m². O fosso tem vindo a alargar-se todos os anos desde 2019.',
     'inv-more-label':  'Mais investigações',

@@ -589,6 +589,10 @@ a { color: inherit; }
 
 .article-map { padding-left: 40px; }
 
+.article-section--single { grid-template-columns: 1fr; }
+.article-section--single .article-body { border-right: none; padding-right: 0; max-width: 780px; }
+.article-cta { display: inline-block; margin-top: 4px; }
+
 /* === Índice de investigações === */
 .inv-index { padding: 34px 56px; }
 
