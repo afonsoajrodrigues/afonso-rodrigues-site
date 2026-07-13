@@ -1122,6 +1122,7 @@ a { color: inherit; }
   .hero-map { padding-left: 0; }
 
   .rent-map { height: 600px; }
+  .report-frame { height: 600px; }
 
   /* Grelha de trabalhos: coluna única */
   .work-grid { grid-template-columns: 1fr; }
@@ -1220,6 +1221,7 @@ a { color: inherit; }
   .essay-panel { height: 280px; }
 
   .rent-map { height: 480px; }
+  .report-frame { height: 480px; }
 
   .series-section { padding-left: 20px; padding-right: 20px; }
   .contact-grid { grid-template-columns: 1fr; gap: 10px; }
