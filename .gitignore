@@ -9,6 +9,6 @@
 *.swp
 *.swo
 
-# the project tooling (local session data and project notes, not needed in the repo)
+# Local AI-assistant session data and project notes, not needed in the repo
 .claude/
 CLAUDE.md
