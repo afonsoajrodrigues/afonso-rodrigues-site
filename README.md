@@ -1,7 +1,7 @@
 # Afonso Rodrigues — Photography & Data Journalism
 
 Site-portfólio estático com direção visual editorial (jornal/broadsheet).  
-Alojado no GitHub Pages. Desenvolvido com apoio de ferramentas de IA.
+Alojado no GitHub Pages.
 
 ## Estrutura
 
@@ -12,7 +12,6 @@ i18n.js             ← toggle EN / PT com objeto de traduções
 images/
   above-the-haze.jpg    (Doi Suthep, Chiang Mai)
   night-kitchens.jpg    (Chinatown, Bangkok)
-CLAUDE.md           ← contexto e tarefas para o the project tooling
 .nojekyll           ← desativa o Jekyll no GitHub Pages
 ```
 
