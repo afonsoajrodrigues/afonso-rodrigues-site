@@ -7,10 +7,11 @@
   <meta name="description" content="Documentary photography across Southeast Asia, Europe and beyond. By Afonso Rodrigues.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="skip-link">Skip to content</a>
 <div class="container">
 
   <div class="topbar">
@@ -46,14 +47,15 @@
         <span class="edition-stamp">Vol.<br><strong>VI</strong><br>2026</span>
       </div>
     </div>
-    <nav class="site-nav">
-      <span class="is-active" data-i18n="nav-photography">Photography</span>
+    <nav class="site-nav" aria-label="Primary">
+      <span class="is-active" aria-current="page" data-i18n="nav-photography">Photography</span>
       <a href="investigations.html" data-i18n="nav-investigations">Investigations</a>
       <a href="index.html" data-i18n="nav-data">Data</a>
       <a href="about.html" data-i18n="nav-about">About</a>
     </nav>
   </header>
 
+  <main id="main-content">
   <div class="page-header" data-reveal>
     <div class="page-header-label" data-i18n="photo-page-label">Section — Photography</div>
     <h2 class="page-header-title"><em data-i18n="photo-page-title">Photography</em></h2>
@@ -70,9 +72,9 @@
         <div class="series-label">Photo Series — Lisbon</div>
         <h3 class="series-title"><em>Lisbon, 2025</em></h3>
       </div>
-      <button class="series-toggle-btn" aria-expanded="true" aria-label="Toggle collection">▾</button>
+      <button class="series-toggle-btn" aria-expanded="true" aria-controls="series-body-lisbon" aria-label="Toggle collection">▾</button>
     </div>
-    <div class="series-body">
+    <div class="series-body" id="series-body-lisbon">
       <div class="location-group">
         <div class="location-label">Lisbon</div>
         <div class="contact-grid">
@@ -177,9 +179,9 @@
         <div class="series-label" data-i18n="series-label-thai">Photo Series — Thailand</div>
         <h3 class="series-title"><em data-i18n="series-title-thai">Thailand, 2025</em></h3>
       </div>
-      <button class="series-toggle-btn" aria-expanded="true" aria-label="Toggle collection">▾</button>
+      <button class="series-toggle-btn" aria-expanded="true" aria-controls="series-body-thailand" aria-label="Toggle collection">▾</button>
     </div>
-    <div class="series-body">
+    <div class="series-body" id="series-body-thailand">
 
     <!-- Bangkok -->
     <div class="location-group">
@@ -411,6 +413,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <div class="footer-wordmark">
     <div class="footer-wordmark-track">
@@ -493,28 +496,49 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const lb     = document.getElementById('lightbox');
-    const lbImg  = document.getElementById('lightbox-img');
-    const lbCap  = document.getElementById('lightbox-caption');
+    const lb        = document.getElementById('lightbox');
+    const lbImg      = document.getElementById('lightbox-img');
+    const lbCap      = document.getElementById('lightbox-caption');
+    const lbCloseBtn = document.getElementById('lightbox-close');
+    let lastTrigger  = null;
 
-    document.querySelectorAll('[data-lightbox]').forEach(el => {
-      el.addEventListener('click', () => {
-        const lang = document.documentElement.lang || 'en';
-        lbImg.src        = el.dataset.lightbox;
-        lbImg.alt        = el.dataset.alt || '';
-        lbCap.textContent = el.dataset['caption' + lang.charAt(0).toUpperCase() + lang.slice(1)] || el.dataset.captionEn || '';
-        lb.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      });
-    });
+    function openLb(el) {
+      const lang = document.documentElement.lang || 'en';
+      lbImg.src         = el.dataset.lightbox;
+      lbImg.alt         = el.dataset.alt || '';
+      lbCap.textContent = el.dataset['caption' + lang.charAt(0).toUpperCase() + lang.slice(1)] || el.dataset.captionEn || '';
+      lastTrigger = el;
+      lb.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      lbCloseBtn.focus();
+    }
 
     function closeLb() {
       lb.classList.remove('is-open');
       document.body.style.overflow = '';
       lbImg.src = '';
+      if (lastTrigger) {
+        lastTrigger.focus();
+        lastTrigger = null;
+      }
     }
 
-    document.getElementById('lightbox-close').addEventListener('click', e => {
+    document.querySelectorAll('[data-lightbox]').forEach(el => {
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('role', 'button');
+      if (!el.hasAttribute('aria-label')) {
+        el.setAttribute('aria-label', (el.dataset.alt || 'Photo') + ' — open full size');
+      }
+      el.addEventListener('click', () => openLb(el));
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLb(el);
+        }
+      });
+    });
+
+    lbCloseBtn.addEventListener('click', e => {
       e.stopPropagation();
       closeLb();
     });
@@ -523,7 +547,13 @@
     lbImg.addEventListener('click', e => e.stopPropagation());
 
     document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('is-open')) return;
       if (e.key === 'Escape') closeLb();
+      // Only the close button is focusable inside the dialog — keep focus trapped there.
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        lbCloseBtn.focus();
+      }
     });
   });
 </script>

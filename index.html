@@ -7,10 +7,11 @@
   <meta name="description" content="Documentary photography and data-driven investigations. Based in Lisbon, working worldwide.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-i18n="skip-link">Skip to content</a>
 <div class="container">
 
   <div class="topbar">
@@ -46,14 +47,15 @@
         <span class="edition-stamp">Vol.<br><strong>VI</strong><br>2026</span>
       </div>
     </div>
-    <nav class="site-nav">
+    <nav class="site-nav" aria-label="Primary">
       <a href="photography.html" data-i18n="nav-photography">Photography</a>
       <a href="investigations.html" data-i18n="nav-investigations">Investigations</a>
-      <span class="is-active" data-i18n="nav-data">Data</span>
+      <span class="is-active" aria-current="page" data-i18n="nav-data">Data</span>
       <a href="about.html" data-i18n="nav-about">About</a>
     </nav>
   </header>
 
+  <main id="main-content">
   <section class="hero">
     <div class="hero-text" data-reveal>
       <div class="hero-label" data-i18n="hero-label">Investigation · Interactive map</div>
@@ -141,6 +143,7 @@
       </div>
     </a>
   </section>
+  </main>
 
   <div class="footer-wordmark">
     <div class="footer-wordmark-track">

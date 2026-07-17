@@ -4,6 +4,7 @@ const HTML_KEYS = new Set(['hero-title', 'hero-intro', 'about-intro-p', 'inv2-ti
 
 const translations = {
   en: {
+    'skip-link':       'Skip to content',
     'topbar-location': 'Afonso Rodrigues — Lisbon',
     'tagline-text':    'Photography & Data Journalism',
     'nav-photography':    'Photography',
@@ -99,6 +100,7 @@ const translations = {
     'thai-mk-2-desc':  'The same ritual repeated at dusk — the market folding, the train arriving out of the haze.',
   },
   pt: {
+    'skip-link':       'Saltar para o conteúdo',
     'topbar-location': 'Afonso Rodrigues — Lisboa',
     'tagline-text':    'Fotografia & Jornalismo de Dados',
     'nav-photography':    'Fotografia',
