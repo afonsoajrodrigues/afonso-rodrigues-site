@@ -24,6 +24,13 @@
     </span>
   </div>
 
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">Photography <em>●</em> Investigations <em>●</em> Data Journalism <em>●</em> Lisbon, Portugal <em>●</em></span>
+      <span class="marquee-item">Photography <em>●</em> Investigations <em>●</em> Data Journalism <em>●</em> Lisbon, Portugal <em>●</em></span>
+    </div>
+  </div>
+
   <header class="masthead">
     <div class="masthead-grid">
       <div class="masthead-meta">Est.<br>MMXXI</div>
@@ -35,7 +42,9 @@
           <span class="tagline-rule"></span>
         </div>
       </div>
-      <div class="masthead-meta masthead-meta--right"></div>
+      <div class="masthead-meta masthead-meta--right">
+        <span class="edition-stamp">Vol.<br><strong>VI</strong><br>2026</span>
+      </div>
     </div>
     <nav class="site-nav">
       <a href="photography.html" data-i18n="nav-photography">Photography</a>
@@ -46,7 +55,7 @@
   </header>
 
   <section class="hero">
-    <div class="hero-text">
+    <div class="hero-text" data-reveal>
       <div class="hero-label" data-i18n="hero-label">Investigation · Interactive map</div>
       <h2 class="hero-title" data-i18n="hero-title">Portugal's housing crisis reaches new <em>extremes</em></h2>
       <p class="hero-intro" data-i18n="hero-intro"><span class="drop-cap">T</span>he median rent for a one-bedroom flat in Lisbon now stands at around <em>€784 a month</em> — swallowing 85% of a minimum-wage pay check. We mapped the price of a home across every municipality in the country.</p>
@@ -70,7 +79,7 @@
       </div>
     </div>
 
-    <div class="hero-map">
+    <div class="hero-map" data-reveal style="--reveal-delay:.15s">
       <iframe
         class="rent-map"
         src="https://afonsoajrodrigues.github.io/portugal-rent-map/"
@@ -83,12 +92,12 @@
   </section>
 
   <section class="recent">
-    <div class="section-header">
-      <h3 class="section-title"><span data-i18n="section-title">Recent work</span></h3>
+    <div class="section-header" data-reveal>
+      <h3 class="section-title"><span class="section-index">01 /</span> <span data-i18n="section-title">Recent work</span></h3>
       <span class="section-sub" data-i18n="section-sub">Trabalhos recentes</span>
     </div>
     <div class="work-grid">
-      <article class="work-card">
+      <article class="work-card" data-reveal>
         <div class="work-image">
           <img src="images/thailand/chiang-mai/above-the-haze.jpg" alt="Above the Haze" style="object-position:55% 45%;">
         </div>
@@ -96,7 +105,7 @@
         <h4 class="work-title" data-i18n="work-title-1">Above the Haze</h4>
         <p class="work-desc" data-i18n="work-desc-1">A quiet hour at Doi Suthep, looking down on a valley the season keeps half-hidden.</p>
       </article>
-      <article class="work-card">
+      <article class="work-card" data-reveal style="--reveal-delay:.09s">
         <div class="work-image work-image--dark">
           <svg viewBox="0 0 240 180" style="width:80%; height:auto;">
             <line x1="10" y1="160" x2="232" y2="160" stroke="#3A352C" stroke-width="1"></line>
@@ -109,7 +118,7 @@
         <h4 class="work-title" data-i18n="work-title-2">The Long Commute</h4>
         <p class="work-desc" data-i18n="work-desc-2">As rents climb, workers move further out. We tracked the widening gap between home and job.</p>
       </article>
-      <article class="work-card">
+      <article class="work-card" data-reveal style="--reveal-delay:.18s">
         <div class="work-image">
           <img src="images/thailand/bangkok/night-kitchens.jpg" alt="Night Kitchens" style="object-position:50% 30%;">
         </div>
@@ -121,7 +130,7 @@
   </section>
 
   <section class="essay-section">
-    <a href="photography.html" class="essay-panel">
+    <a href="photography.html" class="essay-panel" data-reveal>
       <img src="images/thailand/bangkok/night-kitchens.jpg" alt="The hours the city keeps">
       <div class="essay-overlay"></div>
       <div class="essay-caption">
@@ -132,6 +141,15 @@
       </div>
     </a>
   </section>
+
+  <div class="footer-wordmark">
+    <div class="footer-wordmark-track">
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="footer-grid">
@@ -187,5 +205,6 @@
 
 </div>
 <script src="i18n.js"></script>
+<script src="motion.js"></script>
 </body>
 </html>

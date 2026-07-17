@@ -24,6 +24,13 @@
     </span>
   </div>
 
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">Investigations <em>●</em> Housing <em>●</em> Innovation <em>●</em> Public Data <em>●</em></span>
+      <span class="marquee-item">Investigations <em>●</em> Housing <em>●</em> Innovation <em>●</em> Public Data <em>●</em></span>
+    </div>
+  </div>
+
   <header class="masthead">
     <div class="masthead-grid">
       <div class="masthead-meta">Est.<br>MMXXI</div>
@@ -35,7 +42,9 @@
           <span class="tagline-rule"></span>
         </div>
       </div>
-      <div class="masthead-meta masthead-meta--right"></div>
+      <div class="masthead-meta masthead-meta--right">
+        <span class="edition-stamp">Vol.<br><strong>VI</strong><br>2026</span>
+      </div>
     </div>
     <nav class="site-nav">
       <a href="photography.html" data-i18n="nav-photography">Photography</a>
@@ -45,23 +54,23 @@
     </nav>
   </header>
 
-  <div class="page-header">
+  <div class="page-header" data-reveal>
     <div class="page-header-label" data-i18n="inv-page-label">Section — Investigations</div>
     <h2 class="page-header-title"><em data-i18n="inv-page-title">Investigations</em></h2>
   </div>
 
   <!-- ── Índice de investigações ── -->
   <section class="inv-toc">
-    <div class="section-header">
-      <h3 class="section-title"><span data-i18n="inv-all-label">All investigations</span></h3>
+    <div class="section-header" data-reveal>
+      <h3 class="section-title"><span class="section-index">Index /</span> <span data-i18n="inv-all-label">All investigations</span></h3>
     </div>
     <div class="inv-toc-grid">
-      <a href="#innovation" class="inv-toc-item">
+      <a href="#innovation" class="inv-toc-item" data-reveal>
         <div class="inv-toc-tag" data-i18n="inv2-toc-tag">Investigation · Data report</div>
         <h4 class="inv-toc-title" data-i18n="inv2-toc-title">Portugal's innovation boom wasn't built to <em>last</em></h4>
         <span class="inv-toc-meta" data-i18n="inv2-toc-meta">July 2026 · Data report</span>
       </a>
-      <a href="#housing" class="inv-toc-item">
+      <a href="#housing" class="inv-toc-item" data-reveal style="--reveal-delay:.09s">
         <div class="inv-toc-tag">Investigation · Data</div>
         <h4 class="inv-toc-title">Portugal's housing crisis reaches new <em>extremes</em></h4>
         <span class="inv-toc-meta">June 2026 · Interactive map</span>
@@ -71,7 +80,7 @@
 
   <!-- ── Investigação 2: Inovação ── -->
   <section id="innovation" class="article-section">
-    <div class="article-body">
+    <div class="article-body" data-reveal>
       <div class="article-label" data-i18n="inv2-label">Investigation · Data report</div>
       <h2 class="article-title" data-i18n="inv2-title">Portugal's innovation boom wasn't built to <em>last</em></h2>
       <div class="article-byline">
@@ -98,7 +107,7 @@
       </div>
     </div>
 
-    <div class="article-map">
+    <div class="article-map" data-reveal style="--reveal-delay:.15s">
       <iframe
         class="report-frame"
         src="https://afonsoajrodrigues.github.io/portugal-innovation-2024/"
@@ -112,7 +121,7 @@
 
   <!-- ── Investigação 1: Habitação ── -->
   <section id="housing" class="article-section">
-    <div class="article-body">
+    <div class="article-body" data-reveal>
       <div class="article-label" data-i18n="hero-label">Investigation · Interactive map</div>
       <h2 class="article-title" data-i18n="hero-title">Portugal's housing crisis reaches new <em>extremes</em></h2>
       <div class="article-byline">
@@ -139,7 +148,7 @@
       </div>
     </div>
 
-    <div class="article-map">
+    <div class="article-map" data-reveal style="--reveal-delay:.15s">
       <iframe
         class="rent-map"
         src="https://afonsoajrodrigues.github.io/portugal-rent-map/"
@@ -150,6 +159,15 @@
         title="Portugal rent map — median rent per municipality"></iframe>
     </div>
   </section>
+
+  <div class="footer-wordmark">
+    <div class="footer-wordmark-track">
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="footer-grid">
@@ -205,5 +223,6 @@
 
 </div>
 <script src="i18n.js"></script>
+<script src="motion.js"></script>
 </body>
 </html>

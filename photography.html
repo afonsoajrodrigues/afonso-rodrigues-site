@@ -24,6 +24,13 @@
     </span>
   </div>
 
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">Photography <em>●</em> Lisbon <em>●</em> Thailand <em>●</em> Documentary <em>●</em></span>
+      <span class="marquee-item">Photography <em>●</em> Lisbon <em>●</em> Thailand <em>●</em> Documentary <em>●</em></span>
+    </div>
+  </div>
+
   <header class="masthead">
     <div class="masthead-grid">
       <div class="masthead-meta">Est.<br>MMXXI</div>
@@ -35,7 +42,9 @@
           <span class="tagline-rule"></span>
         </div>
       </div>
-      <div class="masthead-meta masthead-meta--right"></div>
+      <div class="masthead-meta masthead-meta--right">
+        <span class="edition-stamp">Vol.<br><strong>VI</strong><br>2026</span>
+      </div>
     </div>
     <nav class="site-nav">
       <span class="is-active" data-i18n="nav-photography">Photography</span>
@@ -45,18 +54,18 @@
     </nav>
   </header>
 
-  <div class="page-header">
+  <div class="page-header" data-reveal>
     <div class="page-header-label" data-i18n="photo-page-label">Section — Photography</div>
     <h2 class="page-header-title"><em data-i18n="photo-page-title">Photography</em></h2>
   </div>
 
   <section class="gallery-section">
-    <p class="gallery-intro" data-i18n="photo-intro">Documentary photography across Southeast Asia, Europe and beyond. Each series is a slow accumulation — returning to the same places, the same hours, until something reveals itself.</p>
+    <p class="gallery-intro" data-i18n="photo-intro" data-reveal>Documentary photography across Southeast Asia, Europe and beyond. Each series is a slow accumulation — returning to the same places, the same hours, until something reveals itself.</p>
   </section>
 
   <!-- ── Série: Lisboa ── -->
   <section class="series-section">
-    <div class="series-header" onclick="toggleSeries(this)">
+    <div class="series-header" onclick="toggleSeries(this)" data-reveal>
       <div>
         <div class="series-label">Photo Series — Lisbon</div>
         <h3 class="series-title"><em>Lisbon, 2025</em></h3>
@@ -163,7 +172,7 @@
 
   <!-- ── Série: Tailândia ── -->
   <section class="series-section">
-    <div class="series-header" onclick="toggleSeries(this)">
+    <div class="series-header" onclick="toggleSeries(this)" data-reveal>
       <div>
         <div class="series-label" data-i18n="series-label-thai">Photo Series — Thailand</div>
         <h3 class="series-title"><em data-i18n="series-title-thai">Thailand, 2025</em></h3>
@@ -387,7 +396,7 @@
   </section>
 
   <section class="essay-section">
-    <div class="essay-panel" style="cursor:zoom-in;"
+    <div class="essay-panel" style="cursor:zoom-in;" data-reveal
       data-lightbox="images/thailand/bangkok/night-kitchens.jpg"
       data-alt="The hours the city keeps"
       data-caption-en="The hours the city keeps · Yaowarat, Bangkok · 2025"
@@ -402,6 +411,15 @@
       </div>
     </div>
   </section>
+
+  <div class="footer-wordmark">
+    <div class="footer-wordmark-track">
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="footer-grid">
@@ -465,6 +483,7 @@
 </div>
 
 <script src="i18n.js"></script>
+<script src="motion.js"></script>
 <script>
   function toggleSeries(header) {
     const section = header.closest('.series-section');

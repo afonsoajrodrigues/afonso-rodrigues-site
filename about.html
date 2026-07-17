@@ -24,6 +24,13 @@
     </span>
   </div>
 
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">About <em>●</em> Documentary Photography <em>●</em> Data Journalism <em>●</em> Lisbon <em>●</em></span>
+      <span class="marquee-item">About <em>●</em> Documentary Photography <em>●</em> Data Journalism <em>●</em> Lisbon <em>●</em></span>
+    </div>
+  </div>
+
   <header class="masthead">
     <div class="masthead-grid">
       <div class="masthead-meta">Est.<br>MMXXI</div>
@@ -35,7 +42,9 @@
           <span class="tagline-rule"></span>
         </div>
       </div>
-      <div class="masthead-meta masthead-meta--right"></div>
+      <div class="masthead-meta masthead-meta--right">
+        <span class="edition-stamp">Vol.<br><strong>VI</strong><br>2026</span>
+      </div>
     </div>
     <nav class="site-nav">
       <a href="photography.html" data-i18n="nav-photography">Photography</a>
@@ -45,14 +54,14 @@
     </nav>
   </header>
 
-  <div class="page-header">
+  <div class="page-header" data-reveal>
     <div class="page-header-label" data-i18n="about-page-label">About</div>
     <h2 class="page-header-title"><em data-i18n="about-page-title">About</em></h2>
   </div>
 
   <section class="about-section">
     <div class="about-grid">
-      <div class="about-text">
+      <div class="about-text" data-reveal>
         <p class="about-intro-text" data-i18n="about-intro-p"><span class="drop-cap">T</span>his is a personal portfolio by Afonso Rodrigues — a young Portuguese journalist working at the intersection of documentary photography and data journalism.</p>
 
         <h3 class="about-subhead" data-i18n="about-photo-head">Photography</h3>
@@ -64,7 +73,7 @@
         <p class="about-note" data-i18n="about-note">Independent work.</p>
       </div>
 
-      <div class="about-aside">
+      <div class="about-aside" data-reveal style="--reveal-delay:.12s">
         <div class="about-data-art">
           <svg viewBox="0 0 300 420" style="width:100%; height:auto; opacity:.9;">
             <line x1="0" y1="420" x2="300" y2="420" stroke="#D8CFBC" stroke-width="1"/>
@@ -93,6 +102,15 @@
       </div>
     </div>
   </section>
+
+  <div class="footer-wordmark">
+    <div class="footer-wordmark-track">
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+      <span class="footer-wordmark-item">Afonso Rodrigues</span>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="footer-grid">
@@ -148,5 +166,6 @@
 
 </div>
 <script src="i18n.js"></script>
+<script src="motion.js"></script>
 </body>
 </html>
