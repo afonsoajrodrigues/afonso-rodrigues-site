@@ -39,12 +39,12 @@ para a página irmã no outro idioma.
 
 | Token | Valor |
 |---|---|
-| `--accent` | `#06402B` |
-| `--paper` | `#FAFAF2` (fundo creme) |
-| `--ink` | `#1B1813` (títulos) |
-| `--hair` | `#D8CFBC` (filetes) |
+| `--accent` | `#1F4E8C` (azulejo) |
+| `--paper` | `#F5EEDC` (fundo creme) |
+| `--ink` | `#12172A` (títulos) |
+| `--hair` | `#D9D2BE` (filetes) |
 | Display | Bodoni Moda |
-| Corpo | Libre Baskerville |
+| Corpo | Inter |
 | Meta / nav | Space Mono |
 
 ## O que está feito

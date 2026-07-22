@@ -23,7 +23,7 @@
   <meta name="twitter:image" content="https://afonsoajrodrigues.com/images/Lisbon/IMG_7823.JPG">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script type="application/ld+json">
   {
@@ -51,18 +51,12 @@
   </div>
 
   <header class="masthead">
-    <div class="masthead-grid">
-      <div class="masthead-meta">Est.<br>MMXXI</div>
-      <div class="site-title">
-        <h1>Afonso Rodrigues</h1>
-        <div class="tagline">
-          <span class="tagline-rule"></span>
-          <span class="tagline-text">Photography &amp; Data Journalism</span>
-          <span class="tagline-rule"></span>
-        </div>
-      </div>
-      <div class="masthead-meta masthead-meta--right">
-        <span class="edition-stamp">Vol.<br><strong>VI</strong><br>2026</span>
+    <div class="site-title">
+      <h1>Afonso Rodrigues</h1>
+      <div class="tagline">
+        <span class="tagline-rule"></span>
+        <span class="tagline-text">Photography &amp; Data Journalism</span>
+        <span class="tagline-rule"></span>
       </div>
     </div>
     <nav class="site-nav" aria-label="Primary">
@@ -74,11 +68,15 @@
   </header>
 
   <main id="main-content">
-  <section class="hero">
-    <div class="hero-text" data-reveal>
+  <section class="front-page">
+    <div class="front-lead" data-reveal>
+      <figure class="hero-photo">
+        <img src="/images/Lisbon/IMG_7030.JPG" alt="Lisbon rooftops seen through a chain-link fence at dusk" style="object-position:50% 55%;" loading="eager">
+        <figcaption>Photograph by Afonso Rodrigues — Lisbon, 2025</figcaption>
+      </figure>
       <div class="hero-label">Investigation · Interactive map</div>
       <h2 class="hero-title">Portugal's housing crisis reaches new <em>extremes</em></h2>
-      <p class="hero-intro"><span class="drop-cap">T</span>he median rent for a one-bedroom flat in Lisbon now stands at around <em>€784 a month</em> — swallowing 85% of a minimum-wage pay check. We mapped the price of a home across every municipality in the country.</p>
+      <p class="hero-intro"><span class="drop-cap">T</span>he median rent for a one-bedroom flat in Lisbon has reached <em>€784 a month</em> — 85% of a minimum-wage pay check.</p>
       <div class="hero-byline">
         <span class="byline-name">By Afonso Rodrigues — reporting &amp; graphics</span>
         <a href="/investigations.html#housing" class="byline-cta">Explore the map →</a>
@@ -99,53 +97,84 @@
       </div>
     </div>
 
-    <div class="hero-map" data-reveal style="--reveal-delay:.15s">
-      <iframe
-        class="rent-map"
-        src="https://afonsoajrodrigues.github.io/portugal-rent-map/"
-        width="100%"
-        height="900"
-        frameborder="0"
-        loading="lazy"
-        title="Portugal rent map — median rent per municipality"></iframe>
-    </div>
+    <aside data-reveal style="--reveal-delay:.12s" aria-label="More from the desk">
+      <h2 class="rail-heading">More From the Desk</h2>
+      <a href="/investigations.html#innovation" class="river-item">
+        <div class="river-body">
+          <div class="river-kicker">Investigation · Data report</div>
+          <h3 class="river-title">Portugal's Innovation Boom</h3>
+        </div>
+      </a>
+      <a href="/photography.html" class="river-item">
+        <div class="river-thumb"><img src="/images/thailand/chiang-mai/above-the-haze.jpg" alt="Above the Haze" style="object-position:55% 45%;" loading="lazy"></div>
+        <div class="river-body">
+          <div class="river-kicker">Photo Essay · Chiang Mai</div>
+          <h3 class="river-title">Above the Haze</h3>
+        </div>
+      </a>
+      <a href="/photography.html" class="river-item">
+        <div class="river-thumb"><img src="/images/Istambul/IMG_8199.jpg" alt="Domes of the Blue Mosque against a clear sky" style="object-position:50% 70%;" loading="lazy"></div>
+        <div class="river-body">
+          <div class="river-kicker">Photo Series · Istanbul</div>
+          <h3 class="river-title">Istanbul, 2025</h3>
+        </div>
+      </a>
+      <a href="/photography.html" class="river-item">
+        <div class="river-thumb"><img src="/images/thailand/maeklong/train-arrives-day.jpg" alt="Train through Maeklong market" style="object-position:50% 45%;" loading="lazy"></div>
+        <div class="river-body">
+          <div class="river-kicker">Photo Essay · Maeklong</div>
+          <h3 class="river-title">The Railway Market</h3>
+        </div>
+      </a>
+      <a href="/photography.html" class="river-item">
+        <div class="river-thumb"><img src="/images/Night-out-in-coimbra/IMG_0303-1.jpg" alt="Streetlights glowing through fog, Coimbra" style="object-position:50% 45%;" loading="lazy"></div>
+        <div class="river-body">
+          <div class="river-kicker">Photo Series · Coimbra</div>
+          <h3 class="river-title">Streetlights in the Fog</h3>
+        </div>
+      </a>
+    </aside>
+  </section>
+
+  <section class="graphic-section" data-reveal>
+    <h2 class="graphic-kicker">Interactive Graphic · Median Rent by Municipality</h2>
+    <iframe
+      class="rent-map"
+      src="https://afonsoajrodrigues.github.io/portugal-rent-map/"
+      width="100%"
+      height="900"
+      frameborder="0"
+      loading="lazy"
+      title="Portugal rent map — median rent per municipality"></iframe>
   </section>
 
   <section class="recent">
     <div class="section-header" data-reveal>
-      <h3 class="section-title"><span class="section-index">01 /</span> Recent work</h3>
+      <h2 class="section-title"><span class="section-index">01 /</span> Recent work</h2>
       <span class="section-sub">Trabalhos recentes</span>
     </div>
-    <div class="work-grid">
-      <article class="work-card" data-reveal>
-        <div class="work-image">
-          <img src="/images/thailand/chiang-mai/above-the-haze.jpg" alt="Above the Haze" style="object-position:55% 45%;" loading="lazy">
+    <div class="river--large">
+      <a href="/photography.html" class="river-item" data-reveal>
+        <div class="river-thumb"><img src="/images/Lisbon/IMG_7823.JPG" alt="Reflection of Cristo Rei in a tram window at sunset, Lisbon" style="object-position:42% 55%;" loading="lazy"></div>
+        <div class="river-body">
+          <div class="river-kicker">Photo Series · Lisbon</div>
+          <h3 class="river-title">Lisbon, 2025</h3>
         </div>
-        <div class="work-tag">Photo Essay · Chiang Mai</div>
-        <h4 class="work-title">Above the Haze</h4>
-        <p class="work-desc">A quiet hour at Doi Suthep, looking down on a valley the season keeps half-hidden.</p>
-      </article>
-      <article class="work-card" data-reveal style="--reveal-delay:.09s">
-        <div class="work-image work-image--dark">
-          <svg viewBox="0 0 240 180" style="width:80%; height:auto;">
-            <line x1="10" y1="160" x2="232" y2="160" stroke="#3A352C" stroke-width="1"></line>
-            <polyline points="10,150 44,144 78,132 112,128 146,108 180,92 214,58 232,40" fill="none" stroke="#E0A867" stroke-width="2.5"></polyline>
-            <polyline points="10,162 44,160 78,152 112,152 146,140 180,134 214,122 232,114" fill="none" stroke="#B6471F" stroke-width="2.5"></polyline>
-            <circle cx="232" cy="40" r="3.5" fill="#E0A867"></circle>
-          </svg>
+      </a>
+      <a href="/photography.html" class="river-item" data-reveal style="--reveal-delay:.09s">
+        <div class="river-thumb"><img src="/images/Night-out-in-coimbra/IMG_0321.jpg" alt="A figure walking through a foggy street, Coimbra" style="object-position:50% 55%;" loading="lazy"></div>
+        <div class="river-body">
+          <div class="river-kicker">Photo Series · Coimbra</div>
+          <h3 class="river-title">Coimbra — Night Out, 2024</h3>
         </div>
-        <div class="work-tag">Investigation · Data</div>
-        <h4 class="work-title">The Long Commute</h4>
-        <p class="work-desc">As rents climb, workers move further out. We tracked the widening gap between home and job.</p>
-      </article>
-      <article class="work-card" data-reveal style="--reveal-delay:.18s">
-        <div class="work-image">
-          <img src="/images/thailand/bangkok/night-kitchens.jpg" alt="Night Kitchens" style="object-position:50% 30%;" loading="lazy">
+      </a>
+      <a href="/photography.html" class="river-item" data-reveal style="--reveal-delay:.18s">
+        <div class="river-thumb"><img src="/images/thailand/damnoen-saduak/canal-at-noon.jpg" alt="Damnoen Saduak floating market" style="object-position:50% 55%;" loading="lazy"></div>
+        <div class="river-body">
+          <div class="river-kicker">Photo Essay · Damnoen Saduak</div>
+          <h3 class="river-title">The Floating Market</h3>
         </div>
-        <div class="work-tag">Photo Essay · Bangkok</div>
-        <h4 class="work-title">Night Kitchens</h4>
-        <p class="work-desc">After dark, Chinatown's lanes become a chain of lit rooms feeding the city until dawn.</p>
-      </article>
+      </a>
     </div>
   </section>
 
@@ -156,7 +185,7 @@
       <div class="essay-caption">
         <div class="essay-label">Featured Photo Essay</div>
         <div class="essay-bottom">
-          <h3 class="essay-title">The hours the city keeps</h3>
+          <h2 class="essay-title">The hours the city keeps</h2>
         </div>
       </div>
     </a>
@@ -168,15 +197,15 @@
         <div class="footer-brand-name">Afonso Rodrigues</div>
         <p class="footer-bio">Documentary photography and data-driven investigations. Based in Lisbon, working worldwide.</p>
         <svg viewBox="0 0 220 60" style="width:150px; height:auto; margin-top:18px; opacity:.85;">
-          <g stroke="#F5F1E8" stroke-width="1">
-            <circle cx="20"  cy="30" r="6"  fill="#E0A867"></circle>
-            <circle cx="44"  cy="22" r="9"  fill="#B6471F"></circle>
-            <circle cx="70"  cy="38" r="5"  fill="#EAD9B8"></circle>
-            <circle cx="92"  cy="26" r="11" fill="#7E2912"></circle>
-            <circle cx="120" cy="40" r="6"  fill="#D07A3C"></circle>
-            <circle cx="146" cy="24" r="5"  fill="#EAD9B8"></circle>
-            <circle cx="170" cy="36" r="8"  fill="#E0A867"></circle>
-            <circle cx="198" cy="28" r="6"  fill="#D07A3C"></circle>
+          <g stroke="#EDF1EF" stroke-width="1">
+            <circle cx="20"  cy="30" r="6"  fill="#D98A3D"></circle>
+            <circle cx="44"  cy="22" r="9"  fill="#1F4E8C"></circle>
+            <circle cx="70"  cy="38" r="5"  fill="#EAD9C4"></circle>
+            <circle cx="92"  cy="26" r="11" fill="#14345C"></circle>
+            <circle cx="120" cy="40" r="6"  fill="#B5551F"></circle>
+            <circle cx="146" cy="24" r="5"  fill="#EAD9C4"></circle>
+            <circle cx="170" cy="36" r="8"  fill="#D98A3D"></circle>
+            <circle cx="198" cy="28" r="6"  fill="#B5551F"></circle>
           </g>
         </svg>
       </div>
