@@ -194,17 +194,91 @@ a.lang-btn:hover { color: var(--accent); }
 
 .site-title { text-align: center; }
 
-.site-title h1 {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(44px, 8.5vw, 108px);
-  line-height: .9;
-  letter-spacing: -.02em;
+/* Lockup: A/R monogram (fake-black Inter, halo'd overlap, paint-drip accent)
+   beside the wordmark. Deliberately breaks from --display (Bodoni) — this is
+   a graffiti-style mark, not a headline, so it runs on the same bold Inter
+   already loaded for body text. */
+h1.brand-lockup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
   margin: 0;
-  transition: letter-spacing .4s var(--ease-out);
 }
 
-.site-title h1:hover { letter-spacing: -.005em; }
+h1.brand-lockup > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-mark {
+  position: relative;
+  width: clamp(48px, 8vw, 92px);
+  height: clamp(46px, 7.6vw, 88px);
+  flex-shrink: 0;
+}
+
+.brand-mark .mark-a,
+.brand-mark .mark-r {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: clamp(42px, 7.2vw, 78px);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.brand-mark .mark-a {
+  color: var(--ink);
+  -webkit-text-stroke: 1px var(--ink);
+  transform: translate(-68%, -56%) rotate(-6deg) scaleX(1.16);
+  z-index: 1;
+}
+
+.brand-mark .mark-r {
+  color: var(--accent);
+  -webkit-text-stroke: 1px var(--accent);
+  transform: translate(-26%, -44%) rotate(7deg) scaleX(1.16);
+  z-index: 2;
+  /* paper-colored halo so the R reads as a sticker layered over the A,
+     not a muddy blend of the two overlapping strokes */
+  text-shadow:
+    1px 0 0 var(--paper), -1px 0 0 var(--paper), 0 1px 0 var(--paper), 0 -1px 0 var(--paper),
+    2px 1px 0 var(--paper), -2px 1px 0 var(--paper), 2px -1px 0 var(--paper), -2px -1px 0 var(--paper),
+    1px 2px 0 var(--paper), -1px 2px 0 var(--paper), 1px -2px 0 var(--paper), -1px -2px 0 var(--paper);
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--rust);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+  bottom: 12px;
+  right: 16px;
+  z-index: 3;
+}
+
+.brand-name {
+  display: inline-block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: clamp(36px, 7.4vw, 90px);
+  letter-spacing: -.03em;
+  line-height: .95;
+  color: var(--ink);
+  transform: skewX(-4deg);
+  transform-origin: left center;
+}
+
+.brand-name .pop { color: var(--accent); }
 
 .tagline {
   display: flex;
@@ -1490,6 +1564,10 @@ a.lang-btn:hover { color: var(--accent); }
   .topbar-right { gap: 12px; }
 
   .masthead { padding: 20px 20px 0; }
+
+  h1.brand-lockup,
+  h1.brand-lockup > a { flex-direction: column; gap: 10px; }
+  .brand-name { transform: none; text-align: center; }
 
   .front-page,
   .graphic-section,
