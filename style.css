@@ -194,88 +194,69 @@ a.lang-btn:hover { color: var(--accent); }
 
 .site-title { text-align: center; }
 
-/* Lockup: A/R monogram (fake-black Inter, halo'd overlap, paint-drip accent)
-   beside the wordmark. Deliberately breaks from --display (Bodoni) — this is
-   a graffiti-style mark, not a headline, so it runs on the same bold Inter
-   already loaded for body text. */
+/* Lockup: A/R travel-stamp badge beside the wordmark. Retro treatment —
+   ringed seal, offset-print duplicate (solid color behind, no blur, the
+   classic misregistered-ink look of old letterpress badges), upright
+   tracked caps instead of the earlier graffiti skew. Runs on the same
+   bold Inter already loaded for body text, no new font. */
 h1.brand-lockup {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   margin: 0;
 }
 
 h1.brand-lockup > a {
   display: inline-flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   text-decoration: none;
   color: inherit;
 }
 
 .brand-mark {
   position: relative;
-  width: clamp(48px, 8vw, 92px);
-  height: clamp(46px, 7.6vw, 88px);
+  width: clamp(52px, 8vw, 88px);
+  height: clamp(52px, 8vw, 88px);
   flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-4deg);
 }
 
-.brand-mark .mark-a,
-.brand-mark .mark-r {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-weight: 700;
-  font-size: clamp(42px, 7.2vw, 78px);
-  line-height: 1;
-  letter-spacing: -.04em;
-}
-
-.brand-mark .mark-a {
-  color: var(--ink);
-  -webkit-text-stroke: 1px var(--ink);
-  transform: translate(-68%, -56%) rotate(-6deg) scaleX(1.16);
-  z-index: 1;
-}
-
-.brand-mark .mark-r {
-  color: var(--accent);
-  -webkit-text-stroke: 1px var(--accent);
-  transform: translate(-26%, -44%) rotate(7deg) scaleX(1.16);
-  z-index: 2;
-  /* paper-colored halo so the R reads as a sticker layered over the A,
-     not a muddy blend of the two overlapping strokes */
-  text-shadow:
-    1px 0 0 var(--paper), -1px 0 0 var(--paper), 0 1px 0 var(--paper), 0 -1px 0 var(--paper),
-    2px 1px 0 var(--paper), -2px 1px 0 var(--paper), 2px -1px 0 var(--paper), -2px -1px 0 var(--paper),
-    1px 2px 0 var(--paper), -1px 2px 0 var(--paper), 1px -2px 0 var(--paper), -1px -2px 0 var(--paper);
-}
-
-.brand-mark::after {
+.brand-mark::before {
   content: "";
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--rust);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(45deg);
-  bottom: 12px;
-  right: 16px;
-  z-index: 3;
+  inset: 4px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+}
+
+.brand-mark .mark-letters {
+  position: relative;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 3.4vw, 34px);
+  letter-spacing: -.02em;
+  color: var(--ink);
+  /* solid offset duplicate — no blur — reads as a mis-struck second pass
+     of ink, not a soft drop shadow */
+  text-shadow: 2px 2px 0 var(--accent);
 }
 
 .brand-name {
   display: inline-block;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 700;
-  font-size: clamp(36px, 7.4vw, 90px);
-  letter-spacing: -.03em;
-  line-height: .95;
+  font-size: clamp(30px, 6.2vw, 74px);
+  letter-spacing: .01em;
+  line-height: 1;
   color: var(--ink);
-  transform: skewX(-4deg);
-  transform-origin: left center;
+  text-transform: uppercase;
 }
 
 .brand-name .pop { color: var(--accent); }
@@ -1567,7 +1548,7 @@ h1.brand-lockup > a {
 
   h1.brand-lockup,
   h1.brand-lockup > a { flex-direction: column; gap: 10px; }
-  .brand-name { transform: none; text-align: center; }
+  .brand-name { text-align: center; }
 
   .front-page,
   .graphic-section,
