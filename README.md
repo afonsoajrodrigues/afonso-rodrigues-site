@@ -1,39 +1,60 @@
 # Afonso Rodrigues — Photography & Data Journalism
 
-Site-portfólio estático com direção visual editorial (jornal/broadsheet).  
-Alojado no GitHub Pages.
+Site-portfólio estático com direção visual editorial (jornal/broadsheet).
+Alojado no GitHub Pages, domínio próprio `afonsoajrodrigues.com`.
 
 ## Estrutura
 
 ```
-index.html          ← página principal
-style.css           ← sistema de design completo (variáveis CSS + responsivo)
-i18n.js             ← toggle EN / PT com objeto de traduções
+index.html, photography.html,       ← páginas em inglês (raiz)
+investigations.html, about.html
+pt/                                  ← as mesmas páginas em português
+  index.html, photography.html,
+  investigations.html, about.html
+style.css                            ← sistema de design completo (variáveis CSS + responsivo)
+motion.js                            ← scroll-reveal
 images/
-  above-the-haze.jpg    (Doi Suthep, Chiang Mai)
-  night-kitchens.jpg    (Chinatown, Bangkok)
-.nojekyll           ← desativa o Jekyll no GitHub Pages
+  Lisbon/, Istambul/,
+  Night-out-in-coimbra/, thailand/   ← séries fotográficas, organizadas por local
+scripts/optimize-images.sh           ← redimensiona/comprime JPEGs antes de subir novas fotos
+sitemap.xml, robots.txt
+.nojekyll                            ← desativa o Jekyll no GitHub Pages
+```
+
+Não há mais `i18n.js` — cada idioma tem os seus próprios ficheiros HTML
+estáticos (melhor para SEO: o Google indexa cada URL no idioma certo via
+tags `hreflang`), e o seletor EN·PT no masthead/rodapé é agora um link direto
+para a página irmã no outro idioma.
+
+## Adicionar novas fotos
+
+```bash
+# 1. copia as fotos para uma pasta em images/, ex. images/nome-do-local/
+# 2. otimiza-as para a web (redimensiona + comprime in-place)
+./scripts/optimize-images.sh images/nome-do-local
+# 3. adiciona os <figure> correspondentes em photography.html e pt/photography.html
 ```
 
 ## Sistema de design
 
 | Token | Valor |
 |---|---|
-| `--accent` | `#B5462A` (terracota) |
-| `--paper` | `#F5F1E8` (fundo creme) |
+| `--accent` | `#06402B` |
+| `--paper` | `#FAFAF2` (fundo creme) |
 | `--ink` | `#1B1813` (títulos) |
 | `--hair` | `#D8CFBC` (filetes) |
 | Display | Bodoni Moda |
-| Corpo | Spectral |
+| Corpo | Libre Baskerville |
 | Meta / nav | Space Mono |
 
 ## O que está feito
 
 - Layout editorial completo (masthead, hero com mapa interativo, "Recent work", ensaio em destaque, rodapé)
-- Estilos extraídos para `style.css` com variáveis CSS e `clamp()` nos títulos
 - Totalmente responsivo: breakpoints tablet (≤ 820 px) e mobile (≤ 480 px)
-- Toggle EN · PT persistido em `localStorage`
+- Duas versões de idioma com URLs próprios (`/` em inglês, `/pt/` em português), ligadas por `hreflang`
+- SEO on-page: `title`/`description` por página, canonical, Open Graph, Twitter Card, JSON-LD (`WebSite`, `Person`), `sitemap.xml`, `robots.txt`
 - Mapa interativo de rendas via iframe (`portugal-rent-map`)
+- Fotografia organizada por série/local com lightbox acessível (teclado + foco)
 
 ## Deploy — GitHub Pages
 
@@ -50,7 +71,7 @@ git push -u origin main
 
 ## Domínio próprio (Squarespace DNS)
 
-No GitHub: **Settings → Pages → Custom domain** → escreve o domínio.  
+No GitHub: **Settings → Pages → Custom domain** → escreve o domínio.
 Na Squarespace (DNS):
 
 | Tipo | Nome | Valor |
@@ -61,5 +82,5 @@ Na Squarespace (DNS):
 | A | @ | `185.199.111.153` |
 | CNAME | www | `afonsoajrodrigues.github.io` |
 
-Depois ativa **Enforce HTTPS** no GitHub Pages.  
+Depois ativa **Enforce HTTPS** no GitHub Pages.
 Confirma sempre os IPs atuais em: [GitHub Docs — Managing a custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).

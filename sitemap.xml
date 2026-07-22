@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://afonsoajrodrigues.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afonsoajrodrigues.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://afonsoajrodrigues.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afonsoajrodrigues.com/"/>
+  </url>
+  <url>
+    <loc>https://afonsoajrodrigues.com/photography.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afonsoajrodrigues.com/photography.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://afonsoajrodrigues.com/pt/photography.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afonsoajrodrigues.com/photography.html"/>
+  </url>
+  <url>
+    <loc>https://afonsoajrodrigues.com/investigations.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afonsoajrodrigues.com/investigations.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://afonsoajrodrigues.com/pt/investigations.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afonsoajrodrigues.com/investigations.html"/>
+  </url>
+  <url>
+    <loc>https://afonsoajrodrigues.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afonsoajrodrigues.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://afonsoajrodrigues.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afonsoajrodrigues.com/about.html"/>
+  </url>
+  <url>
+    <loc>https://afonsoajrodrigues.com/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afonsoajrodrigues.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://afonsoajrodrigues.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afonsoajrodrigues.com/"/>
+  </url>
+  <url>
+    <loc>https://afonsoajrodrigues.com/pt/photography.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afonsoajrodrigues.com/photography.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://afonsoajrodrigues.com/pt/photography.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afonsoajrodrigues.com/photography.html"/>
+  </url>
+  <url>
+    <loc>https://afonsoajrodrigues.com/pt/investigations.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afonsoajrodrigues.com/investigations.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://afonsoajrodrigues.com/pt/investigations.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afonsoajrodrigues.com/investigations.html"/>
+  </url>
+  <url>
+    <loc>https://afonsoajrodrigues.com/pt/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://afonsoajrodrigues.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://afonsoajrodrigues.com/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://afonsoajrodrigues.com/about.html"/>
+  </url>
+
+</urlset>

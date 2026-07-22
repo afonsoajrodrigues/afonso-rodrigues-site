@@ -90,16 +90,6 @@ button:focus-visible,
   html { scroll-behavior: auto; }
 }
 
-/* Hard offset "stamp" shadow — the brutalist signature */
-.hard-shadow {
-  box-shadow: 7px 7px 0 var(--ink);
-  transition: box-shadow .25s var(--ease-snap), transform .25s var(--ease-snap);
-}
-.hard-shadow:hover {
-  box-shadow: 11px 11px 0 var(--ink);
-  transform: translate(-3px, -3px);
-}
-
 /* Rotated edition stamp badge */
 .edition-stamp {
   display: inline-flex;
@@ -110,7 +100,7 @@ button:focus-visible,
   height: 74px;
   border: 2px solid var(--ink);
   border-radius: 50%;
-  transform: rotate(-9deg);
+  transform: rotate(-4deg);
   font-family: 'Space Mono', monospace;
   font-size: 9px;
   letter-spacing: .1em;
@@ -126,47 +116,7 @@ button:focus-visible,
   letter-spacing: 0;
   font-style: italic;
 }
-.masthead:hover .edition-stamp { transform: rotate(3deg) scale(1.05); }
-
-/* Marquee ticker */
-.marquee {
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-  background: var(--ink);
-}
-.marquee-track {
-  display: inline-flex;
-  width: max-content;
-  animation: marquee-scroll 32s linear infinite;
-}
-.marquee:hover .marquee-track { animation-play-state: paused; }
-.marquee-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 9px 36px 9px 0;
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--paper);
-  white-space: nowrap;
-}
-.marquee-item em {
-  font-style: normal;
-  color: var(--amber);
-  font-size: 8px;
-}
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
-}
+.masthead:hover .edition-stamp { transform: rotate(0deg); }
 
 /* Kinetic nav underline sweep */
 .site-nav a {
@@ -230,12 +180,8 @@ button:focus-visible,
 
 .topbar-right { display: flex; gap: 24px; }
 
-/* === Toggle de idioma === */
-.lang-toggle {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+/* === Seletor de idioma === */
+.lang-switch {
   font-family: inherit;
   font-size: inherit;
   letter-spacing: inherit;
@@ -245,6 +191,13 @@ button:focus-visible,
 
 .lang-btn { transition: color .15s; }
 .lang-btn.is-active { color: var(--ink); }
+
+a.lang-btn {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+a.lang-btn:hover { color: var(--accent); }
 
 /* === Masthead === */
 .masthead { padding: 30px 56px 0; }
@@ -351,7 +304,7 @@ button:focus-visible,
 .hero {
   display: grid;
   grid-template-columns: 1.16fr .84fr;
-  padding: 40px 56px 44px;
+  padding: 56px 56px 60px;
   border-bottom: 2px solid var(--ink);
 }
 
@@ -490,15 +443,15 @@ button:focus-visible,
 
 
 /* === Trabalhos recentes === */
-.recent { padding: 34px 56px 12px; }
+.recent { padding: 52px 56px 20px; }
 
 .section-header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   border-bottom: 1px solid var(--ink);
-  padding-bottom: 12px;
-  margin-bottom: 28px;
+  padding-bottom: 14px;
+  margin-bottom: 36px;
 }
 
 .section-title {
@@ -528,23 +481,21 @@ button:focus-visible,
 .work-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 34px;
+  gap: 40px;
 }
 
 .work-card {
   padding: 18px;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--ink);
   background: var(--ivory);
-  box-shadow: 6px 6px 0 var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
   transition: box-shadow .3s var(--ease-snap), transform .3s var(--ease-snap);
 }
 
 .work-card:hover {
-  box-shadow: 11px 11px 0 var(--ink);
-  transform: translate(-3px, -3px) rotate(-.6deg);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: translate(-2px, -2px);
 }
-
-.work-card:nth-child(2) { margin-top: -22px; }
 
 .work-image {
   aspect-ratio: 4/3;
@@ -598,7 +549,7 @@ button:focus-visible,
 }
 
 /* === Ensaio fotográfico em destaque === */
-.essay-section { padding: 30px 56px 44px; }
+.essay-section { padding: 44px 56px 56px; }
 
 .essay-panel {
   display: block;
@@ -921,7 +872,7 @@ button:focus-visible,
 }
 
 .gallery-card:hover .gallery-img-wrap img {
-  transform: scale(1.035) rotate(-.3deg);
+  transform: scale(1.035);
 }
 
 .gallery-tag {
@@ -1067,7 +1018,7 @@ button:focus-visible,
 }
 
 .contact-item:hover .contact-img-wrap img {
-  transform: scale(1.035) rotate(-.3deg);
+  transform: scale(1.035);
 }
 
 .contact-caption {
