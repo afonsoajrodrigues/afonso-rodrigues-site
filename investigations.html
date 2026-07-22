@@ -110,16 +110,35 @@
       </div>
     </div>
 
-    <div class="article-map" data-reveal style="--reveal-delay:.15s">
-      <iframe
-        class="report-frame"
-        src="https://afonsoajrodrigues.github.io/portugal-innovation-2024/"
-        width="100%"
-        height="900"
-        frameborder="0"
-        loading="lazy"
-        title="Portugal's innovation boom wasn't built to last — full report"></iframe>
-    </div>
+    <p class="chart-intro" data-reveal>Innovation didn't rise in a straight line. It surged during the pandemic years, driven almost entirely by process innovation — companies scrambling to change how they operated — then began giving that gain back.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-trend" class="databox-frame"></div>
+      <figcaption>Share of companies with 10+ employees reporting innovation activity, by type and survey period. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>The 42.5% headline hides how unevenly innovation is spread: large companies innovate at nearly double the national rate, and two digital- and finance-heavy industries pull the average up.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-segments" class="databox-frame"></div>
+      <figcaption>Share of companies reporting innovation activity, by group, 2022–2024. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>Compared with the previous survey round, innovation activity fell in nearly every sector of the Portuguese economy. Industry was the lone exception — the only sector to post an increase.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-change" class="databox-frame"></div>
+      <figcaption>Percentage-point change in the share of innovating companies, 2020–22 to 2022–24. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>Here's the paradox: even as fewer companies innovate, the country as a whole is spending more on it — and that money is concentrated in two regions.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-spending" class="databox-frame"></div>
+      <figcaption>Innovation spending by region, 2024, € millions. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>When Portuguese companies do protect what they've built, they overwhelmingly reach for a trademark rather than a patent — the fastest and cheapest tool available.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-ip" class="databox-frame"></div>
+      <figcaption>Share of companies using each intellectual property instrument, 2022–2024. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
   </section>
 
   <!-- ── Investigação 1: Habitação ── -->
@@ -151,16 +170,19 @@
       </div>
     </div>
 
-    <div class="article-map" data-reveal style="--reveal-delay:.15s">
-      <iframe
-        class="rent-map"
-        src="https://afonsoajrodrigues.github.io/portugal-rent-map/"
-        width="100%"
-        height="900"
-        frameborder="0"
-        loading="lazy"
-        title="Portugal rent map — median rent per municipality"></iframe>
-    </div>
+    <figure class="databox databox--map" id="rent-map-app" data-reveal>
+      <div class="databox-toolbar">
+        <span class="databox-toolbar-label">Show:</span>
+        <button type="button" class="databox-btn is-active" data-metric-btn="price_m2">Price per m²</button>
+        <button type="button" class="databox-btn" data-metric-btn="rent_t1_45m2">Rent for a 1-bedroom (45 m²)</button>
+      </div>
+      <div class="databox-legend"></div>
+      <div class="databox-frame">
+        <svg class="databox-svg" viewBox="0 0 640 760" role="img" aria-label="Choropleth map of Portugal showing median rent by municipality"></svg>
+      </div>
+      <figcaption class="databox-caption">Median rent by municipality, first quarter of 2026. Use the buttons to switch between price per m² and the rent for a one-bedroom flat; hover a municipality to see its value. Municipalities without their own figure use the price of their sub-region (NUTS III); a one-bedroom flat is assumed to be 45 m². Source: INE.</figcaption>
+    </figure>
+    <div class="databox-tooltip" id="rent-map-tooltip" aria-hidden="true"></div>
   </section>
   </main>
   <footer class="site-footer">
@@ -214,6 +236,28 @@
   </footer>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="/js/innovation-data-en.js"></script>
+<script src="/js/innovation-charts.js"></script>
+<script src="/js/rent-map.js"></script>
 <script src="/motion.js"></script>
+<script>
+  initInnovationCharts(window.innovationData);
+  initRentMap('rent-map-app', {
+    tooltipId: 'rent-map-tooltip',
+    dataUrls: {
+      geojson: '/data/portugal_municipalities.geojson',
+      csv: '/data/portugal_rents.csv'
+    },
+    strings: {
+      unit: { price_m2: ' €/m²', rent_t1_45m2: ' €' },
+      perSqm: ' / m²',
+      perMonth: ' / month',
+      ownFigure: 'municipality figure',
+      estimatedFrom: zone => `estimated from ${zone} (sub-region)`,
+      districtOf: d => `District of ${d}`
+    }
+  });
+</script>
 </body>
 </html>

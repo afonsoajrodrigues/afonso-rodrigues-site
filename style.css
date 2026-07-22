@@ -413,13 +413,6 @@ a.lang-btn:hover { color: var(--accent); }
   margin-top: 7px;
 }
 
-/* === Mapa === */
-.rent-map {
-  display: block;
-  width: 100%;
-  border: 1px solid var(--ink);
-}
-
 /* === Página de rosto (front page) — grelha estilo homepage NYT === */
 .front-page {
   display: grid;
@@ -721,15 +714,14 @@ a.lang-btn:hover { color: var(--accent); }
 
 /* === Artigo de investigação === */
 .article-section {
-  display: grid;
-  grid-template-columns: 1.16fr .84fr;
   padding: 40px 56px 44px;
   border-bottom: 1px solid var(--hair);
 }
 
 .article-body {
-  padding-right: 46px;
-  border-right: 1px solid var(--hair);
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--hair);
+  margin-bottom: 36px;
 }
 
 .article-label {
@@ -779,14 +771,138 @@ a.lang-btn:hover { color: var(--accent); }
   max-width: 34em;
 }
 
-.article-map { padding-left: 40px; }
-
 .article-cta { display: inline-block; margin-top: 20px; }
 
-.report-frame {
-  display: block;
-  width: 100%;
+/* === Visualizações embutidas (gráficos D3 e mapa) === */
+.chart-intro {
+  font-size: 17px;
+  line-height: 1.58;
+  color: var(--body);
+  max-width: 46em;
+  margin: 0 0 16px;
+}
+
+.chart-figure { margin: 8px 0 40px; }
+
+.databox-frame {
   border: 1px solid var(--ink);
+  background: var(--ivory);
+  padding: 26px 30px;
+}
+
+.databox-frame svg { display: block; width: 100%; height: auto; }
+
+/* Os gráficos D3 têm rótulos desenhados dentro do próprio SVG: encolher o
+   viewBox abaixo da largura nativa tornaria o texto ilegível, por isso o
+   gráfico mantém a largura mínima e ganha scroll horizontal em vez de encolher. */
+.chart-figure .databox-frame { overflow-x: auto; }
+.chart-figure .databox-frame svg { min-width: 860px; }
+
+.chart-figure figcaption,
+.databox-caption {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+  max-width: 46em;
+}
+
+.chart-figure .axis text,
+.databox-frame text {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  fill: var(--muted);
+}
+
+.chart-figure .axis line,
+.chart-figure .axis path { stroke: var(--hair); }
+
+.chart-figure .line { fill: none; stroke-width: 2; }
+.chart-figure .dot { stroke: var(--ivory); stroke-width: 1; }
+.chart-figure .line-label { font-weight: 700; letter-spacing: .02em; }
+
+.chart-figure .bar { fill: var(--accent); }
+.chart-figure .bar.highlight { fill: var(--rust); }
+.chart-figure .bar.negative { fill: var(--rust); }
+.chart-figure .bar-label { fill: var(--ink); font-weight: 700; }
+.chart-figure .bar-label-inside { fill: var(--paper); text-anchor: start; }
+
+/* Mapa de rendas — cabe num só ecrã, por isso fica mais estreito e centrado
+   mesmo quando o resto do artigo/gráfico ocupa a largura total. */
+.databox--map { max-width: 620px; margin-left: auto; margin-right: auto; }
+
+.databox-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.databox-toolbar-label { color: var(--muted); }
+
+.databox-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 4px 0;
+  font: inherit;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .15s;
+}
+
+.databox-btn:hover { color: var(--ink); }
+.databox-btn.is-active { color: var(--ink); border-bottom-color: var(--accent); }
+
+.databox-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0 0 14px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.databox-legend-item { display: flex; align-items: center; gap: 6px; }
+
+.databox-legend-swatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--ink);
+  display: inline-block;
+}
+
+.databox-frame .municipality { stroke: var(--paper); stroke-width: .5; cursor: pointer; transition: stroke .1s; }
+.databox-frame .municipality:hover { stroke: var(--ink); stroke-width: 1.4; }
+
+.databox-tooltip {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .12s;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  max-width: 230px;
+  z-index: 50;
+}
+
+.databox-tooltip .price { font-family: var(--display); font-weight: 600; font-size: 1.25rem; margin: 4px 0; }
+.databox-tooltip .meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--hair);
 }
 
 /* === Índice de investigações === */
@@ -1324,9 +1440,6 @@ a.lang-btn:hover { color: var(--accent); }
   }
   .graphic-section { padding-left: 28px; padding-right: 28px; }
 
-  .rent-map { height: 600px; }
-  .report-frame { height: 600px; }
-
   .river--large .river-thumb { width: 84px; height: 84px; }
 
   /* Rodapé: 2 colunas */
@@ -1334,15 +1447,9 @@ a.lang-btn:hover { color: var(--accent); }
 
   .essay-panel { height: 360px; }
 
-  /* Artigo investigação */
-  .article-section { grid-template-columns: 1fr; }
-  .article-body {
-    padding-right: 0;
-    border-right: none;
-    border-bottom: 1px solid var(--hair);
-    padding-bottom: 36px;
-  }
-  .article-map { padding-left: 0; padding-top: 32px; }
+  /* Visualizações embutidas */
+  .databox-frame { padding: 20px; }
+  .databox--map { max-width: 480px; }
 
   /* Índice investigações */
   .inv-grid { grid-template-columns: 1fr; }
@@ -1422,8 +1529,9 @@ a.lang-btn:hover { color: var(--accent); }
   /* Ensaio fotográfico */
   .essay-panel { height: 280px; }
 
-  .rent-map { height: 480px; }
-  .report-frame { height: 480px; }
+  .databox-frame { padding: 16px; }
+  .databox-toolbar { gap: 10px 14px; }
+  .databox--map { max-width: 100%; }
 
   .series-section { padding-left: 20px; padding-right: 20px; }
   .contact-grid { grid-template-columns: 1fr; gap: 10px; }

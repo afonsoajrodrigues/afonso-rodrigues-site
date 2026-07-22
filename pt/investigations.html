@@ -110,16 +110,35 @@
       </div>
     </div>
 
-    <div class="article-map" data-reveal style="--reveal-delay:.15s">
-      <iframe
-        class="report-frame"
-        src="https://afonsoajrodrigues.github.io/portugal-innovation-2024/"
-        width="100%"
-        height="900"
-        frameborder="0"
-        loading="lazy"
-        title="O boom da inovação em Portugal não foi feito para durar — relatório completo"></iframe>
-    </div>
+    <p class="chart-intro" data-reveal>A inovação não subiu em linha reta. Disparou durante os anos da pandemia, impulsionada quase só pela inovação de processo — empresas a mudar à pressa a forma como operavam — e depois começou a devolver esse ganho.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-trend" class="databox-frame"></div>
+      <figcaption>Percentagem de empresas com 10+ trabalhadores que reportam atividade de inovação, por tipo e período do inquérito. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>Os 42,5% escondem uma distribuição muito desigual: as grandes empresas inovam a um ritmo quase duplo da média nacional, e dois setores de base digital e financeira puxam essa média para cima.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-segments" class="databox-frame"></div>
+      <figcaption>Percentagem de empresas a reportar atividade de inovação, por grupo, 2022–2024. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>Face ao inquérito anterior, a atividade de inovação caiu em quase todos os setores da economia portuguesa. A indústria foi a única excepção — o único setor a registar um aumento.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-change" class="databox-frame"></div>
+      <figcaption>Variação em pontos percentuais na percentagem de empresas inovadoras, de 2020–22 para 2022–24. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>Eis o paradoxo: mesmo com menos empresas a inovar, o país como um todo gasta mais nisso — e esse dinheiro concentra-se em duas regiões.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-spending" class="databox-frame"></div>
+      <figcaption>Despesa em inovação por região, 2024, em milhões de euros. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>Quando as empresas portuguesas protegem o que constroem, recorrem sobretudo à marca registada em vez da patente — a ferramenta mais rápida e barata disponível.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-ip" class="databox-frame"></div>
+      <figcaption>Percentagem de empresas a usar cada instrumento de propriedade intelectual, 2022–2024. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
+    </figure>
   </section>
 
   <!-- ── Investigação 1: Habitação ── -->
@@ -151,16 +170,19 @@
       </div>
     </div>
 
-    <div class="article-map" data-reveal style="--reveal-delay:.15s">
-      <iframe
-        class="rent-map"
-        src="https://afonsoajrodrigues.github.io/portugal-rent-map/"
-        width="100%"
-        height="900"
-        frameborder="0"
-        loading="lazy"
-        title="Mapa das rendas em Portugal — renda mediana por município"></iframe>
-    </div>
+    <figure class="databox databox--map" id="rent-map-app" data-reveal>
+      <div class="databox-toolbar">
+        <span class="databox-toolbar-label">Mostrar:</span>
+        <button type="button" class="databox-btn is-active" data-metric-btn="price_m2">Preço por m²</button>
+        <button type="button" class="databox-btn" data-metric-btn="rent_t1_45m2">Renda de um T1 (45 m²)</button>
+      </div>
+      <div class="databox-legend"></div>
+      <div class="databox-frame">
+        <svg class="databox-svg" viewBox="0 0 640 760" role="img" aria-label="Mapa coroplético de Portugal com a renda mediana por município"></svg>
+      </div>
+      <figcaption class="databox-caption">Renda mediana por município, primeiro trimestre de 2026. Use os botões para alternar entre preço por m² e a renda de um T1; passe o cursor sobre um município para ver o valor. Os municípios sem valor próprio usam o preço da sua sub-região (NUTS III); assume-se um T1 de 45 m². Fonte: INE.</figcaption>
+    </figure>
+    <div class="databox-tooltip" id="rent-map-tooltip" aria-hidden="true"></div>
   </section>
   </main>
   <footer class="site-footer">
@@ -214,6 +236,28 @@
   </footer>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="/js/innovation-data-pt.js"></script>
+<script src="/js/innovation-charts.js"></script>
+<script src="/js/rent-map.js"></script>
 <script src="/motion.js"></script>
+<script>
+  initInnovationCharts(window.innovationData);
+  initRentMap('rent-map-app', {
+    tooltipId: 'rent-map-tooltip',
+    dataUrls: {
+      geojson: '/data/portugal_municipalities.geojson',
+      csv: '/data/portugal_rents.csv'
+    },
+    strings: {
+      unit: { price_m2: ' €/m²', rent_t1_45m2: ' €' },
+      perSqm: ' / m²',
+      perMonth: ' / mês',
+      ownFigure: 'valor do município',
+      estimatedFrom: zone => `estimado a partir de ${zone} (sub-região)`,
+      districtOf: d => `Distrito de ${d}`
+    }
+  });
+</script>
 </body>
 </html>

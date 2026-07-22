@@ -1,0 +1,54 @@
+zone,level,price_m2,rent_t1_45m2
+Portugal,country,9.46,425.7
+Continente,mainland,9.46,425.7
+Norte,nuts2,7.96,358.2
+Alto Minho,nuts3,6.82,306.9
+Cávado,nuts3,7.86,353.7
+Barcelos,municipality,6.28,282.6
+Braga,municipality,8.64,388.8
+Ave,nuts3,6.11,274.95
+Guimarães,municipality,6.5,292.5
+Vila Nova de Famalicão,municipality,6.8,306.0
+Área Metropolitana do Porto,nuts3,10.13,455.85
+Gondomar,municipality,8.71,391.95
+Maia,municipality,9.47,426.15
+Matosinhos,municipality,11.98,539.1
+Porto,municipality,14.6,657.0
+Santa Maria da Feira,municipality,6.58,296.1
+Vila Nova de Gaia,municipality,10.61,477.45
+Alto Tâmega e Barroso,nuts3,4.97,223.65
+Tâmega e Sousa,nuts3,4.66,209.7
+Douro,nuts3,5.0,225.0
+Terras de Trás-os-Montes,nuts3,4.24,190.8
+Centro,nuts2,6.52,293.4
+Região de Aveiro,nuts3,7.43,334.35
+Região de Coimbra,nuts3,7.33,329.85
+Coimbra,municipality,9.48,426.6
+Região de Leiria,nuts3,6.98,314.1
+Leiria,municipality,7.94,357.3
+Viseu Dão Lafões,nuts3,5.88,264.6
+Beira Baixa,nuts3,4.86,218.7
+Beiras e Serra da Estrela,nuts3,4.74,213.3
+Oeste e Vale do Tejo,nuts2,7.36,331.2
+Oeste,nuts3,8.07,363.15
+Médio Tejo,nuts3,6.54,294.3
+Lezíria do Tejo,nuts3,7.0,315.0
+Grande Lisboa,nuts3,14.38,647.1
+Amadora,municipality,12.99,584.55
+Cascais,municipality,16.43,739.35
+Lisboa,municipality,17.42,783.9
+Loures,municipality,11.73,527.85
+Odivelas,municipality,12.28,552.6
+Oeiras,municipality,15.47,696.15
+Sintra,municipality,11.24,505.8
+Vila Franca de Xira,municipality,10.93,491.85
+Península de Setúbal,nuts3,11.35,510.75
+Almada,municipality,13.64,613.8
+Seixal,municipality,11.33,509.85
+Setúbal,municipality,10.79,485.55
+Alentejo,nuts2,6.08,273.6
+Alentejo Litoral,nuts3,8.95,402.75
+Baixo Alentejo,nuts3,5.95,267.75
+Alto Alentejo,nuts3,4.77,214.65
+Alentejo Central,nuts3,6.27,282.15
+Algarve,nuts2,10.71,481.95
