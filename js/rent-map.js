@@ -12,16 +12,14 @@ function initRentMap(rootId, config) {
 
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
-  const amber = cssVar('--amber', '#D98A3D');
-  const rust = cssVar('--rust', '#B5551F');
+  const mist = cssVar('--mist', '#DDE5EE');
+  const accent = cssVar('--accent', '#2E5A8C');
+  const ink = cssVar('--ink', '#10243E');
 
-  // #EAD9C4 is the palette's designated light data tone (see CLAUDE.md) — chosen
-  // over --paper/--ivory because those are too close to the card background to
-  // read as a colour once the cheapest municipalities are filled with it.
-  // Stretched through amber and rust to a dark mahogany, so the lightness step
-  // alone reads clearly as "cheap → expensive", with far more contrast between
-  // bins than a cream→rust span alone.
-  const colorRange = d3.quantize(d3.interpolateRgbBasis(['#EAD9C4', amber, rust, '#5C2A11']), 6);
+  // Sequential single-hue blue ramp (Névoa Azulada → Cobalto Suave → Azul Tinta),
+  // stretched past --ink to a near-black navy so the lightness step alone still
+  // reads clearly as "cheap → expensive" across all 6 bins.
+  const colorRange = d3.quantize(d3.interpolateRgbBasis([mist, accent, ink, '#081527']), 6);
 
   let metric = 'price_m2';
 

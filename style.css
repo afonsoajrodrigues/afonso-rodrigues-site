@@ -1,18 +1,25 @@
 /* === Variáveis e reset === */
 :root {
-  /* Azulejo Blue — cobalto português como assinatura, terracota/ocre como
-     contraponto quente raro. Ver CLAUDE.md para o racional da paleta. */
-  --accent:      #1F4E8C;
-  --accent-deep: #14345C;
-  --paper:       #EDF1EF;
-  --ivory:       #F6F9F7;
-  --ink:         #12172A;
-  --body:        #2E2C27;
-  --muted:       #6B6A5E;
-  --hair:        #D3D9D5;
-  --rust:        #B5551F;
-  --amber:       #D98A3D;
-  --display:     'Bodoni Moda', Georgia, serif;
+  /* Identidade v2 — paleta monocromática de azuis (Azul Tinta / Cobalto Suave /
+     Névoa Azulada / Branco Papel). Ver CLAUDE.md para o racional da paleta. */
+  --accent:      #2E5A8C; /* Cobalto Suave — ação, ênfase, marca */
+  --accent-deep: #10243E; /* Azul Tinta — texto, logótipo, fundos de destaque */
+  --paper:       #FAFAF9; /* Branco Papel — fundo por omissão */
+  --ivory:       #F0F3F5; /* painéis — Branco Papel com um toque de Névoa Azulada */
+  --mist:        #DDE5EE; /* Névoa Azulada — realces sobre fundo escuro, legendas */
+  --ink:         #10243E; /* mesmo tom que --accent-deep: Azul Tinta serve os dois papéis */
+  --body:        #2E3138;
+  --muted:       #63708A;
+  --hair:        #D7DEE6;
+  /* Paleta de dados (gráficos categóricos) — separada da paleta de marca porque
+     3 séries em tons de azul não passam nos testes de daltonismo; validada com
+     scripts/validate_palette.js (dataviz skill): ΔE CVD 9.1, visão normal 17.9. */
+  --data-1:      #25588F;
+  --data-2:      #0F8C73;
+  --data-3:      #C1861F;
+  --sans:        'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --display:     'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --label:       var(--sans);
   --ease-out:    cubic-bezier(.16,1,.3,1);
   --ease-snap:   cubic-bezier(.65,0,.35,1);
 }
@@ -27,7 +34,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   min-height: 100vh;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--sans);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -58,7 +65,7 @@ button:focus-visible,
   z-index: 2000;
   background: var(--ink);
   color: var(--paper);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 12px;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -130,7 +137,7 @@ button:focus-visible,
   position: relative;
 }
 .section-index {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .1em;
@@ -158,7 +165,7 @@ button:focus-visible,
   align-items: center;
   padding: 11px 56px;
   border-bottom: 1px solid var(--hair);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -194,88 +201,49 @@ a.lang-btn:hover { color: var(--accent); }
 
 .site-title { text-align: center; }
 
-/* Lockup: A/R monogram (fake-black Inter, halo'd overlap, paint-drip accent)
-   beside the wordmark. Deliberately breaks from --display (Bodoni) — this is
-   a graffiti-style mark, not a headline, so it runs on the same bold Inter
-   already loaded for body text. */
+/* Lockup: single-stroke AR monogram (Identidade v2, "Monograma AR" concept) beside
+   the wordmark — the A's crossbar becomes a dot, read as aperture and network
+   node at once. Quieter than the old overlapping-letters mark on purpose. */
 h1.brand-lockup {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   margin: 0;
 }
 
 h1.brand-lockup > a {
   display: inline-flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   text-decoration: none;
   color: inherit;
 }
 
 .brand-mark {
-  position: relative;
-  width: clamp(48px, 8vw, 92px);
-  height: clamp(46px, 7.6vw, 88px);
+  width: clamp(40px, 6.6vw, 72px);
+  height: clamp(40px, 6.6vw, 72px);
   flex-shrink: 0;
 }
 
-.brand-mark .mark-a,
-.brand-mark .mark-r {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-weight: 700;
-  font-size: clamp(42px, 7.2vw, 78px);
-  line-height: 1;
-  letter-spacing: -.04em;
+.brand-mark svg { display: block; width: 100%; height: 100%; }
+
+.brand-mark .mark-stroke {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 6;
 }
 
-.brand-mark .mark-a {
-  color: var(--ink);
-  -webkit-text-stroke: 1px var(--ink);
-  transform: translate(-68%, -56%) rotate(-6deg) scaleX(1.16);
-  z-index: 1;
-}
-
-.brand-mark .mark-r {
-  color: var(--accent);
-  -webkit-text-stroke: 1px var(--accent);
-  transform: translate(-26%, -44%) rotate(7deg) scaleX(1.16);
-  z-index: 2;
-  /* paper-colored halo so the R reads as a sticker layered over the A,
-     not a muddy blend of the two overlapping strokes */
-  text-shadow:
-    1px 0 0 var(--paper), -1px 0 0 var(--paper), 0 1px 0 var(--paper), 0 -1px 0 var(--paper),
-    2px 1px 0 var(--paper), -2px 1px 0 var(--paper), 2px -1px 0 var(--paper), -2px -1px 0 var(--paper),
-    1px 2px 0 var(--paper), -1px 2px 0 var(--paper), 1px -2px 0 var(--paper), -1px -2px 0 var(--paper);
-}
-
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--rust);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(45deg);
-  bottom: 12px;
-  right: 16px;
-  z-index: 3;
-}
+.brand-mark .mark-dot { fill: var(--accent); }
 
 .brand-name {
   display: inline-block;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--display);
   font-weight: 700;
-  font-size: clamp(36px, 7.4vw, 90px);
-  letter-spacing: -.03em;
+  font-size: clamp(34px, 6.8vw, 82px);
+  letter-spacing: -.02em;
   line-height: .95;
   color: var(--ink);
-  transform: skewX(-4deg);
-  transform-origin: left center;
 }
 
 .brand-name .pop { color: var(--accent); }
@@ -296,7 +264,7 @@ h1.brand-lockup > a {
 }
 
 .tagline-text {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .28em;
   text-transform: uppercase;
@@ -317,7 +285,7 @@ h1.brand-lockup > a {
   background: var(--paper);
   border-bottom: 1px solid var(--ink);
   padding: 13px 0;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .1em;
@@ -371,7 +339,7 @@ h1.brand-lockup > a {
 }
 
 .hero-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -430,7 +398,7 @@ h1.brand-lockup > a {
 
 .byline-cta {
   margin-left: auto;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .08em;
@@ -444,7 +412,7 @@ h1.brand-lockup > a {
 
 .byline-cta:hover {
   transform: translateX(5px);
-  color: var(--rust);
+  color: var(--accent-deep);
 }
 
 .stat-grid {
@@ -476,10 +444,10 @@ h1.brand-lockup > a {
   transition: color .3s var(--ease-out);
 }
 
-.stat-box:hover .stat-value { color: var(--rust); }
+.stat-box:hover .stat-value { color: var(--accent); }
 
 .stat-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -502,7 +470,7 @@ h1.brand-lockup > a {
 }
 
 .rail-heading {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .14em;
@@ -517,7 +485,7 @@ h1.brand-lockup > a {
 .graphic-section { padding: 44px 56px; border-bottom: 1px solid var(--hair); }
 
 .graphic-kicker {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -562,7 +530,7 @@ h1.brand-lockup > a {
 .river-body { min-width: 0; }
 
 .river-kicker {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 9px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -607,7 +575,7 @@ h1.brand-lockup > a {
 }
 
 .section-count {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-style: normal;
   font-size: 12px;
   color: var(--accent);
@@ -615,7 +583,7 @@ h1.brand-lockup > a {
 }
 
 .section-sub {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -650,7 +618,7 @@ h1.brand-lockup > a {
 .essay-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(18,23,42,0) 30%, rgba(18,23,42,.8) 100%);
+  background: linear-gradient(180deg, rgba(16,36,62,0) 30%, rgba(16,36,62,.8) 100%);
 }
 
 .essay-caption {
@@ -659,16 +627,16 @@ h1.brand-lockup > a {
   right: 0;
   bottom: 46px;
   padding: 0 34px;
-  color: #F7F0DC;
+  color: var(--paper);
   text-align: center;
 }
 
 .essay-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--mist);
   margin-bottom: 14px;
 }
 
@@ -693,11 +661,11 @@ h1.brand-lockup > a {
 .essay-panel:hover .essay-title { transform: translateY(-4px); }
 
 .essay-cta {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: #D8D2C0;
+  color: rgba(250, 250, 249, .65);
   white-space: nowrap;
 }
 
@@ -731,7 +699,7 @@ h1.brand-lockup > a {
 }
 
 .footer-nav-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -754,7 +722,7 @@ h1.brand-lockup > a {
   margin-top: 36px;
   padding-top: 16px;
   border-top: 1px solid var(--hair);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -768,7 +736,7 @@ h1.brand-lockup > a {
 }
 
 .page-header-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -799,7 +767,7 @@ h1.brand-lockup > a {
 }
 
 .article-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -829,7 +797,7 @@ h1.brand-lockup > a {
 }
 
 .article-date {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -855,7 +823,7 @@ h1.brand-lockup > a {
 }
 
 .article-sources-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -884,7 +852,7 @@ h1.brand-lockup > a {
 
 .article-sources li::before {
   content: counter(source) '. ';
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   color: var(--accent);
 }
 
@@ -928,7 +896,7 @@ h1.brand-lockup > a {
 
 .chart-figure .axis text,
 .databox-frame text {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   fill: var(--muted);
 }
@@ -941,8 +909,8 @@ h1.brand-lockup > a {
 .chart-figure .line-label { font-weight: 700; letter-spacing: .02em; }
 
 .chart-figure .bar { fill: var(--accent); }
-.chart-figure .bar.highlight { fill: var(--rust); }
-.chart-figure .bar.negative { fill: var(--rust); }
+.chart-figure .bar.highlight { fill: var(--data-3); }
+.chart-figure .bar.negative { fill: var(--data-3); }
 .chart-figure .bar-label { fill: var(--ink); font-weight: 700; }
 .chart-figure .bar-label-inside { fill: var(--paper); text-anchor: start; }
 
@@ -956,7 +924,7 @@ h1.brand-lockup > a {
   gap: 18px;
   flex-wrap: wrap;
   margin-bottom: 14px;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -983,7 +951,7 @@ h1.brand-lockup > a {
   flex-wrap: wrap;
   gap: 14px;
   margin: 0 0 14px;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   color: var(--muted);
 }
@@ -1005,7 +973,7 @@ h1.brand-lockup > a {
 .databox-frame .country.no-data { cursor: default; }
 
 .databox-frame .country-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 9px;
   font-weight: 700;
   fill: var(--ink);
@@ -1038,7 +1006,7 @@ h1.brand-lockup > a {
   border: 1px solid var(--ink);
   background: var(--paper);
   color: var(--ink);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 15px;
   line-height: 1;
   cursor: pointer;
@@ -1063,7 +1031,7 @@ h1.brand-lockup > a {
   background: var(--ink);
   color: var(--paper);
   padding: 10px 14px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--sans);
   font-size: 13px;
   max-width: 230px;
   z-index: 50;
@@ -1071,7 +1039,7 @@ h1.brand-lockup > a {
 
 .databox-tooltip .price { font-family: var(--display); font-weight: 600; font-size: 1.25rem; margin: 4px 0; }
 .databox-tooltip .meta {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -1103,7 +1071,7 @@ h1.brand-lockup > a {
 .inv-card:nth-last-child(-n+2) { border-bottom: none; }
 
 .inv-card-tag {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -1147,7 +1115,7 @@ h1.brand-lockup > a {
 }
 
 .series-jump a {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -1194,7 +1162,7 @@ h1.brand-lockup > a {
 }
 
 .gallery-tag {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -1219,7 +1187,7 @@ h1.brand-lockup > a {
 }
 
 .gallery-cta {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -1246,7 +1214,7 @@ h1.brand-lockup > a {
 .series-toggle-btn {
   background: none;
   border: none;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 16px;
   color: var(--muted);
   cursor: pointer;
@@ -1273,7 +1241,7 @@ h1.brand-lockup > a {
 }
 
 .series-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -1292,7 +1260,7 @@ h1.brand-lockup > a {
 .location-group { margin-top: 32px; }
 
 .location-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .2em;
   text-transform: uppercase;
@@ -1340,7 +1308,7 @@ h1.brand-lockup > a {
 }
 
 .contact-caption {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1386,7 +1354,7 @@ h1.brand-lockup > a {
 }
 
 .inv-toc-tag {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -1407,7 +1375,7 @@ h1.brand-lockup > a {
 .inv-toc-title em { font-style: italic; font-weight: 500; }
 
 .inv-toc-meta {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1423,7 +1391,7 @@ h1.brand-lockup > a {
 .inv-stub-inner { max-width: 42em; }
 
 .inv-stub-tag {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -1483,7 +1451,7 @@ h1.brand-lockup > a {
 }
 
 .about-note {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1502,7 +1470,7 @@ h1.brand-lockup > a {
 }
 
 .about-chart-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1511,7 +1479,7 @@ h1.brand-lockup > a {
 }
 
 .about-contact-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 10px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -1540,7 +1508,7 @@ h1.brand-lockup > a {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(18, 23, 42, 0.94);
+  background: rgba(16, 36, 62, 0.94);
   z-index: 1000;
   align-items: center;
   justify-content: center;
@@ -1560,11 +1528,11 @@ h1.brand-lockup > a {
 }
 
 .lightbox-caption {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(244, 239, 230, 0.55);
+  color: rgba(250, 250, 249, 0.55);
   text-align: center;
 }
 
@@ -1574,8 +1542,8 @@ h1.brand-lockup > a {
   right: 28px;
   background: none;
   border: none;
-  color: rgba(244, 239, 230, 0.45);
-  font-family: 'Space Mono', monospace;
+  color: rgba(250, 250, 249, 0.45);
+  font-family: var(--label);
   font-size: 11px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -1584,7 +1552,7 @@ h1.brand-lockup > a {
   transition: color .15s;
 }
 
-.lightbox-close:hover { color: rgba(244, 239, 230, 0.9); }
+.lightbox-close:hover { color: rgba(250, 250, 249, 0.9); }
 
 /* ============================================================
    Tablet  ≤ 820px
