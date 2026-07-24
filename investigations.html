@@ -112,7 +112,7 @@
           <div class="stat-label">The pace of construction costs</div>
         </div>
         <div class="stat-box">
-          <div class="stat-value">€6.8bn</div>
+          <div class="stat-value">€6,800M</div>
           <div class="stat-label">Golden Visa investment, 2012–23</div>
         </div>
       </div>
@@ -132,11 +132,21 @@
 
     <p class="chart-intro" data-reveal>The same growth rates, mapped: darker means prices climbed further above their 2020 starting point. Countries in grey aren't part of this comparison.</p>
     <figure class="databox databox--map" id="build-cost-map-app" data-reveal>
+      <div class="databox-toolbar">
+        <span class="databox-toolbar-label">Show:</span>
+        <button type="button" class="databox-btn is-active" data-toggle-btn="labels">Country codes</button>
+        <button type="button" class="databox-btn is-active" data-toggle-btn="nodata">Countries with no data</button>
+      </div>
       <div class="databox-legend"></div>
       <div class="databox-frame">
         <svg class="databox-svg" viewBox="0 0 640 600" role="img" aria-label="Choropleth map of Europe showing house-price growth by country, 2020-2025"></svg>
+        <div class="databox-zoom-controls">
+          <button type="button" class="databox-zoom-btn" data-zoom="in" aria-label="Zoom in">+</button>
+          <button type="button" class="databox-zoom-btn" data-zoom="out" aria-label="Zoom out">–</button>
+          <button type="button" class="databox-zoom-btn databox-zoom-btn--reset" data-zoom="reset" aria-label="Reset zoom">Reset</button>
+        </div>
       </div>
-      <figcaption class="databox-caption">House-price growth by country, 2020–2025 (2020 = 100). Hover a country for its exact growth rate. Source: Eurostat (prc_hpi_a).</figcaption>
+      <figcaption class="databox-caption">House-price growth by country, 2020–2025 (2020 = 100). Click or hover a country for its exact growth rate; drag to pan; hold Ctrl (⌘ on Mac) and scroll, or pinch, to zoom. Source: Eurostat (prc_hpi_a).</figcaption>
     </figure>
     <div class="databox-tooltip" id="build-cost-map-tooltip" aria-hidden="true"></div>
 

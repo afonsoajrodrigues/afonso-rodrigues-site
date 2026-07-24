@@ -112,7 +112,7 @@
           <div class="stat-label">O ritmo do custo de construção</div>
         </div>
         <div class="stat-box">
-          <div class="stat-value">€6,8mM</div>
+          <div class="stat-value">€6.800M</div>
           <div class="stat-label">Investimento em Vistos Gold, 2012–23</div>
         </div>
       </div>
@@ -132,11 +132,21 @@
 
     <p class="chart-intro" data-reveal>Os mesmos números, num mapa: quanto mais escuro, mais os preços subiram acima do ponto de partida de 2020. Os países a cinzento não fazem parte desta comparação.</p>
     <figure class="databox databox--map" id="build-cost-map-app" data-reveal>
+      <div class="databox-toolbar">
+        <span class="databox-toolbar-label">Mostrar:</span>
+        <button type="button" class="databox-btn is-active" data-toggle-btn="labels">Códigos dos países</button>
+        <button type="button" class="databox-btn is-active" data-toggle-btn="nodata">Países sem dados</button>
+      </div>
       <div class="databox-legend"></div>
       <div class="databox-frame">
         <svg class="databox-svg" viewBox="0 0 640 600" role="img" aria-label="Mapa coroplético da Europa com o crescimento dos preços da habitação por país, 2020-2025"></svg>
+        <div class="databox-zoom-controls">
+          <button type="button" class="databox-zoom-btn" data-zoom="in" aria-label="Ampliar">+</button>
+          <button type="button" class="databox-zoom-btn" data-zoom="out" aria-label="Reduzir">–</button>
+          <button type="button" class="databox-zoom-btn databox-zoom-btn--reset" data-zoom="reset" aria-label="Repor zoom">Repor</button>
+        </div>
       </div>
-      <figcaption class="databox-caption">Crescimento dos preços da habitação por país, 2020–2025 (2020 = 100). Passe o cursor sobre um país para ver o valor exato. Fonte: Eurostat (prc_hpi_a).</figcaption>
+      <figcaption class="databox-caption">Crescimento dos preços da habitação por país, 2020–2025 (2020 = 100). Clique ou passe o cursor sobre um país para ver o valor exato; arraste para deslocar; mantenha premido Ctrl (⌘ no Mac) e use a roda do rato, ou aproxime os dedos, para ampliar. Fonte: Eurostat (prc_hpi_a).</figcaption>
     </figure>
     <div class="databox-tooltip" id="build-cost-map-tooltip" aria-hidden="true"></div>
 
