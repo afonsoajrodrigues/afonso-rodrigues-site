@@ -847,6 +847,50 @@ h1.brand-lockup > a {
 
 .article-cta { display: inline-block; margin-top: 20px; }
 
+/* === Fontes / notas de rodapé de uma investigação === */
+.article-sources {
+  margin-top: 8px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hair);
+}
+
+.article-sources-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.article-sources ol {
+  list-style: none;
+  counter-reset: source;
+  padding: 0;
+  margin: 0;
+  max-width: 46em;
+}
+
+.article-sources li {
+  counter-increment: source;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  padding: 9px 0;
+  border-top: 1px solid var(--hair);
+}
+
+.article-sources li:first-child { border-top: none; }
+
+.article-sources li::before {
+  content: counter(source) '. ';
+  font-family: 'Space Mono', monospace;
+  color: var(--accent);
+}
+
+.article-sources a { color: var(--body); text-decoration-thickness: 1px; }
+.article-sources a:hover { color: var(--accent); }
+
 /* === Visualizações embutidas (gráficos D3 e mapa) === */
 .chart-intro {
   font-size: 17px;
@@ -955,6 +999,10 @@ h1.brand-lockup > a {
 
 .databox-frame .municipality { stroke: var(--paper); stroke-width: .5; cursor: pointer; transition: stroke .1s; }
 .databox-frame .municipality:hover { stroke: var(--ink); stroke-width: 1.4; }
+
+.databox-frame .country { stroke: var(--paper); stroke-width: .75; cursor: pointer; transition: stroke .1s; }
+.databox-frame .country:hover { stroke: var(--ink); stroke-width: 1.6; }
+.databox-frame .country.no-data { cursor: default; }
 
 .databox-tooltip {
   position: fixed;

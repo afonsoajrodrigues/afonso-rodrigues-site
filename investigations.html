@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Investigations — Data Journalism on Portugal's Housing &amp; Economy</title>
-  <meta name="description" content="Data-driven investigations by Afonso Rodrigues: Portugal's housing crisis mapped municipality by municipality, and the innovation boom reshaping its economy.">
+  <meta name="description" content="Data-driven investigations by Afonso Rodrigues: why Portugal's house prices are outrunning construction costs, its innovation boom, and the housing crisis mapped municipality by municipality.">
   <link rel="canonical" href="https://afonsoajrodrigues.com/investigations.html">
   <link rel="alternate" hreflang="en" href="https://afonsoajrodrigues.com/investigations.html">
   <link rel="alternate" hreflang="pt-PT" href="https://afonsoajrodrigues.com/pt/investigations.html">
@@ -15,11 +15,11 @@
   <meta property="og:locale:alternate" content="pt_PT">
   <meta property="og:url" content="https://afonsoajrodrigues.com/investigations.html">
   <meta property="og:title" content="Investigations — Data Journalism on Portugal's Housing &amp; Economy">
-  <meta property="og:description" content="Data-driven investigations by Afonso Rodrigues: Portugal's housing crisis mapped municipality by municipality, and the innovation boom reshaping its economy.">
+  <meta property="og:description" content="Data-driven investigations by Afonso Rodrigues: why Portugal's house prices are outrunning construction costs, its innovation boom, and the housing crisis mapped municipality by municipality.">
   <meta property="og:image" content="https://afonsoajrodrigues.com/images/Lisbon/IMG_7823.JPG">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Investigations — Data Journalism on Portugal's Housing &amp; Economy">
-  <meta name="twitter:description" content="Data-driven investigations by Afonso Rodrigues: Portugal's housing crisis mapped municipality by municipality, and the innovation boom reshaping its economy.">
+  <meta name="twitter:description" content="Data-driven investigations by Afonso Rodrigues: why Portugal's house prices are outrunning construction costs, its innovation boom, and the housing crisis mapped municipality by municipality.">
   <meta name="twitter:image" content="https://afonsoajrodrigues.com/images/Lisbon/IMG_7823.JPG">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,16 +71,96 @@
       <h3 class="section-title"><span class="section-index">Index /</span> All investigations</h3>
     </div>
     <div class="inv-toc-grid">
-      <a href="#innovation" class="inv-toc-item" data-reveal>
+      <a href="#build-cost" class="inv-toc-item" data-reveal>
+        <div class="inv-toc-tag">Investigation · Data report</div>
+        <h4 class="inv-toc-title">Portugal's house prices are rising twice as fast as the cost to <em>build</em> them</h4>
+        <span class="inv-toc-meta">July 2026 · Data report</span>
+      </a>
+      <a href="#innovation" class="inv-toc-item" data-reveal style="--reveal-delay:.09s">
         <div class="inv-toc-tag">Investigation · Data report</div>
         <h4 class="inv-toc-title">Portugal's innovation boom wasn't built to <em>last</em></h4>
         <span class="inv-toc-meta">July 2026 · Data report</span>
       </a>
-      <a href="#housing" class="inv-toc-item" data-reveal style="--reveal-delay:.09s">
+      <a href="#housing" class="inv-toc-item" data-reveal style="--reveal-delay:.18s">
         <div class="inv-toc-tag">Investigation · Data</div>
         <h4 class="inv-toc-title">Portugal's housing crisis reaches new <em>extremes</em></h4>
         <span class="inv-toc-meta">June 2026 · Interactive map</span>
       </a>
+    </div>
+  </section>
+
+  <!-- ── Investigação 3: Preço vs. custo de construção ── -->
+  <section id="build-cost" class="article-section">
+    <div class="article-body" data-reveal>
+      <div class="article-label">Investigation · Data report</div>
+      <h2 class="article-title">Portugal's house prices are rising twice as fast as the cost to <em>build</em> them</h2>
+      <div class="article-byline">
+        <span class="byline-name">By Afonso Rodrigues — reporting &amp; graphics</span>
+        <span class="article-date">July 2026</span>
+      </div>
+      <div class="article-text">
+        <p>Portugal's house-price index rose 71% between 2020 and 2025, according to Eurostat, while the country's own index of new-home construction costs rose just 33% over the same period, according to INE, the national statistics institute. Prices grew at a compound rate of 11.3% a year — roughly double the 5.9% annual pace of construction costs, this analysis found.</p>
+        <p>The two measures started at the same level in 2020. By 2025 the house-price index had reached 171 against a construction-cost index of 133 — a gap of 38 percentage points that widened every year of the five-year period. Among eight European countries with complete Eurostat data through 2025, Portugal's 71% increase is the largest, ahead of the Netherlands (49%) and Spain (42%); Germany and France, Europe's two biggest economies, rose just 10% and 9%.</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="stat-value">71%</div>
+          <div class="stat-label">House-price growth, 2020–25</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">2×</div>
+          <div class="stat-label">The pace of construction costs</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value">€6.8bn</div>
+          <div class="stat-label">Golden Visa investment, 2012–23</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="chart-intro" data-reveal>A construction-cost index measures materials and labour — concrete, steel, wages on a site. It says nothing about land, profit margins or financing, so when prices pull away from it, the gap has to be explained by something else.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-price-vs-cost" class="databox-frame"></div>
+      <figcaption>Portugal's house-price index vs. construction-cost index, 2020–2025 (2020 = 100). Source: Eurostat (prc_hpi_a) and INE.</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>Portugal's gap isn't a European default — it's the widest of eight economies tracked here, and the pattern splits cleanly between countries that lean on mortgages and those, like Portugal, where a meaningful share of buyers pay in cash.</p>
+    <figure class="chart-figure" data-reveal>
+      <div id="chart-growth" class="databox-frame"></div>
+      <figcaption>Growth in the house-price index, 2020–2025, eight European countries. Source: Eurostat (prc_hpi_a).</figcaption>
+    </figure>
+
+    <p class="chart-intro" data-reveal>The same growth rates, mapped: darker means prices climbed further above their 2020 starting point. Countries in grey aren't part of this comparison.</p>
+    <figure class="databox databox--map" id="build-cost-map-app" data-reveal>
+      <div class="databox-legend"></div>
+      <div class="databox-frame">
+        <svg class="databox-svg" viewBox="0 0 640 600" role="img" aria-label="Choropleth map of Europe showing house-price growth by country, 2020-2025"></svg>
+      </div>
+      <figcaption class="databox-caption">House-price growth by country, 2020–2025 (2020 = 100). Hover a country for its exact growth rate. Source: Eurostat (prc_hpi_a).</figcaption>
+    </figure>
+    <div class="databox-tooltip" id="build-cost-map-tooltip" aria-hidden="true"></div>
+
+    <div class="article-text" data-reveal>
+      <p>Two tax and residency programmes made Portugal unusually attractive to foreign buyers for over a decade. The Golden Visa, in place since 2012, granted residency in exchange for investment — real estate was for years its most popular route — while the Non-Habitual Resident regime offered qualifying foreign residents a flat 20% tax rate. Bloomberg reported the Golden Visa alone had drawn €6.8 billion into Portugal by 2023, most of it into property; a 2021 study in <em>Regional Science and Urban Economics</em> found a one-percentage-point rise in a municipality's Airbnb listings was linked to a 3.7% rise in house prices nationally.</p>
+      <p>Facing a housing crisis in which Lisbon rents had jumped 37% in a single year, the government passed the "Mais Habitação" package in 2023, ending new Golden Visa real-estate applications and new short-term rental licences outside rural areas; the NHR regime closed to new applicants in 2024. Demand proved resilient anyway: Bloomberg reported Portuguese prices kept climbing through the European Central Bank's 2022–23 rate increases, in part because many foreign buyers paid in cash and were largely insulated from mortgage costs.</p>
+      <p>Supply hasn't caught up either. Foreign workers make up roughly 30% of Portugal's construction workforce, Reuters reported in July 2026, and net immigration roughly halved in 2025 after the government tightened its rules — squeezing exactly the labour supply needed to build more housing even as officials tried to fix the shortage. Zoning and permitting delays in Lisbon and Porto add a further constraint that has nothing to do with the price of materials.</p>
+      <p>This analysis compares two indices, not two prices in euros — it measures how fast each grew from a common 2020 baseline. Portugal is the only country here with a construction-cost series running to 2025, so it isn't possible to say from this data alone whether Spain's or the Netherlands' price growth outpaced their own building costs by a similar margin.</p>
+    </div>
+
+    <div class="article-sources" data-reveal>
+      <div class="article-sources-label">Sources</div>
+      <ol>
+        <li>Eurostat, House price index (prc_hpi_a) — <a href="https://ec.europa.eu/eurostat/databrowser/view/prc_hpi_a" target="_blank" rel="noopener">ec.europa.eu/eurostat</a></li>
+        <li>INE, Índice de custo da construção de habitação nova — <a href="https://www.ine.pt" target="_blank" rel="noopener">ine.pt</a></li>
+        <li>Bloomberg, "Rising House Prices Push Portugal to End Golden Visa Program," Feb. 2023 — <a href="https://www.bloomberg.com/news/articles/2023-02-17/runaway-property-costs-push-portugal-to-end-golden-era-of-visas" target="_blank" rel="noopener">bloomberg.com</a></li>
+        <li>Reuters, "Portugal ends golden visas, curtails Airbnb rentals to address housing crisis," Feb. 2023 — <a href="https://www.investing.com/news/economy/portugal-ends-golden-visas-curtails-airbnb-rentals-to-address-housing-crisis-3029308" target="_blank" rel="noopener">investing.com</a></li>
+        <li>Franco, Santos &amp; Longo, "The impact of Airbnb on residential property values and rents: Evidence from Portugal," <em>Regional Science and Urban Economics</em>, vol. 88, 2021 — <a href="https://ideas.repec.org/a/eee/regeco/v88y2021ics0166046221000272.html" target="_blank" rel="noopener">ideas.repec.org</a></li>
+        <li>Bloomberg, "Portugal House Prices Defy Interest Rate Hikes on Strong Foreign Demand," Sept. 2023 — <a href="https://www.bloomberg.com/news/articles/2023-09-06/portugal-home-prices-defy-rate-hikes-on-strong-foreign-demand" target="_blank" rel="noopener">bloomberg.com</a></li>
+        <li>Reuters, "Portugal's migrant curbs hit construction firms working to solve housing crisis," Jul. 2026 — <a href="https://www.investing.com/news/economy-news/analysisportugals-migrant-curbs-hit-construction-firms-working-to-solve-housing-crisis-4800030" target="_blank" rel="noopener">investing.com</a></li>
+        <li>Knoll, Schularick &amp; Steger, "No Price Like Home: Global House Prices, 1870–2012," <em>American Economic Review</em>, 107(2), 2017 — <a href="https://www.aeaweb.org/articles?id=10.1257%2Faer.20150501" target="_blank" rel="noopener">aeaweb.org</a></li>
+        <li>European Central Bank, "Developments in the recent euro area house price cycle," <em>Economic Bulletin</em> 2/2025 — <a href="https://www.ecb.europa.eu/press/economic-bulletin/articles/2025/html/ecb.ebart202502_01~2f59dafb26.en.html" target="_blank" rel="noopener">ecb.europa.eu</a></li>
+        <li>Full report, data and code — <a href="https://github.com/afonsoajrodrigues/portugal-habitacao-vs-construcao" target="_blank" rel="noopener">github.com/afonsoajrodrigues/portugal-habitacao-vs-construcao</a></li>
+      </ol>
     </div>
   </section>
 
@@ -217,6 +297,7 @@
       <div>
         <div class="footer-nav-label">Investigations</div>
         <div class="footer-links">
+          <a href="#build-cost">Prices vs. Construction Costs</a>
           <a href="#innovation">Portugal's Innovation Boom</a>
           <a href="#housing">The Price of a Home</a>
         </div>
@@ -243,6 +324,9 @@
 <script src="/js/innovation-data-en.js"></script>
 <script src="/js/innovation-charts.js"></script>
 <script src="/js/rent-map.js"></script>
+<script src="/js/housing-cost-data-en.js"></script>
+<script src="/js/housing-cost-charts.js"></script>
+<script src="/js/housing-cost-map.js"></script>
 <script src="/motion.js"></script>
 <script>
   initInnovationCharts(window.innovationData);
@@ -260,6 +344,15 @@
       estimatedFrom: zone => `estimated from ${zone} (sub-region)`,
       districtOf: d => `District of ${d}`
     }
+  });
+  initHousingCostCharts(window.housingCostData);
+  initHousingCostMap('build-cost-map-app', {
+    tooltipId: 'build-cost-map-tooltip',
+    dataUrls: {
+      geojson: '/data/europe_borders.geojson',
+      csv: '/data/europe_house_price_growth.csv'
+    },
+    strings: window.housingCostData.mapStrings
   });
 </script>
 </body>
