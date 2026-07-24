@@ -7,8 +7,8 @@ function initHousingCostCharts(data) {
 
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
-  const accent = cssVar('--accent', '#1F4E8C');
-  const rust = cssVar('--rust', '#B5551F');
+  const data1 = cssVar('--data-1', '#25588F');
+  const data3 = cssVar('--data-3', '#C1861F');
 
   function drawPriceVsCostChart() {
     const { years, housePriceIndex, constructionCostIndex, seriesNames } = data.priceVsCost;
@@ -31,8 +31,8 @@ function initHousingCostCharts(data) {
     g.append('g').attr('class', 'axis').call(d3.axisLeft(y).ticks(5));
 
     const series = [
-      { name: seriesNames.price, values: housePriceIndex, color: rust },
-      { name: seriesNames.cost, values: constructionCostIndex, color: accent }
+      { name: seriesNames.price, values: housePriceIndex, color: data3 },
+      { name: seriesNames.cost, values: constructionCostIndex, color: data1 }
     ];
     const line = d3.line().x((d, i) => x(years[i])).y(d => y(d));
 

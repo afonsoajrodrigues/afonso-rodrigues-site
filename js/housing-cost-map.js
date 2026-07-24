@@ -13,11 +13,12 @@ function initHousingCostMap(rootId, config) {
 
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
-  const amber = cssVar('--amber', '#D98A3D');
-  const rust = cssVar('--rust', '#B5551F');
-  const hair = cssVar('--hair', '#D9D2BE');
+  const mist = cssVar('--mist', '#DDE5EE');
+  const accent = cssVar('--accent', '#2E5A8C');
+  const ink = cssVar('--ink', '#10243E');
+  const hair = cssVar('--hair', '#D7DEE6');
 
-  const colorRange = d3.quantize(d3.interpolateRgbBasis(['#EAD9C4', amber, rust, '#5C2A11']), 5);
+  const colorRange = d3.quantize(d3.interpolateRgbBasis([mist, accent, ink, '#081527']), 5);
   const width = 640, height = 600;
 
   const zoomLayer = svg.append('g').attr('class', 'zoom-layer');

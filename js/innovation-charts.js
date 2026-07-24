@@ -6,13 +6,13 @@ function initInnovationCharts(data) {
 
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
-  const accent = cssVar('--accent', '#1F4E8C');
-  const rust = cssVar('--rust', '#B5551F');
-  const amber = cssVar('--amber', '#D98A3D');
-  const ink = cssVar('--ink', '#12172A');
-  const muted = cssVar('--muted', '#6B6A5E');
-  const hair = cssVar('--hair', '#D3D9D5');
-  const paper = cssVar('--paper', '#EDF1EF');
+  const data1 = cssVar('--data-1', '#25588F');
+  const data2 = cssVar('--data-2', '#0F8C73');
+  const data3 = cssVar('--data-3', '#C1861F');
+  const ink = cssVar('--ink', '#10243E');
+  const muted = cssVar('--muted', '#63708A');
+  const hair = cssVar('--hair', '#D7DEE6');
+  const paper = cssVar('--paper', '#FAFAF9');
 
   function drawTrendChart() {
     const { trend } = data;
@@ -38,7 +38,7 @@ function initInnovationCharts(data) {
     g.append('g').attr('class', 'axis').attr('transform', `translate(0,${innerHeight})`).call(d3.axisBottom(x));
     g.append('g').attr('class', 'axis').call(d3.axisLeft(y).ticks(5).tickFormat(d => d + '%'));
 
-    const lineColors = [accent, rust, amber];
+    const lineColors = [data1, data2, data3];
     const line = d3.line().x((d, i) => x(trend.periods[i])).y(d => y(d));
 
     trend.series.forEach((series, i) => {
