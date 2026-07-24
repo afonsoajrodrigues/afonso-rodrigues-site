@@ -1004,6 +1004,57 @@ h1.brand-lockup > a {
 .databox-frame .country:hover { stroke: var(--ink); stroke-width: 1.6; }
 .databox-frame .country.no-data { cursor: default; }
 
+.databox-frame .country-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  fill: var(--ink);
+  text-anchor: middle;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+/* Mapa com zoom/pan (arraste + roda do rato via d3.zoom) — o cursor comunica
+   que o mapa é navegável antes mesmo de o utilizador experimentar. */
+.databox--map .databox-frame { position: relative; }
+.databox--map .databox-svg { cursor: grab; }
+.databox--map .databox-svg:active { cursor: grabbing; }
+
+.databox-zoom-controls {
+  position: absolute;
+  right: 30px;
+  bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.databox-zoom-btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.databox-zoom-btn:hover { background: var(--ivory); }
+
+.databox-zoom-btn--reset {
+  width: auto;
+  padding: 0 8px;
+  font-size: 9px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
 .databox-tooltip {
   position: fixed;
   pointer-events: none;
