@@ -735,6 +735,14 @@ h1.brand-lockup > a {
   border-bottom: 1px solid var(--hair);
 }
 
+.crumb-back {
+  color: inherit;
+  text-decoration: none;
+  transition: color .15s;
+}
+
+.crumb-back:hover { color: var(--ink); }
+
 .page-header-label {
   font-family: var(--label);
   font-size: 10px;
