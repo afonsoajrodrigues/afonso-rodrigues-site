@@ -71,211 +71,22 @@
       <h3 class="section-title"><span class="section-index">Index /</span> All investigations</h3>
     </div>
     <div class="inv-toc-grid">
-      <a href="#build-cost" class="inv-toc-item" data-reveal>
+      <a href="/investigations/house-prices-vs-construction-costs.html" class="inv-toc-item" data-reveal>
         <div class="inv-toc-tag">Investigation · Data report</div>
         <h4 class="inv-toc-title">Portugal's house prices are rising twice as fast as the cost to <em>build</em> them</h4>
         <span class="inv-toc-meta">July 2026 · Data report</span>
       </a>
-      <a href="#innovation" class="inv-toc-item" data-reveal style="--reveal-delay:.09s">
+      <a href="/investigations/innovation-boom.html" class="inv-toc-item" data-reveal style="--reveal-delay:.09s">
         <div class="inv-toc-tag">Investigation · Data report</div>
         <h4 class="inv-toc-title">Portugal's innovation boom wasn't built to <em>last</em></h4>
         <span class="inv-toc-meta">July 2026 · Data report</span>
       </a>
-      <a href="#housing" class="inv-toc-item" data-reveal style="--reveal-delay:.18s">
+      <a href="/investigations/housing-crisis.html" class="inv-toc-item" data-reveal style="--reveal-delay:.18s">
         <div class="inv-toc-tag">Investigation · Data</div>
         <h4 class="inv-toc-title">Portugal's housing crisis reaches new <em>extremes</em></h4>
         <span class="inv-toc-meta">June 2026 · Interactive map</span>
       </a>
     </div>
-  </section>
-
-  <!-- ── Investigação 3: Preço vs. custo de construção ── -->
-  <section id="build-cost" class="article-section">
-    <div class="article-body" data-reveal>
-      <div class="article-label">Investigation · Data report</div>
-      <h2 class="article-title">Portugal's house prices are rising twice as fast as the cost to <em>build</em> them</h2>
-      <div class="article-byline">
-        <span class="byline-name">By Afonso Rodrigues — reporting &amp; graphics</span>
-        <span class="article-date">July 2026</span>
-      </div>
-      <div class="article-text">
-        <p>Portugal's house-price index rose 71% between 2020 and 2025, according to Eurostat, while the country's own index of new-home construction costs rose just 33% over the same period, according to INE, the national statistics institute. Prices grew at a compound rate of 11.3% a year — roughly double the 5.9% annual pace of construction costs, this analysis found.</p>
-        <p>The two measures started at the same level in 2020. By 2025 the house-price index had reached 171 against a construction-cost index of 133 — a gap of 38 percentage points that widened every year of the five-year period. Among eight European countries with complete Eurostat data through 2025, Portugal's 71% increase is the largest, ahead of the Netherlands (49%) and Spain (42%); Germany and France, Europe's two biggest economies, rose just 10% and 9%.</p>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-box">
-          <div class="stat-value">71%</div>
-          <div class="stat-label">House-price growth, 2020–25</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">2×</div>
-          <div class="stat-label">The pace of construction costs</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">€6,800M</div>
-          <div class="stat-label">Golden Visa investment, 2012–23</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="chart-intro" data-reveal>A construction-cost index measures materials and labour — concrete, steel, wages on a site. It says nothing about land, profit margins or financing, so when prices pull away from it, the gap has to be explained by something else.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-price-vs-cost" class="databox-frame"></div>
-      <figcaption>Portugal's house-price index vs. construction-cost index, 2020–2025 (2020 = 100). Source: Eurostat (prc_hpi_a) and INE.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>Portugal's gap isn't a European default — it's the widest of eight economies tracked here, and the pattern splits cleanly between countries that lean on mortgages and those, like Portugal, where a meaningful share of buyers pay in cash.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-growth" class="databox-frame"></div>
-      <figcaption>Growth in the house-price index, 2020–2025, eight European countries. Source: Eurostat (prc_hpi_a).</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>The same growth rates, mapped: darker means prices climbed further above their 2020 starting point. Countries in grey aren't part of this comparison.</p>
-    <figure class="databox databox--map" id="build-cost-map-app" data-reveal>
-      <div class="databox-toolbar">
-        <span class="databox-toolbar-label">Show:</span>
-        <button type="button" class="databox-btn is-active" data-toggle-btn="labels">Country codes</button>
-        <button type="button" class="databox-btn is-active" data-toggle-btn="nodata">Countries with no data</button>
-      </div>
-      <div class="databox-legend"></div>
-      <div class="databox-frame">
-        <svg class="databox-svg" viewBox="0 0 640 600" role="img" aria-label="Choropleth map of Europe showing house-price growth by country, 2020-2025"></svg>
-        <div class="databox-zoom-controls">
-          <button type="button" class="databox-zoom-btn" data-zoom="in" aria-label="Zoom in">+</button>
-          <button type="button" class="databox-zoom-btn" data-zoom="out" aria-label="Zoom out">–</button>
-          <button type="button" class="databox-zoom-btn databox-zoom-btn--reset" data-zoom="reset" aria-label="Reset zoom">Reset</button>
-        </div>
-      </div>
-      <figcaption class="databox-caption">House-price growth by country, 2020–2025 (2020 = 100). Click or hover a country for its exact growth rate; drag to pan; hold Ctrl (⌘ on Mac) and scroll, or pinch, to zoom. Source: Eurostat (prc_hpi_a).</figcaption>
-    </figure>
-    <div class="databox-tooltip" id="build-cost-map-tooltip" aria-hidden="true"></div>
-
-    <div class="article-text" data-reveal>
-      <p>Two tax and residency programmes made Portugal unusually attractive to foreign buyers for over a decade. The Golden Visa, in place since 2012, granted residency in exchange for investment — real estate was for years its most popular route — while the Non-Habitual Resident regime offered qualifying foreign residents a flat 20% tax rate. Bloomberg reported the Golden Visa alone had drawn €6.8 billion into Portugal by 2023, most of it into property; a 2021 study in <em>Regional Science and Urban Economics</em> found a one-percentage-point rise in a municipality's Airbnb listings was linked to a 3.7% rise in house prices nationally.</p>
-      <p>Facing a housing crisis in which Lisbon rents had jumped 37% in a single year, the government passed the "Mais Habitação" package in 2023, ending new Golden Visa real-estate applications and new short-term rental licences outside rural areas; the NHR regime closed to new applicants in 2024. Demand proved resilient anyway: Bloomberg reported Portuguese prices kept climbing through the European Central Bank's 2022–23 rate increases, in part because many foreign buyers paid in cash and were largely insulated from mortgage costs.</p>
-      <p>Supply hasn't caught up either. Foreign workers make up roughly 30% of Portugal's construction workforce, Reuters reported in July 2026, and net immigration roughly halved in 2025 after the government tightened its rules — squeezing exactly the labour supply needed to build more housing even as officials tried to fix the shortage. Zoning and permitting delays in Lisbon and Porto add a further constraint that has nothing to do with the price of materials.</p>
-      <p>This analysis compares two indices, not two prices in euros — it measures how fast each grew from a common 2020 baseline. Portugal is the only country here with a construction-cost series running to 2025, so it isn't possible to say from this data alone whether Spain's or the Netherlands' price growth outpaced their own building costs by a similar margin.</p>
-    </div>
-
-    <div class="article-sources" data-reveal>
-      <div class="article-sources-label">Sources</div>
-      <ol>
-        <li>Eurostat, House price index (prc_hpi_a) — <a href="https://ec.europa.eu/eurostat/databrowser/view/prc_hpi_a" target="_blank" rel="noopener">ec.europa.eu/eurostat</a></li>
-        <li>INE, Índice de custo da construção de habitação nova — <a href="https://www.ine.pt" target="_blank" rel="noopener">ine.pt</a></li>
-        <li>Bloomberg, "Rising House Prices Push Portugal to End Golden Visa Program," Feb. 2023 — <a href="https://www.bloomberg.com/news/articles/2023-02-17/runaway-property-costs-push-portugal-to-end-golden-era-of-visas" target="_blank" rel="noopener">bloomberg.com</a></li>
-        <li>Reuters, "Portugal ends golden visas, curtails Airbnb rentals to address housing crisis," Feb. 2023 — <a href="https://www.investing.com/news/economy/portugal-ends-golden-visas-curtails-airbnb-rentals-to-address-housing-crisis-3029308" target="_blank" rel="noopener">investing.com</a></li>
-        <li>Franco, Santos &amp; Longo, "The impact of Airbnb on residential property values and rents: Evidence from Portugal," <em>Regional Science and Urban Economics</em>, vol. 88, 2021 — <a href="https://ideas.repec.org/a/eee/regeco/v88y2021ics0166046221000272.html" target="_blank" rel="noopener">ideas.repec.org</a></li>
-        <li>Bloomberg, "Portugal House Prices Defy Interest Rate Hikes on Strong Foreign Demand," Sept. 2023 — <a href="https://www.bloomberg.com/news/articles/2023-09-06/portugal-home-prices-defy-rate-hikes-on-strong-foreign-demand" target="_blank" rel="noopener">bloomberg.com</a></li>
-        <li>Reuters, "Portugal's migrant curbs hit construction firms working to solve housing crisis," Jul. 2026 — <a href="https://www.investing.com/news/economy-news/analysisportugals-migrant-curbs-hit-construction-firms-working-to-solve-housing-crisis-4800030" target="_blank" rel="noopener">investing.com</a></li>
-        <li>Knoll, Schularick &amp; Steger, "No Price Like Home: Global House Prices, 1870–2012," <em>American Economic Review</em>, 107(2), 2017 — <a href="https://www.aeaweb.org/articles?id=10.1257%2Faer.20150501" target="_blank" rel="noopener">aeaweb.org</a></li>
-        <li>European Central Bank, "Developments in the recent euro area house price cycle," <em>Economic Bulletin</em> 2/2025 — <a href="https://www.ecb.europa.eu/press/economic-bulletin/articles/2025/html/ecb.ebart202502_01~2f59dafb26.en.html" target="_blank" rel="noopener">ecb.europa.eu</a></li>
-        <li>Full report, data and code — <a href="https://github.com/afonsoajrodrigues/portugal-habitacao-vs-construcao" target="_blank" rel="noopener">github.com/afonsoajrodrigues/portugal-habitacao-vs-construcao</a></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ── Investigação 2: Inovação ── -->
-  <section id="innovation" class="article-section">
-    <div class="article-body" data-reveal>
-      <div class="article-label">Investigation · Data report</div>
-      <h2 class="article-title">Portugal's innovation boom wasn't built to <em>last</em></h2>
-      <div class="article-byline">
-        <span class="byline-name">By Afonso Rodrigues — reporting &amp; graphics</span>
-        <span class="article-date">July 2026</span>
-      </div>
-      <div class="article-text">
-        <p>Between 2022 and 2024, 42.5% of Portuguese companies with 10 or more employees said they had done something innovative — a new product, a new process, an in-house R&amp;D project, even an idea tried and abandoned. Taken alone, that sounds like a healthy, innovative economy. Look closer, and the number tells a different story: a pandemic-era spike that is still working its way back to earth.</p>
-        <p>Innovation surged as companies scrambled to survive lockdowns and disrupted supply chains, then began sliding back. Large companies — 250 employees or more — innovate at nearly double the national rate, and two industries, information &amp; communication and financial &amp; insurance services, pull the average up. Total spending reached €4,865 million in 2024, up from €3,382 million in 2022, even as the share of companies willing to take part keeps shrinking.</p>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-box">
-          <div class="stat-value">42.5%</div>
-          <div class="stat-label">Companies innovating, 2022–24</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">€4,865M</div>
-          <div class="stat-label">Innovation spending, 2024</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">25.4%</div>
-          <div class="stat-label">Innovations with green benefit</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="chart-intro" data-reveal>Innovation didn't rise in a straight line. It surged during the pandemic years, driven almost entirely by process innovation — companies scrambling to change how they operated — then began giving that gain back.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-trend" class="databox-frame"></div>
-      <figcaption>Share of companies with 10+ employees reporting innovation activity, by type and survey period. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>The 42.5% headline hides how unevenly innovation is spread: large companies innovate at nearly double the national rate, and two digital- and finance-heavy industries pull the average up.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-segments" class="databox-frame"></div>
-      <figcaption>Share of companies reporting innovation activity, by group, 2022–2024. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>Compared with the previous survey round, innovation activity fell in nearly every sector of the Portuguese economy. Industry was the lone exception — the only sector to post an increase.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-change" class="databox-frame"></div>
-      <figcaption>Percentage-point change in the share of innovating companies, 2020–22 to 2022–24. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>Here's the paradox: even as fewer companies innovate, the country as a whole is spending more on it — and that money is concentrated in two regions.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-spending" class="databox-frame"></div>
-      <figcaption>Innovation spending by region, 2024, € millions. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>When Portuguese companies do protect what they've built, they overwhelmingly reach for a trademark rather than a patent — the fastest and cheapest tool available.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-ip" class="databox-frame"></div>
-      <figcaption>Share of companies using each intellectual property instrument, 2022–2024. Source: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── Investigação 1: Habitação ── -->
-  <section id="housing" class="article-section">
-    <div class="article-body" data-reveal>
-      <div class="article-label">Investigation · Interactive map</div>
-      <h2 class="article-title">Portugal's housing crisis reaches new <em>extremes</em></h2>
-      <div class="article-byline">
-        <span class="byline-name">By Afonso Rodrigues — reporting &amp; graphics</span>
-        <span class="article-date">June 2026</span>
-      </div>
-      <div class="article-text">
-        <p>The median rent for a one-bedroom flat in Lisbon now stands at around €784 a month — swallowing 85% of a minimum-wage pay check. Portugal's housing market has undergone a generational transformation. Between 2016 and 2026, the median rent per square metre rose by 74% nationally — outpacing wage growth by a factor of four.</p>
-        <p>The data, drawn from INE's quarterly rent index, shows a clear divide between inland and coastal Portugal. Municipalities in the Alentejo interior remain relatively affordable — the district median sits at €4.20/m² — while Greater Lisbon has crossed the €14/m² threshold for the first time. The gap has widened every year since 2019.</p>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-box">
-          <div class="stat-value">€9.46</div>
-          <div class="stat-label">National median /m²</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">+9.1%</div>
-          <div class="stat-label">Year over year</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">€17.42</div>
-          <div class="stat-label">Lisbon, highest</div>
-        </div>
-      </div>
-    </div>
-
-    <figure class="databox databox--map" id="rent-map-app" data-reveal>
-      <div class="databox-toolbar">
-        <span class="databox-toolbar-label">Show:</span>
-        <button type="button" class="databox-btn is-active" data-metric-btn="price_m2">Price per m²</button>
-        <button type="button" class="databox-btn" data-metric-btn="rent_t1_45m2">Rent for a 1-bedroom (45 m²)</button>
-      </div>
-      <div class="databox-legend"></div>
-      <div class="databox-frame">
-        <svg class="databox-svg" viewBox="0 0 640 760" role="img" aria-label="Choropleth map of Portugal showing median rent by municipality"></svg>
-      </div>
-      <figcaption class="databox-caption">Median rent by municipality, first quarter of 2026. Use the buttons to switch between price per m² and the rent for a one-bedroom flat; hover a municipality to see its value. Municipalities without their own figure use the price of their sub-region (NUTS III); a one-bedroom flat is assumed to be 45 m². Source: INE.</figcaption>
-    </figure>
-    <div class="databox-tooltip" id="rent-map-tooltip" aria-hidden="true"></div>
   </section>
   </main>
   <footer class="site-footer">
@@ -307,9 +118,9 @@
       <div>
         <div class="footer-nav-label">Investigations</div>
         <div class="footer-links">
-          <a href="#build-cost">Prices vs. Construction Costs</a>
-          <a href="#innovation">Portugal's Innovation Boom</a>
-          <a href="#housing">The Price of a Home</a>
+          <a href="/investigations/house-prices-vs-construction-costs.html">Prices vs. Construction Costs</a>
+          <a href="/investigations/innovation-boom.html">Portugal's Innovation Boom</a>
+          <a href="/investigations/housing-crisis.html">The Price of a Home</a>
         </div>
       </div>
       <div>
@@ -330,40 +141,6 @@
   </footer>
 
 </div>
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-<script src="/js/innovation-data-en.js"></script>
-<script src="/js/innovation-charts.js"></script>
-<script src="/js/rent-map.js"></script>
-<script src="/js/housing-cost-data-en.js"></script>
-<script src="/js/housing-cost-charts.js"></script>
-<script src="/js/housing-cost-map.js"></script>
 <script src="/motion.js"></script>
-<script>
-  initInnovationCharts(window.innovationData);
-  initRentMap('rent-map-app', {
-    tooltipId: 'rent-map-tooltip',
-    dataUrls: {
-      geojson: '/data/portugal_municipalities.geojson',
-      csv: '/data/portugal_rents.csv'
-    },
-    strings: {
-      unit: { price_m2: ' €/m²', rent_t1_45m2: ' €' },
-      perSqm: ' / m²',
-      perMonth: ' / month',
-      ownFigure: 'municipality figure',
-      estimatedFrom: zone => `estimated from ${zone} (sub-region)`,
-      districtOf: d => `District of ${d}`
-    }
-  });
-  initHousingCostCharts(window.housingCostData);
-  initHousingCostMap('build-cost-map-app', {
-    tooltipId: 'build-cost-map-tooltip',
-    dataUrls: {
-      geojson: '/data/europe_borders.geojson',
-      csv: '/data/europe_house_price_growth.csv'
-    },
-    strings: window.housingCostData.mapStrings
-  });
-</script>
 </body>
 </html>

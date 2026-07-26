@@ -71,211 +71,22 @@
       <h3 class="section-title"><span class="section-index">Index /</span> Todas as investigações</h3>
     </div>
     <div class="inv-toc-grid">
-      <a href="#build-cost" class="inv-toc-item" data-reveal>
+      <a href="/pt/investigations/house-prices-vs-construction-costs.html" class="inv-toc-item" data-reveal>
         <div class="inv-toc-tag">Investigação · Relatório de dados</div>
         <h4 class="inv-toc-title">Os preços da habitação em Portugal sobem ao dobro do ritmo do custo de <em>construir</em></h4>
         <span class="inv-toc-meta">julho 2026 · Relatório de dados</span>
       </a>
-      <a href="#innovation" class="inv-toc-item" data-reveal style="--reveal-delay:.09s">
+      <a href="/pt/investigations/innovation-boom.html" class="inv-toc-item" data-reveal style="--reveal-delay:.09s">
         <div class="inv-toc-tag">Investigação · Relatório de dados</div>
         <h4 class="inv-toc-title">O boom da inovação em Portugal não foi feito para <em>durar</em></h4>
         <span class="inv-toc-meta">julho 2026 · Relatório de dados</span>
       </a>
-      <a href="#housing" class="inv-toc-item" data-reveal style="--reveal-delay:.18s">
+      <a href="/pt/investigations/housing-crisis.html" class="inv-toc-item" data-reveal style="--reveal-delay:.18s">
         <div class="inv-toc-tag">Investigação · Dados</div>
         <h4 class="inv-toc-title">A crise habitacional em Portugal atinge novos <em>extremos</em></h4>
         <span class="inv-toc-meta">junho 2026 · Mapa interativo</span>
       </a>
     </div>
-  </section>
-
-  <!-- ── Investigação 3: Preço vs. custo de construção ── -->
-  <section id="build-cost" class="article-section">
-    <div class="article-body" data-reveal>
-      <div class="article-label">Investigação · Relatório de dados</div>
-      <h2 class="article-title">Os preços da habitação em Portugal sobem ao dobro do ritmo do custo de <em>construir</em></h2>
-      <div class="article-byline">
-        <span class="byline-name">Por Afonso Rodrigues — reportagem &amp; gráficos</span>
-        <span class="article-date">julho 2026</span>
-      </div>
-      <div class="article-text">
-        <p>O índice de preços da habitação em Portugal subiu 71% entre 2020 e 2025, segundo o Eurostat, enquanto o índice nacional de custo da construção de habitação nova subiu apenas 33% no mesmo período, segundo o INE. Os preços cresceram a um ritmo composto de 11,3% ao ano — praticamente o dobro do ritmo de 5,9% do custo da construção, revela esta análise.</p>
-        <p>As duas medidas partiram do mesmo nível em 2020. Em 2025, o índice de preços da habitação já ia nos 171 pontos, contra 133 no índice do custo de construção — um fosso de 38 pontos percentuais que se alargou todos os anos do período. Entre oito países europeus com dados completos do Eurostat até 2025, o aumento de 71% em Portugal é o maior, à frente dos Países Baixos (49%) e de Espanha (42%); a Alemanha e a França, as duas maiores economias europeias, subiram apenas 10% e 9%.</p>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-box">
-          <div class="stat-value">71%</div>
-          <div class="stat-label">Crescimento dos preços, 2020–25</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">2×</div>
-          <div class="stat-label">O ritmo do custo de construção</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">€6.800M</div>
-          <div class="stat-label">Investimento em Vistos Gold, 2012–23</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="chart-intro" data-reveal>Um índice de custo de construção mede materiais e mão de obra — betão, aço, salários numa obra. Não diz nada sobre o preço do terreno, margens de lucro ou financiamento, por isso quando os preços se afastam dele, o fosso tem de ser explicado por outra coisa.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-price-vs-cost" class="databox-frame"></div>
-      <figcaption>Índice de preços da habitação vs. índice de custo de construção em Portugal, 2020–2025 (2020 = 100). Fonte: Eurostat (prc_hpi_a) e INE.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>O fosso português não é o padrão europeu — é o maior dos oito países analisados, e o padrão divide-se claramente entre países que dependem de crédito à habitação e outros, como Portugal, onde uma parte significativa dos compradores paga a pronto.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-growth" class="databox-frame"></div>
-      <figcaption>Crescimento do índice de preços da habitação, 2020–2025, oito países europeus. Fonte: Eurostat (prc_hpi_a).</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>Os mesmos números, num mapa: quanto mais escuro, mais os preços subiram acima do ponto de partida de 2020. Os países a cinzento não fazem parte desta comparação.</p>
-    <figure class="databox databox--map" id="build-cost-map-app" data-reveal>
-      <div class="databox-toolbar">
-        <span class="databox-toolbar-label">Mostrar:</span>
-        <button type="button" class="databox-btn is-active" data-toggle-btn="labels">Códigos dos países</button>
-        <button type="button" class="databox-btn is-active" data-toggle-btn="nodata">Países sem dados</button>
-      </div>
-      <div class="databox-legend"></div>
-      <div class="databox-frame">
-        <svg class="databox-svg" viewBox="0 0 640 600" role="img" aria-label="Mapa coroplético da Europa com o crescimento dos preços da habitação por país, 2020-2025"></svg>
-        <div class="databox-zoom-controls">
-          <button type="button" class="databox-zoom-btn" data-zoom="in" aria-label="Ampliar">+</button>
-          <button type="button" class="databox-zoom-btn" data-zoom="out" aria-label="Reduzir">–</button>
-          <button type="button" class="databox-zoom-btn databox-zoom-btn--reset" data-zoom="reset" aria-label="Repor zoom">Repor</button>
-        </div>
-      </div>
-      <figcaption class="databox-caption">Crescimento dos preços da habitação por país, 2020–2025 (2020 = 100). Clique ou passe o cursor sobre um país para ver o valor exato; arraste para deslocar; mantenha premido Ctrl (⌘ no Mac) e use a roda do rato, ou aproxime os dedos, para ampliar. Fonte: Eurostat (prc_hpi_a).</figcaption>
-    </figure>
-    <div class="databox-tooltip" id="build-cost-map-tooltip" aria-hidden="true"></div>
-
-    <div class="article-text" data-reveal>
-      <p>Dois regimes fiscais e de residência tornaram Portugal invulgarmente atrativo para compradores estrangeiros durante mais de uma década. O Visto Gold, em vigor desde 2012, concedia residência em troca de investimento — o imobiliário foi durante anos a via mais popular — enquanto o regime de Residente Não Habitual oferecia a estrangeiros elegíveis uma taxa fixa de 20%. A Bloomberg noticiou que só o Visto Gold atraiu €6,8 mil milhões para Portugal até 2023, a maior parte para imobiliário; um estudo de 2021 na revista <em>Regional Science and Urban Economics</em> encontrou uma subida de 3,7% nos preços da habitação a nível nacional associada a cada ponto percentual de aumento da quota de alojamento local (Airbnb) num município.</p>
-      <p>Face a uma crise habitacional em que as rendas em Lisboa tinham subido 37% num único ano, o governo aprovou o pacote "Mais Habitação" em 2023, encerrando novos pedidos de Visto Gold por via imobiliária e novas licenças de alojamento local fora das zonas rurais; o regime do RNH fechou a novos requerentes em 2024. Ainda assim, a procura mostrou-se resiliente: a Bloomberg noticiou que os preços portugueses continuaram a subir durante o ciclo de subidas de juros do Banco Central Europeu em 2022–23, em parte porque muitos compradores estrangeiros pagavam a pronto e ficavam largamente imunes ao custo do crédito.</p>
-      <p>A oferta também não acompanhou. Os trabalhadores estrangeiros representam cerca de 30% da mão de obra da construção em Portugal, noticiou a Reuters em julho de 2026, e a imigração líquida caiu praticamente para metade em 2025 depois de o governo apertar as regras — espremendo precisamente a mão de obra necessária para construir mais casas, mesmo enquanto as autoridades tentavam resolver a escassez. O ordenamento do território e os atrasos no licenciamento em Lisboa e no Porto acrescentam mais um travão que nada tem a ver com o preço dos materiais.</p>
-      <p>Esta análise compara dois índices, não dois preços em euros — mede a rapidez com que cada um cresceu a partir de uma base comum em 2020. Portugal é o único país aqui com uma série de custo de construção até 2025, pelo que não é possível afirmar, só com estes dados, se o crescimento dos preços em Espanha ou nos Países Baixos ultrapassou os seus próprios custos de construção numa margem semelhante.</p>
-    </div>
-
-    <div class="article-sources" data-reveal>
-      <div class="article-sources-label">Fontes</div>
-      <ol>
-        <li>Eurostat, Índice de preços da habitação (prc_hpi_a) — <a href="https://ec.europa.eu/eurostat/databrowser/view/prc_hpi_a" target="_blank" rel="noopener">ec.europa.eu/eurostat</a></li>
-        <li>INE, Índice de custo da construção de habitação nova — <a href="https://www.ine.pt" target="_blank" rel="noopener">ine.pt</a></li>
-        <li>Bloomberg, "Rising House Prices Push Portugal to End Golden Visa Program," fev. 2023 — <a href="https://www.bloomberg.com/news/articles/2023-02-17/runaway-property-costs-push-portugal-to-end-golden-era-of-visas" target="_blank" rel="noopener">bloomberg.com</a></li>
-        <li>Reuters, "Portugal ends golden visas, curtails Airbnb rentals to address housing crisis," fev. 2023 — <a href="https://www.investing.com/news/economy/portugal-ends-golden-visas-curtails-airbnb-rentals-to-address-housing-crisis-3029308" target="_blank" rel="noopener">investing.com</a></li>
-        <li>Franco, Santos &amp; Longo, "The impact of Airbnb on residential property values and rents: Evidence from Portugal," <em>Regional Science and Urban Economics</em>, vol. 88, 2021 — <a href="https://ideas.repec.org/a/eee/regeco/v88y2021ics0166046221000272.html" target="_blank" rel="noopener">ideas.repec.org</a></li>
-        <li>Bloomberg, "Portugal House Prices Defy Interest Rate Hikes on Strong Foreign Demand," set. 2023 — <a href="https://www.bloomberg.com/news/articles/2023-09-06/portugal-home-prices-defy-rate-hikes-on-strong-foreign-demand" target="_blank" rel="noopener">bloomberg.com</a></li>
-        <li>Reuters, "Portugal's migrant curbs hit construction firms working to solve housing crisis," jul. 2026 — <a href="https://www.investing.com/news/economy-news/analysisportugals-migrant-curbs-hit-construction-firms-working-to-solve-housing-crisis-4800030" target="_blank" rel="noopener">investing.com</a></li>
-        <li>Knoll, Schularick &amp; Steger, "No Price Like Home: Global House Prices, 1870–2012," <em>American Economic Review</em>, 107(2), 2017 — <a href="https://www.aeaweb.org/articles?id=10.1257%2Faer.20150501" target="_blank" rel="noopener">aeaweb.org</a></li>
-        <li>Banco Central Europeu, "Developments in the recent euro area house price cycle," <em>Economic Bulletin</em> 2/2025 — <a href="https://www.ecb.europa.eu/press/economic-bulletin/articles/2025/html/ecb.ebart202502_01~2f59dafb26.en.html" target="_blank" rel="noopener">ecb.europa.eu</a></li>
-        <li>Relatório completo, dados e código — <a href="https://github.com/afonsoajrodrigues/portugal-habitacao-vs-construcao" target="_blank" rel="noopener">github.com/afonsoajrodrigues/portugal-habitacao-vs-construcao</a></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ── Investigação 2: Inovação ── -->
-  <section id="innovation" class="article-section">
-    <div class="article-body" data-reveal>
-      <div class="article-label">Investigação · Relatório de dados</div>
-      <h2 class="article-title">O boom da inovação em Portugal não foi feito para <em>durar</em></h2>
-      <div class="article-byline">
-        <span class="byline-name">Por Afonso Rodrigues — reportagem &amp; gráficos</span>
-        <span class="article-date">julho 2026</span>
-      </div>
-      <div class="article-text">
-        <p>Entre 2022 e 2024, 42,5% das empresas portuguesas com 10 ou mais trabalhadores afirmaram ter feito algo inovador — um novo produto, um novo processo, um projeto de I&amp;D interno, ou até uma ideia tentada e depois abandonada. Isolado, o número soa a uma economia saudável e inovadora. Olhado de perto, conta outra história: um pico da era pandémica que ainda está a regressar à terra.</p>
-        <p>A inovação disparou quando as empresas se apressaram a sobreviver aos confinamentos e a cadeias de abastecimento interrompidas, e depois começou a recuar. As grandes empresas — 250 ou mais trabalhadores — inovam a um ritmo quase duplo da média nacional, e dois setores, informação e comunicação e atividades financeiras e de seguros, puxam essa média para cima. A despesa total atingiu os €4.865 milhões em 2024, face aos €3.382 milhões em 2022, mesmo com a fatia de empresas dispostas a participar a continuar a encolher.</p>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-box">
-          <div class="stat-value">42,5%</div>
-          <div class="stat-label">Empresas a inovar, 2022–24</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">€4.865M</div>
-          <div class="stat-label">Despesa em inovação, 2024</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">25,4%</div>
-          <div class="stat-label">Inovações com benefício ambiental</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="chart-intro" data-reveal>A inovação não subiu em linha reta. Disparou durante os anos da pandemia, impulsionada quase só pela inovação de processo — empresas a mudar à pressa a forma como operavam — e depois começou a devolver esse ganho.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-trend" class="databox-frame"></div>
-      <figcaption>Percentagem de empresas com 10+ trabalhadores que reportam atividade de inovação, por tipo e período do inquérito. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>Os 42,5% escondem uma distribuição muito desigual: as grandes empresas inovam a um ritmo quase duplo da média nacional, e dois setores de base digital e financeira puxam essa média para cima.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-segments" class="databox-frame"></div>
-      <figcaption>Percentagem de empresas a reportar atividade de inovação, por grupo, 2022–2024. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>Face ao inquérito anterior, a atividade de inovação caiu em quase todos os setores da economia portuguesa. A indústria foi a única excepção — o único setor a registar um aumento.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-change" class="databox-frame"></div>
-      <figcaption>Variação em pontos percentuais na percentagem de empresas inovadoras, de 2020–22 para 2022–24. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>Eis o paradoxo: mesmo com menos empresas a inovar, o país como um todo gasta mais nisso — e esse dinheiro concentra-se em duas regiões.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-spending" class="databox-frame"></div>
-      <figcaption>Despesa em inovação por região, 2024, em milhões de euros. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-
-    <p class="chart-intro" data-reveal>Quando as empresas portuguesas protegem o que constroem, recorrem sobretudo à marca registada em vez da patente — a ferramenta mais rápida e barata disponível.</p>
-    <figure class="chart-figure" data-reveal>
-      <div id="chart-ip" class="databox-frame"></div>
-      <figcaption>Percentagem de empresas a usar cada instrumento de propriedade intelectual, 2022–2024. Fonte: INE / DGEEC, CIS 2022–2024.</figcaption>
-    </figure>
-  </section>
-
-  <!-- ── Investigação 1: Habitação ── -->
-  <section id="housing" class="article-section">
-    <div class="article-body" data-reveal>
-      <div class="article-label">Investigação · Mapa interativo</div>
-      <h2 class="article-title">A crise habitacional em Portugal atinge novos <em>extremos</em></h2>
-      <div class="article-byline">
-        <span class="byline-name">Por Afonso Rodrigues — reportagem &amp; gráficos</span>
-        <span class="article-date">junho 2026</span>
-      </div>
-      <div class="article-text">
-        <p>A renda mediana de um T1 em Lisboa situa-se atualmente em cerca de €784 por mês — consumindo 85% do salário mínimo. O mercado habitacional português sofreu uma transformação geracional. Entre 2016 e 2026, a renda mediana por metro quadrado subiu 74% a nível nacional — ultrapassando o crescimento salarial por um fator de quatro.</p>
-        <p>Os dados, recolhidos do índice trimestral de rendas do INE, mostram uma divisão clara entre o interior e o litoral de Portugal. Os municípios do Alentejo interior mantêm-se relativamente acessíveis — a mediana do distrito situa-se nos €4,20/m² — enquanto a Grande Lisboa ultrapassou pela primeira vez o limiar dos €14/m². O fosso tem vindo a alargar-se todos os anos desde 2019.</p>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-box">
-          <div class="stat-value">€9,46</div>
-          <div class="stat-label">Mediana nacional /m²</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">+9,1%</div>
-          <div class="stat-label">Ano sobre ano</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">€17,42</div>
-          <div class="stat-label">Lisboa, mais alto</div>
-        </div>
-      </div>
-    </div>
-
-    <figure class="databox databox--map" id="rent-map-app" data-reveal>
-      <div class="databox-toolbar">
-        <span class="databox-toolbar-label">Mostrar:</span>
-        <button type="button" class="databox-btn is-active" data-metric-btn="price_m2">Preço por m²</button>
-        <button type="button" class="databox-btn" data-metric-btn="rent_t1_45m2">Renda de um T1 (45 m²)</button>
-      </div>
-      <div class="databox-legend"></div>
-      <div class="databox-frame">
-        <svg class="databox-svg" viewBox="0 0 640 760" role="img" aria-label="Mapa coroplético de Portugal com a renda mediana por município"></svg>
-      </div>
-      <figcaption class="databox-caption">Renda mediana por município, primeiro trimestre de 2026. Use os botões para alternar entre preço por m² e a renda de um T1; passe o cursor sobre um município para ver o valor. Os municípios sem valor próprio usam o preço da sua sub-região (NUTS III); assume-se um T1 de 45 m². Fonte: INE.</figcaption>
-    </figure>
-    <div class="databox-tooltip" id="rent-map-tooltip" aria-hidden="true"></div>
   </section>
   </main>
   <footer class="site-footer">
@@ -307,9 +118,9 @@
       <div>
         <div class="footer-nav-label">Investigações</div>
         <div class="footer-links">
-          <a href="#build-cost">Preços vs. Custos de Construção</a>
-          <a href="#innovation">O Boom da Inovação em Portugal</a>
-          <a href="#housing">O Preço de uma Casa</a>
+          <a href="/pt/investigations/house-prices-vs-construction-costs.html">Preços vs. Custos de Construção</a>
+          <a href="/pt/investigations/innovation-boom.html">O Boom da Inovação em Portugal</a>
+          <a href="/pt/investigations/housing-crisis.html">O Preço de uma Casa</a>
         </div>
       </div>
       <div>
@@ -330,40 +141,6 @@
   </footer>
 
 </div>
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-<script src="/js/innovation-data-pt.js"></script>
-<script src="/js/innovation-charts.js"></script>
-<script src="/js/rent-map.js"></script>
-<script src="/js/housing-cost-data-pt.js"></script>
-<script src="/js/housing-cost-charts.js"></script>
-<script src="/js/housing-cost-map.js"></script>
 <script src="/motion.js"></script>
-<script>
-  initInnovationCharts(window.innovationData);
-  initRentMap('rent-map-app', {
-    tooltipId: 'rent-map-tooltip',
-    dataUrls: {
-      geojson: '/data/portugal_municipalities.geojson',
-      csv: '/data/portugal_rents.csv'
-    },
-    strings: {
-      unit: { price_m2: ' €/m²', rent_t1_45m2: ' €' },
-      perSqm: ' / m²',
-      perMonth: ' / mês',
-      ownFigure: 'valor do município',
-      estimatedFrom: zone => `estimado a partir de ${zone} (sub-região)`,
-      districtOf: d => `Distrito de ${d}`
-    }
-  });
-  initHousingCostCharts(window.housingCostData);
-  initHousingCostMap('build-cost-map-app', {
-    tooltipId: 'build-cost-map-tooltip',
-    dataUrls: {
-      geojson: '/data/europe_borders.geojson',
-      csv: '/data/europe_house_price_growth.csv'
-    },
-    strings: window.housingCostData.mapStrings
-  });
-</script>
 </body>
 </html>
