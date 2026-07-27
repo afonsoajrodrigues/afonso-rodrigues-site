@@ -527,6 +527,43 @@ h1.brand-lockup > a {
 
 .river-item:hover .river-thumb img { transform: scale(1.06); }
 
+/* === Ícones de investigação (mesmo tratamento de traço do monograma AR) === */
+.inv-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ivory);
+  transition: background-color .2s;
+}
+
+.inv-icon svg { width: 62%; height: 62%; display: block; }
+
+.inv-icon .icon-stroke {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.inv-icon .icon-dot { fill: var(--accent); }
+.inv-icon .icon-stroke-thin { stroke-width: 3.5; }
+.inv-icon .icon-fill-a { fill: var(--mist); }
+.inv-icon .icon-fill-b { fill: var(--paper); }
+.inv-icon .icon-solid { fill: var(--ink); }
+.inv-icon .icon-muted { fill: none; stroke: var(--muted); stroke-width: 3; }
+
+.river-item:hover .inv-icon { background: var(--mist); }
+
+.inv-toc-icon {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--ink);
+  margin-bottom: 16px;
+}
+
+.inv-toc-item:hover .inv-toc-icon { background: var(--mist); }
+
 .river-body { min-width: 0; }
 
 .river-kicker {
