@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){try{var t=localStorage.getItem('ar-theme');if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);var f=localStorage.getItem('ar-fs');if(f)document.documentElement.style.setProperty('--fs',f);}catch(e){}})();</script>
   <title>Investigations — Data Journalism on Portugal's Housing &amp; Economy</title>
   <meta name="description" content="Data-driven investigations by Afonso Rodrigues: why Portugal's house prices are outrunning construction costs, its innovation boom, and the housing crisis mapped municipality by municipality.">
   <link rel="canonical" href="https://afonsoajrodrigues.com/investigations.html">
@@ -25,56 +26,56 @@
   <meta name="twitter:image" content="https://afonsoajrodrigues.com/images/og/investigations-index-en.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
-<div class="container">
 
-  <div class="topbar">
-    <span>Afonso Rodrigues — Lisbon</span>
-    <span class="topbar-right">
-      <span class="lang-switch" aria-label="Language">
-        <span class="lang-btn is-active">EN</span>&nbsp;·&nbsp;<a class="lang-btn" href="/pt/investigations.html">PT</a>
-      </span>
-    </span>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<div class="utility-bar">
+  <span>Afonso Rodrigues — Lisbon · 38.72° N, 9.14° W</span>
+  <span><span class="accent-text">EN</span> · <a href="/pt/investigations.html">PT</a></span>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/" class="wordmark-block"><span class="wordmark">Afonso Rodrigues</span><span class="wordmark-tag">Data Journalist</span></a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/investigations.html" class="is-current" aria-current="page">Investigations</a>
+        <a href="/photography.html">Photography</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+    <div class="header-controls">
+      <button type="button" class="ctrl-btn ctrl-btn--wide" data-theme-toggle aria-label="Toggle dark mode">Dark</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="page-kicker">Section — Investigations</p>
+      <h1 class="page-title">Investigations</h1>
+      <p class="page-dek">Journalistic investigations built from publicly available data — INE, Pordata, Eurostat, municipal registers. Numbers made readable, maps that take a position, charts that carry an argument.</p>
+    </div>
   </div>
 
-  <header class="masthead">
-    <div class="site-title">
-      <h1 class="brand-lockup"><a href="/">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 120 120"><path class="mark-stroke" d="M16 98 L37 24 L58 98 M24 70 H50"/><path class="mark-stroke" d="M72 98 V24 H89 a16 16 0 0 1 0 32 H72 M87 56 L104 98"/><circle class="mark-dot" cx="37" cy="54" r="5.5"/></svg></span>
-        <span class="brand-name">Afonso <span class="pop">Rodrigues</span></span>
-      </a></h1>
-      <div class="tagline">
-        <span class="tagline-rule"></span>
-        <span class="tagline-text">Photography &amp; Data Journalism</span>
-        <span class="tagline-rule"></span>
+  <section class="desk-section">
+    <div class="investigations-toolbar">
+      <div class="toggle-group" role="tablist" aria-label="Filter by category" data-filter-tabs>
+        <button type="button" class="toggle-btn is-active" data-filter-tab="all" role="tab" aria-selected="true">All</button>
+        <button type="button" class="toggle-btn" data-filter-tab="housing" role="tab" aria-selected="false">Housing</button>
+        <button type="button" class="toggle-btn" data-filter-tab="economy" role="tab" aria-selected="false">Economy</button>
       </div>
+      <input type="search" class="search-input" placeholder="Search investigations…" aria-label="Search investigations" data-investigations-search>
     </div>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/photography.html">Photography</a>
-      <span class="is-active" aria-current="page">Investigations</span>
-      <a href="/">Data</a>
-      <a href="/about.html">About</a>
-    </nav>
-  </header>
-
-  <main id="main-content">
-  <div class="page-header" data-reveal>
-    <div class="page-header-label">Section — Investigations</div>
-    <h2 class="page-header-title"><em>Investigations</em></h2>
-  </div>
-
-  <!-- ── Índice de investigações ── -->
-  <section class="inv-toc">
-    <div class="section-header" data-reveal>
-      <h3 class="section-title"><span class="section-index">Index /</span> All investigations</h3>
-    </div>
-    <div class="inv-toc-grid">
-      <a href="/investigations/house-prices-vs-construction-costs.html" class="inv-toc-item" data-reveal>
-        <div class="inv-toc-icon inv-icon"><svg viewBox="0 0 120 120" aria-hidden="true">
+    <div class="card-grid card-grid--2" data-investigations-list>
+      <a href="/investigations/house-prices-vs-construction-costs.html" class="desk-card" data-category="housing" data-search="portugal house prices rising far faster cost build housing data report">
+        <div class="card-image card-image--icon"><svg viewBox="0 0 120 120" aria-hidden="true">
           <path class="icon-muted" d="M14 112 H106"/>
           <path class="icon-stroke" d="M32 112 V52"/>
           <path class="icon-stroke" d="M24 112 H40"/>
@@ -89,12 +90,12 @@
           <path class="icon-stroke icon-stroke-thin" d="M81 32 Q88 39 95 32"/>
           <circle class="icon-dot" cx="81" cy="19" r="3.5"/>
         </svg></div>
-        <div class="inv-toc-tag">Investigation · Data report</div>
-        <h4 class="inv-toc-title">Portugal's house prices are rising twice as fast as the cost to <em>build</em> them</h4>
-        <span class="inv-toc-meta">July 2026 · Data report</span>
+        <p class="kicker" style="margin:0;">Investigation · Data report</p>
+        <h3 class="card-title">Portugal's house prices are rising far faster than the cost to <em style="font-style:normal;color:var(--accent);">build</em> them</h3>
+        <p class="card-meta">Housing · July 2026 · Data report</p>
       </a>
-      <a href="/investigations/innovation-boom.html" class="inv-toc-item" data-reveal style="--reveal-delay:.09s">
-        <div class="inv-toc-icon inv-icon"><svg viewBox="0 0 120 120" aria-hidden="true">
+      <a href="/investigations/innovation-boom.html" class="desk-card" data-category="economy" data-search="portugal innovation boom startups economy tech data report">
+        <div class="card-image card-image--icon"><svg viewBox="0 0 120 120" aria-hidden="true">
           <ellipse class="icon-fill-a icon-stroke" cx="58" cy="97" rx="28" ry="17"/>
           <circle class="icon-dot" cx="28" cy="87" r="3"/>
           <circle class="icon-dot" cx="89" cy="90" r="3"/>
@@ -105,12 +106,12 @@
             <circle class="icon-fill-a icon-stroke icon-stroke-thin" cx="60" cy="44" r="9"/>
           </g>
         </svg></div>
-        <div class="inv-toc-tag">Investigation · Data report</div>
-        <h4 class="inv-toc-title">Portugal's innovation boom wasn't built to <em>last</em></h4>
-        <span class="inv-toc-meta">July 2026 · Data report</span>
+        <p class="kicker" style="margin:0;">Investigation · Data report</p>
+        <h3 class="card-title">Portugal's innovation boom wasn't built to <em style="font-style:normal;color:var(--accent);">last</em></h3>
+        <p class="card-meta">Economy · July 2026 · Data report</p>
       </a>
-      <a href="/investigations/housing-crisis.html" class="inv-toc-item" data-reveal style="--reveal-delay:.18s">
-        <div class="inv-toc-icon inv-icon"><svg viewBox="0 0 120 120" aria-hidden="true">
+      <a href="/investigations/housing-crisis.html" class="desk-card" data-category="housing" data-search="portugal housing crisis rent map interactive municipality housing">
+        <div class="card-image card-image--icon"><svg viewBox="0 0 120 120" aria-hidden="true">
           <path class="icon-stroke" d="M52 113 Q46 118 49 120"/>
           <path class="icon-stroke" d="M68 113 Q74 118 71 120"/>
           <circle class="icon-fill-b icon-stroke" cx="60" cy="102" r="10"/>
@@ -127,65 +128,48 @@
           <path class="icon-muted" d="M86 22 Q90 16 86 10 Q82 6 86 3"/>
           <circle class="icon-dot" cx="86" cy="3" r="2.5"/>
         </svg></div>
-        <div class="inv-toc-tag">Investigation · Data</div>
-        <h4 class="inv-toc-title">Portugal's housing crisis reaches new <em>extremes</em></h4>
-        <span class="inv-toc-meta">June 2026 · Interactive map</span>
+        <p class="kicker" style="margin:0;">Investigation · Interactive map</p>
+        <h3 class="card-title">Portugal's housing crisis reaches new <em style="font-style:normal;color:var(--accent);">extremes</em></h3>
+        <p class="card-meta">Housing · June 2026 · Interactive map</p>
       </a>
     </div>
+    <p class="fine-print" data-no-results hidden>No investigations match your search.</p>
   </section>
-  </main>
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-name">Afonso Rodrigues</div>
-        <p class="footer-bio">Documentary photography and data-driven investigations. Based in Lisbon, working worldwide.</p>
-        <svg viewBox="0 0 220 60" style="width:150px; height:auto; margin-top:18px; opacity:.85;">
-          <g stroke="#F0F3F5" stroke-width="1">
-            <circle cx="20"  cy="30" r="6"  fill="#2E5A8C"></circle>
-            <circle cx="44"  cy="22" r="9"  fill="#2E5A8C"></circle>
-            <circle cx="70"  cy="38" r="5"  fill="#DDE5EE"></circle>
-            <circle cx="92"  cy="26" r="11" fill="#10243E"></circle>
-            <circle cx="120" cy="40" r="6"  fill="#10243E"></circle>
-            <circle cx="146" cy="24" r="5"  fill="#DDE5EE"></circle>
-            <circle cx="170" cy="36" r="8"  fill="#2E5A8C"></circle>
-            <circle cx="198" cy="28" r="6"  fill="#10243E"></circle>
-          </g>
-        </svg>
-      </div>
-      <div>
-        <div class="footer-nav-label">Navigate</div>
-        <div class="footer-links">
-          <a href="/photography.html">Photography</a>
-          <a href="/investigations.html">Investigations</a>
-          <a href="/about.html">About</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-nav-label">Investigations</div>
-        <div class="footer-links">
-          <a href="/investigations/house-prices-vs-construction-costs.html">Prices vs. Construction Costs</a>
-          <a href="/investigations/innovation-boom.html">Portugal's Innovation Boom</a>
-          <a href="/investigations/housing-crisis.html">The Price of a Home</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-nav-label">Contact</div>
-        <div class="footer-links">
-          <a href="mailto:afonsoajrodrigues@gmail.com">afonsoajrodrigues@gmail.com</a>
-          <a href="https://www.instagram.com/afonsoajrodrigues/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© MMXXVI Afonso Rodrigues</span>
-      <span>Lisbon · 38.72° N, 9.14° W</span>
-      <span class="lang-switch" aria-label="Language">
-        <span class="lang-btn is-active">EN</span>&nbsp;·&nbsp;<a class="lang-btn" href="/pt/investigations.html">PT</a>
-      </span>
-    </div>
-  </footer>
 
-</div>
-<script src="/motion.js"></script>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-wordmark">Afonso Rodrigues</span>
+      <span class="footer-blurb">Documentary photography and data-driven investigations. Based in Lisbon, working worldwide.</span>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">Navigate</span>
+      <a href="/photography.html">Photography</a>
+      <a href="/investigations.html">Investigations</a>
+      <a href="/about.html">About</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">Investigations</span>
+      <a href="/investigations/house-prices-vs-construction-costs.html">Prices vs. Construction Costs</a>
+      <a href="/investigations/innovation-boom.html">Portugal's Innovation Boom</a>
+      <a href="/investigations/housing-crisis.html">The Price of a Home</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:afonsoajrodrigues@gmail.com">afonsoajrodrigues@gmail.com</a>
+      <a href="https://www.instagram.com/afonsoajrodrigues/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© MMXXVI Afonso Rodrigues</span>
+    <span>Lisbon · 38.72° N, 9.14° W</span>
+    <span>EN · <a href="/pt/investigations.html">PT</a></span>
+  </div>
+</footer>
+
+<script src="/js/chrome.js"></script>
+<script src="/js/investigations-filter.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ function initHousingCostCharts(data) {
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
   const data1 = cssVar('--data-1', '#25588F');
-  const data3 = cssVar('--data-3', '#C1861F');
+  const data3 = cssVar('--data-3', '#A66D00');
 
   function drawPriceVsCostChart() {
     const { years, housePriceIndex, constructionCostIndex, seriesNames } = data.priceVsCost;
@@ -51,7 +51,6 @@ function initHousingCostCharts(data) {
       const lastValue = s.values[s.values.length - 1];
       g.append('text')
         .attr('class', 'line-label')
-        .attr('fill', s.color)
         .attr('x', innerWidth + 8)
         .attr('y', y(lastValue))
         .attr('dy', '0.35em')

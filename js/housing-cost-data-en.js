@@ -4,19 +4,19 @@
 window.housingCostData = {
   priceVsCost: {
     years: ['2020', '2021', '2022', '2023', '2024', '2025'],
-    housePriceIndex: [100.0, 109.4, 123.2, 133.3, 145.4, 171.0],
+    housePriceIndex: [100.0, 108.7, 118.1, 125.9, 135.4, 154.5],
     constructionCostIndex: [100.0, 108.8, 120.8, 122.9, 128.1, 133.2],
     seriesNames: { price: 'House-price index', cost: 'Construction-cost index' }
   },
   growthByCountry: [
-    { label: 'Portugal', value: 71.0 },
-    { label: 'Netherlands', value: 49.3 },
-    { label: 'Spain', value: 41.6 },
-    { label: 'Austria', value: 23.5 },
-    { label: 'Belgium', value: 22.7 },
-    { label: 'Italy', value: 15.7 },
-    { label: 'Germany', value: 10.1 },
-    { label: 'France', value: 9.1 }
+    { label: 'Portugal', value: 54.5 },
+    { label: 'Spain', value: 50.2 },
+    { label: 'Netherlands', value: 44.9 },
+    { label: 'Austria', value: 27.1 },
+    { label: 'Italy', value: 26.2 },
+    { label: 'Belgium', value: 23.1 },
+    { label: 'Germany', value: 15.0 },
+    { label: 'France', value: 13.2 }
   ],
   highlight: 'Portugal',
   mapStrings: {

@@ -13,12 +13,22 @@ function initHousingCostMap(rootId, config) {
 
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
-  const mist = cssVar('--mist', '#DDE5EE');
-  const accent = cssVar('--accent', '#2E5A8C');
-  const ink = cssVar('--ink', '#10243E');
-  const hair = cssVar('--hair', '#D7DEE6');
+  const light = cssVar('--map-light', '#99acc8');
+  const accent = cssVar('--accent-fill', '#1c4b8a');
+  const deep = cssVar('--map-deep', '#10243E');
+  const hair = cssVar('--rule', '#C9C6BF');
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
-  const colorRange = d3.quantize(d3.interpolateRgbBasis([mist, accent, ink, '#081527']), 5);
+  // See js/rent-map.js for why this ramp branches by theme and reads
+  // --map-light instead of --card: reusing the panel colour made the
+  // lowest-growth countries disappear into the panel, and in dark mode the
+  // fixed navy/near-black stops that read as a clean light→dark descent in
+  // light mode would go non-monotonic on top of a dark low anchor — use
+  // --accent (already lightened for dark-mode readability) as the bright end
+  // so the top of the scale stays legible against the dark panel.
+  const colorRange = isDark
+    ? d3.quantize(d3.interpolateRgbBasis([light, accent, cssVar('--accent', '#6ea2e0')]), 5)
+    : d3.quantize(d3.interpolateRgbBasis([light, accent, deep, '#081527']), 5);
   const width = 640, height = 600;
 
   const zoomLayer = svg.append('g').attr('class', 'zoom-layer');
