@@ -12,6 +12,7 @@
 # Local AI-assistant session data and project notes, not needed in the repo
 .claude/
 CLAUDE.md
+GUIA-ESCRITA.md
 
 # Substack publishing drafts (scripts/export-for-substack.py output): article
 # text + chart/map PNGs, one subfolder per investigation slug, colocated with
