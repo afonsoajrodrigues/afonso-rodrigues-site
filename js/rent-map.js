@@ -10,6 +10,18 @@ function initRentMap(rootId, config) {
   const tooltip = d3.select(document.getElementById(config.tooltipId));
   const strings = config.strings;
 
+  // Clamps the tooltip inside the viewport — near the right/bottom edge of a
+  // narrow phone screen, the default clientX/clientY + 14px offset pushes a
+  // 230px-wide tooltip half off-screen. Reads the box only after .html() has
+  // set its final content, so the measured size is accurate.
+  function positionTooltip(tip, event) {
+    const margin = 8;
+    const rect = tip.node().getBoundingClientRect();
+    const left = Math.max(margin, Math.min(event.clientX + 14, window.innerWidth - rect.width - margin));
+    const top = Math.max(margin, Math.min(event.clientY + 14, window.innerHeight - rect.height - margin));
+    tip.style('left', left + 'px').style('top', top + 'px');
+  }
+
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
   const light = cssVar('--map-light', '#99acc8');
@@ -71,6 +83,7 @@ function initRentMap(rootId, config) {
           .attr('d', path)
           .attr('fill', f => colour(f.data[metric]))
           .on('mousemove', showTooltip)
+          .on('click', showTooltip) // tap support: touch devices never fire mousemove
           .on('mouseleave', () => tooltip.style('opacity', 0));
 
       drawLegend();
@@ -96,9 +109,8 @@ function initRentMap(rootId, config) {
       tooltip.html(`<b>${f.properties.municipality}</b>
          <div class="price">${text}</div>
          <div class="meta">${note}<br>${strings.districtOf(f.properties.district)}</div>`)
-        .style('opacity', 1)
-        .style('left', (event.clientX + 14) + 'px')
-        .style('top', (event.clientY + 14) + 'px');
+        .style('opacity', 1);
+      positionTooltip(tooltip, event);
     }
 
     root.querySelectorAll('[data-metric-btn]').forEach(btn => {

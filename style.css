@@ -606,6 +606,9 @@ button { font: inherit; }
   .contact-grid { grid-template-columns: repeat(2, 1fr); }
   .article-layout, .article-layout--notoc { grid-template-columns: 1fr; }
   .toc, .side-rail { position: static; }
+  /* Once .data-grid stacks (chart above map), the chart column's 40px right
+     padding — sized to sit next to .map-col — is dead space at full width. */
+  .chart-col { padding: 24px 0; }
 }
 
 @media (max-width: 560px) {
@@ -619,4 +622,48 @@ button { font: inherit; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
   .footer-bottom { padding-left: 16px; padding-right: 16px; flex-direction: column; }
+
+  /* Nav vs. wordmark get tight around ~360–400px — no hamburger, just less
+     air between items so both fit on one wrapped line instead of two. */
+  .header-left { gap: 20px; }
+  .main-nav { gap: 12px; }
+
+  /* Three fixed-width stat tiles leave ~74px of usable text width on a
+     360px phone — labels like "Companies innovating, 2022–24" wrap into
+     five-plus lines. One column reads properly at this size. */
+  .stat-grid { grid-template-columns: 1fr; }
+
+  /* Fixed-px label/value columns (190+96 / 170+92, plus gaps) can exceed a
+     360px viewport outright, forcing the whole row — and the page — to
+     scroll horizontally. Narrower fixed columns keep the row inside the
+     smallest phones this site supports. */
+  .bar-row, .article-bar-list .bar-row { grid-template-columns: 100px 1fr 68px; gap: 10px; }
+
+  /* Reclaim map/chart area from desktop-sized frame padding once the frame
+     is already at 100% of a narrow screen. */
+  .databox-frame { padding: 14px; }
+  .databox-zoom-controls { right: 10px; bottom: 10px; }
+
+  /* 30px zoom buttons and the lightbox close button sit under the ~44px
+     touch-target floor; grow the tap area without changing the desktop
+     button design (only active in this breakpoint). Excludes the
+     auto-width "reset" pill, which already has its own sizing. */
+  .databox-zoom-btn:not(.databox-zoom-btn--reset) { width: 40px; height: 40px; font-size: 16px; }
+  .databox-zoom-btn--reset { height: 40px; }
+  .lightbox-close { padding: 13px 16px; }
+
+  /* Visual + textual cue that the dense D3 charts (innovation-boom,
+     house-prices-vs-construction-costs) scroll sideways — the figcaption
+     already sits outside the scrolling .databox-frame, so this can't be
+     scrolled away with the chart itself. EN default; :lang(pt) below swaps
+     the wording for the Portuguese page copies of the same markup. */
+  .chart-figure figcaption::before {
+    content: '◂ Scroll to see full chart ▸';
+    display: block; margin-bottom: 8px;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  html:lang(pt) .chart-figure figcaption::before {
+    content: '◂ Deslizar para ver o gráfico completo ▸';
+  }
 }
