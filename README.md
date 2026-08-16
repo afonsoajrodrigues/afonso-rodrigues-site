@@ -26,6 +26,7 @@ images/
   Lisbon/, Istambul/,
   Night-out-in-coimbra/, thailand/      ← séries fotográficas, organizadas por local
 scripts/optimize-images.sh              ← redimensiona/comprime JPEGs antes de subir novas fotos
+scripts/generate-responsive-images.sh   ← gera os derivados -480w/-900w/-1400w para srcset
 scripts/export-for-substack.py          ← exporta uma investigação como pacote Substack (PNG + Markdown)
 sitemap.xml, robots.txt
 .nojekyll                               ← desativa o Jekyll no GitHub Pages
@@ -40,10 +41,14 @@ página irmã no outro idioma.
 
 ```bash
 # 1. copia as fotos para uma pasta em images/, ex. images/nome-do-local/
-# 2. otimiza-as para a web (redimensiona + comprime in-place)
+# 2. otimiza-as para a web (redimensiona + comprime in-place, cap 2400px)
 ./scripts/optimize-images.sh images/nome-do-local
-# 3. adiciona os <figure class="contact-item"> correspondentes em
-#    photography.html e pt/photography.html
+# 3. gera os derivados -480w/-900w/-1400w usados no srcset das miniaturas
+#    (idempotente — nunca faz upscale, salta o que já existir)
+./scripts/generate-responsive-images.sh images/nome-do-local
+# 4. adiciona os <figure class="contact-item"> correspondentes em
+#    photography.html e pt/photography.html, com srcset/sizes — ver os
+#    <img> já existentes em qualquer série como modelo
 ```
 
 ## Sistema de design

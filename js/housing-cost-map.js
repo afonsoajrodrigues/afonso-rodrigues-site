@@ -11,6 +11,17 @@ function initHousingCostMap(rootId, config) {
   const tooltip = d3.select(document.getElementById(config.tooltipId));
   const strings = config.strings;
 
+  // Clamps the tooltip inside the viewport — see js/rent-map.js for why:
+  // near the right/bottom edge of a narrow phone screen, the default
+  // clientX/clientY + 14px offset pushes a 230px-wide tooltip off-screen.
+  function positionTooltip(tip, event) {
+    const margin = 8;
+    const rect = tip.node().getBoundingClientRect();
+    const left = Math.max(margin, Math.min(event.clientX + 14, window.innerWidth - rect.width - margin));
+    const top = Math.max(margin, Math.min(event.clientY + 14, window.innerHeight - rect.height - margin));
+    tip.style('left', left + 'px').style('top', top + 'px');
+  }
+
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
   const light = cssVar('--map-light', '#99acc8');
@@ -119,17 +130,15 @@ function initHousingCostMap(rootId, config) {
       const name = strings.countryNames[f.properties.code] || f.properties.name;
       if (!f.data) {
         tooltip.html(`<b>${name}</b><div class="meta">${strings.noData}</div>`)
-          .style('opacity', 1)
-          .style('left', (event.clientX + 14) + 'px')
-          .style('top', (event.clientY + 14) + 'px');
+          .style('opacity', 1);
+        positionTooltip(tooltip, event);
         return;
       }
       tooltip.html(`<b>${name}</b>
          <div class="price">+${f.data.growth_pct.toFixed(1)}%</div>
          <div class="meta">${strings.cagr(f.data.cagr_pct.toFixed(1))}</div>`)
-        .style('opacity', 1)
-        .style('left', (event.clientX + 14) + 'px')
-        .style('top', (event.clientY + 14) + 'px');
+        .style('opacity', 1);
+      positionTooltip(tooltip, event);
     }
 
     function hideTooltip() { tooltip.style('opacity', 0); }
