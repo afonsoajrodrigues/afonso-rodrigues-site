@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){try{var t=localStorage.getItem('ar-theme');if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);var f=localStorage.getItem('ar-fs');if(f)document.documentElement.style.setProperty('--fs',f);}catch(e){}})();</script>
   <title>Fotografia — Trabalho Documental de Afonso Rodrigues</title>
   <meta name="description" content="Fotografia documental de Afonso Rodrigues: séries feitas em Lisboa, Istambul, Coimbra e Tailândia. Um trabalho lento e repetido — os mesmos lugares e horas, revisitados.">
   <link rel="canonical" href="https://afonsoajrodrigues.com/pt/photography.html">
@@ -23,50 +24,45 @@
   <meta name="twitter:image" content="https://afonsoajrodrigues.com/images/Lisbon/IMG_7823.JPG">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<a class="skip-link" href="#main-content">Saltar para o conteúdo</a>
-<div class="container">
 
-  <div class="topbar">
-    <span>Afonso Rodrigues — Lisboa</span>
-    <span class="topbar-right">
-      <span class="lang-switch" aria-label="Idioma">
-        <a class="lang-btn" href="/photography.html">EN</a>&nbsp;·&nbsp;<span class="lang-btn is-active">PT</span>
-      </span>
-    </span>
-  </div>
+<a href="#main" class="skip-link">Saltar para o conteúdo</a>
 
-  <header class="masthead">
-    <div class="site-title">
-      <h1 class="brand-lockup"><a href="/pt/">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 120 120"><path class="mark-stroke" d="M16 98 L37 24 L58 98 M24 70 H50"/><path class="mark-stroke" d="M72 98 V24 H89 a16 16 0 0 1 0 32 H72 M87 56 L104 98"/><circle class="mark-dot" cx="37" cy="54" r="5.5"/></svg></span>
-        <span class="brand-name">Afonso <span class="pop">Rodrigues</span></span>
-      </a></h1>
-      <div class="tagline">
-        <span class="tagline-rule"></span>
-        <span class="tagline-text">Fotografia &amp; Jornalismo de Dados</span>
-        <span class="tagline-rule"></span>
-      </div>
+<div class="utility-bar">
+  <span>Afonso Rodrigues — Lisboa · 38.72° N, 9.14° W</span>
+  <span><a href="/photography.html">EN</a> · <span class="accent-text">PT</span></span>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/pt/" class="wordmark-block"><span class="wordmark">Afonso Rodrigues</span><span class="wordmark-tag">Jornalista de Dados</span></a>
+      <nav class="main-nav" aria-label="Principal">
+        <a href="/pt/investigations.html">Investigações</a>
+        <a href="/pt/photography.html" class="is-current" aria-current="page">Fotografia</a>
+        <a href="/pt/about.html">Sobre</a>
+      </nav>
     </div>
-    <nav class="site-nav" aria-label="Principal">
-      <span class="is-active" aria-current="page">Fotografia</span>
-      <a href="/pt/investigations.html">Investigações</a>
-      <a href="/pt/">Dados</a>
-      <a href="/pt/about.html">Sobre</a>
-    </nav>
-  </header>
+    <div class="header-controls">
+      <button type="button" class="ctrl-btn ctrl-btn--wide" data-theme-toggle aria-label="Alternar modo escuro">Escuro</button>
+    </div>
+  </div>
+</header>
 
-  <main id="main-content">
-  <div class="page-header" data-reveal>
-    <div class="page-header-label">Secção — Fotografia</div>
-    <h2 class="page-header-title"><em>Fotografia</em></h2>
+<main id="main">
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <p class="page-kicker">Secção — Fotografia</p>
+      <h1 class="page-title">Fotografia</h1>
+    </div>
   </div>
 
   <section class="gallery-section">
-    <p class="gallery-intro" data-reveal>Fotografia documental em Lisboa, Istambul, Coimbra, Sudeste Asiático e além. Cada série é uma acumulação lenta — regressando aos mesmos lugares, às mesmas horas, até que algo se revela.</p>
+    <p class="gallery-intro">Fotografia documental em Lisboa, Istambul, Coimbra, Sudeste Asiático e além. Cada série é uma acumulação lenta — regressando aos mesmos lugares, às mesmas horas, até que algo se revela.</p>
     <nav class="series-jump" aria-label="Saltar para uma série">
       <a href="#lisboa">Lisboa</a>
       <a href="#istambul">Istambul</a>
@@ -77,7 +73,7 @@
 
   <!-- ── Série: Lisboa ── -->
   <section class="series-section" id="lisboa">
-    <div class="series-header" onclick="toggleSeries(this)" data-reveal>
+    <div class="series-header" onclick="toggleSeries(this)">
       <div>
         <div class="series-label">Série Fotográfica — Lisboa</div>
         <h3 class="series-title"><em>Lisboa, 2025</em></h3>
@@ -151,7 +147,7 @@
 
   <!-- ── Série: Istambul ── -->
   <section class="series-section" id="istambul">
-    <div class="series-header" onclick="toggleSeries(this)" data-reveal>
+    <div class="series-header" onclick="toggleSeries(this)">
       <div>
         <div class="series-label">Série Fotográfica — Istambul</div>
         <h3 class="series-title"><em>Istambul, 2025</em></h3>
@@ -215,7 +211,7 @@
 
   <!-- ── Série: Coimbra ── -->
   <section class="series-section" id="coimbra">
-    <div class="series-header" onclick="toggleSeries(this)" data-reveal>
+    <div class="series-header" onclick="toggleSeries(this)">
       <div>
         <div class="series-label">Série Fotográfica — Coimbra</div>
         <h3 class="series-title"><em>Coimbra — Noite Fora, 2024</em></h3>
@@ -259,7 +255,7 @@
 
   <!-- ── Série: Tailândia ── -->
   <section class="series-section" id="tailandia">
-    <div class="series-header" onclick="toggleSeries(this)" data-reveal>
+    <div class="series-header" onclick="toggleSeries(this)">
       <div>
         <div class="series-label">Série Fotográfica — Tailândia</div>
         <h3 class="series-title"><em>Tailândia, 2025</em></h3>
@@ -393,73 +389,53 @@
   </section>
 
   <section class="essay-section">
-    <div class="essay-panel" style="cursor:zoom-in;" data-reveal
+    <div class="essay-panel" style="cursor:zoom-in;" 
       data-lightbox="/images/thailand/bangkok/night-kitchens.jpg"
       data-alt="As horas que a cidade guarda"
       data-caption="As horas que a cidade guarda · Yaowarat, Banguecoque · 2025">
-      <img src="/images/thailand/bangkok/night-kitchens.jpg" alt="As horas que a cidade guarda" loading="lazy">
-      <div class="essay-overlay"></div>
+      <div class="essay-img-wrap"><img src="/images/thailand/bangkok/night-kitchens.jpg" alt="As horas que a cidade guarda" loading="lazy"></div>
       <div class="essay-caption">
         <div class="essay-label">Ensaio Fotográfico em Destaque</div>
         <div class="essay-bottom">
           <h3 class="essay-title">As horas que a cidade guarda</h3>
+          <span class="essay-cta">Lisboa · ver fotograma completo →</span>
         </div>
       </div>
     </div>
   </section>
-  </main>
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-name">Afonso Rodrigues</div>
-        <p class="footer-bio">Fotografia documental e investigações baseadas em dados. Sediado em Lisboa, a trabalhar em todo o mundo.</p>
-        <svg viewBox="0 0 220 60" style="width:150px; height:auto; margin-top:18px; opacity:.85;">
-          <g stroke="#F0F3F5" stroke-width="1">
-            <circle cx="20"  cy="30" r="6"  fill="#2E5A8C"></circle>
-            <circle cx="44"  cy="22" r="9"  fill="#2E5A8C"></circle>
-            <circle cx="70"  cy="38" r="5"  fill="#DDE5EE"></circle>
-            <circle cx="92"  cy="26" r="11" fill="#10243E"></circle>
-            <circle cx="120" cy="40" r="6"  fill="#10243E"></circle>
-            <circle cx="146" cy="24" r="5"  fill="#DDE5EE"></circle>
-            <circle cx="170" cy="36" r="8"  fill="#2E5A8C"></circle>
-            <circle cx="198" cy="28" r="6"  fill="#10243E"></circle>
-          </g>
-        </svg>
-      </div>
-      <div>
-        <div class="footer-nav-label">Navegar</div>
-        <div class="footer-links">
-          <a href="/pt/photography.html">Fotografia</a>
-          <a href="/pt/investigations.html">Investigações</a>
-          <a href="/pt/about.html">Sobre</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-nav-label">Investigações</div>
-        <div class="footer-links">
-          <a href="/pt/investigations/house-prices-vs-construction-costs.html">Preços vs. Custos de Construção</a>
-          <a href="/pt/investigations/innovation-boom.html">O Boom da Inovação em Portugal</a>
-          <a href="/pt/investigations/housing-crisis.html">O Preço de uma Casa</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-nav-label">Contacto</div>
-        <div class="footer-links">
-          <a href="mailto:afonsoajrodrigues@gmail.com">afonsoajrodrigues@gmail.com</a>
-          <a href="https://www.instagram.com/afonsoajrodrigues/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© MMXXVI Afonso Rodrigues</span>
-      <span>Lisboa · 38.72° N, 9.14° W</span>
-      <span class="lang-switch" aria-label="Idioma">
-        <a class="lang-btn" href="/photography.html">EN</a>&nbsp;·&nbsp;<span class="lang-btn is-active">PT</span>
-      </span>
-    </div>
-  </footer>
 
-</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-wordmark">Afonso Rodrigues</span>
+      <span class="footer-blurb">Fotografia documental e investigações baseadas em dados. Sediado em Lisboa, a trabalhar em todo o mundo.</span>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">Navegar</span>
+      <a href="/pt/photography.html">Fotografia</a>
+      <a href="/pt/investigations.html">Investigações</a>
+      <a href="/pt/about.html">Sobre</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">Investigações</span>
+      <a href="/pt/investigations/house-prices-vs-construction-costs.html">Preços vs. Custos de Construção</a>
+      <a href="/pt/investigations/innovation-boom.html">O Boom da Inovação em Portugal</a>
+      <a href="/pt/investigations/housing-crisis.html">O Preço de uma Casa</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">Contacto</span>
+      <a href="mailto:afonsoajrodrigues@gmail.com">afonsoajrodrigues@gmail.com</a>
+      <a href="https://www.instagram.com/afonsoajrodrigues/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© MMXXVI Afonso Rodrigues</span>
+    <span>Lisboa · 38.72° N, 9.14° W</span>
+    <span><a href="/photography.html">EN</a> · PT</span>
+  </div>
+</footer>
 
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de fotos">
@@ -468,7 +444,7 @@
   <span id="lightbox-caption" class="lightbox-caption"></span>
 </div>
 
-<script src="/motion.js"></script>
+<script src="/js/chrome.js"></script>
 <script>
   function toggleSeries(header) {
     const section = header.closest('.series-section');

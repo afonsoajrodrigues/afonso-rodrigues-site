@@ -8,10 +8,10 @@ function initInnovationCharts(data) {
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
   const data1 = cssVar('--data-1', '#25588F');
   const data2 = cssVar('--data-2', '#0F8C73');
-  const data3 = cssVar('--data-3', '#C1861F');
+  const data3 = cssVar('--data-3', '#A66D00');
   const ink = cssVar('--ink', '#10243E');
   const muted = cssVar('--muted', '#63708A');
-  const hair = cssVar('--hair', '#D7DEE6');
+  const hair = cssVar('--rule', '#C9C6BF');
   const paper = cssVar('--paper', '#FAFAF9');
 
   function drawTrendChart() {
@@ -58,7 +58,6 @@ function initInnovationCharts(data) {
       const lastValue = series.values[series.values.length - 1];
       g.append('text')
         .attr('class', 'line-label')
-        .attr('fill', color)
         .attr('x', innerWidth + 8)
         .attr('y', y(lastValue))
         .attr('dy', '0.35em')

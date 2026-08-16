@@ -12,14 +12,26 @@ function initRentMap(rootId, config) {
 
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
-  const mist = cssVar('--mist', '#DDE5EE');
-  const accent = cssVar('--accent', '#2E5A8C');
-  const ink = cssVar('--ink', '#10243E');
+  const light = cssVar('--map-light', '#99acc8');
+  const accent = cssVar('--accent-fill', '#1c4b8a');
+  const deep = cssVar('--map-deep', '#10243E');
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
   // Sequential single-hue blue ramp (Névoa Azulada → Cobalto Suave → Azul Tinta),
   // stretched past --ink to a near-black navy so the lightness step alone still
-  // reads clearly as "cheap → expensive" across all 6 bins.
-  const colorRange = d3.quantize(d3.interpolateRgbBasis([mist, accent, ink, '#081527']), 6);
+  // reads clearly as "cheap → expensive" across all 6 bins. --map-light (not
+  // --card — reusing the panel colour made the lowest-value municipalities
+  // disappear into it) is a dedicated pale/dark tint of the same blue per
+  // theme, so light mode reads light → accent → map-deep → near-black, a
+  // monotonic descent. In dark mode the same navy/near-black stops would
+  // bounce non-monotonically off a dark low anchor and the top of the scale
+  // would sit at ~1:1 contrast against the panel — invisible. Use --accent
+  // instead, the same accent-fill already lightened for dark-mode readability
+  // by js/chrome.js, as the bright end, so the top of the scale reads as
+  // clearly in the dark as the bottom does in the light.
+  const colorRange = isDark
+    ? d3.quantize(d3.interpolateRgbBasis([light, accent, cssVar('--accent', '#6ea2e0')]), 6)
+    : d3.quantize(d3.interpolateRgbBasis([light, accent, deep, '#081527']), 6);
 
   let metric = 'price_m2';
 

@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){try{var t=localStorage.getItem('ar-theme');if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);var f=localStorage.getItem('ar-fs');if(f)document.documentElement.style.setProperty('--fs',f);}catch(e){}})();</script>
   <title>Portugal's Housing Crisis Reaches New Extremes — Afonso Rodrigues</title>
   <meta name="description" content="An interactive map of median rent by Portuguese municipality, from INE's quarterly rent index, showing a widening gap between inland and coastal Portugal. By Afonso Rodrigues.">
   <link rel="canonical" href="https://afonsoajrodrigues.com/investigations/housing-crisis.html">
@@ -25,7 +26,7 @@
   <meta name="twitter:image" content="https://afonsoajrodrigues.com/images/og/housing-crisis-en.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script type="application/ld+json">
   {
@@ -42,141 +43,168 @@
   </script>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
-<div class="container">
 
-  <div class="topbar">
-    <span>Afonso Rodrigues — Lisbon</span>
-    <span class="topbar-right">
-      <span class="lang-switch" aria-label="Language">
-        <span class="lang-btn is-active">EN</span>&nbsp;·&nbsp;<a class="lang-btn" href="/pt/investigations/housing-crisis.html">PT</a>
-      </span>
-    </span>
-  </div>
+<a href="#main" class="skip-link">Skip to content</a>
 
-  <header class="masthead">
-    <div class="site-title">
-      <h1 class="brand-lockup"><a href="/">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 120 120"><path class="mark-stroke" d="M16 98 L37 24 L58 98 M24 70 H50"/><path class="mark-stroke" d="M72 98 V24 H89 a16 16 0 0 1 0 32 H72 M87 56 L104 98"/><circle class="mark-dot" cx="37" cy="54" r="5.5"/></svg></span>
-        <span class="brand-name">Afonso <span class="pop">Rodrigues</span></span>
-      </a></h1>
-      <div class="tagline">
-        <span class="tagline-rule"></span>
-        <span class="tagline-text">Photography &amp; Data Journalism</span>
-        <span class="tagline-rule"></span>
-      </div>
-    </div>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/photography.html">Photography</a>
-      <a href="/investigations.html" class="is-active" aria-current="page">Investigations</a>
-      <a href="/">Data</a>
-      <a href="/about.html">About</a>
-    </nav>
-  </header>
-
-  <main id="main-content">
-  <div class="page-header" data-reveal>
-    <div class="page-header-label"><a href="/investigations.html" class="crumb-back">&larr; All investigations</a></div>
-  </div>
-
-<section id="housing" class="article-section">
-    <div class="article-body" data-reveal>
-      <div class="article-label">Investigation · Interactive map</div>
-      <h2 class="article-title">Portugal's housing crisis reaches new <em>extremes</em></h2>
-      <div class="article-byline">
-        <span class="byline-name">By Afonso Rodrigues — reporting &amp; graphics</span>
-        <span class="article-date">June 2026</span>
-      </div>
-      <div class="article-text">
-        <p>The median rent for a one-bedroom flat in Lisbon now stands at around €784 a month — swallowing 85% of a minimum-wage pay check. Portugal's housing market has undergone a generational transformation. Between 2016 and 2026, the median rent per square metre rose by 74% nationally — outpacing wage growth by a factor of four.</p>
-        <p>The data, drawn from INE's quarterly rent index, shows a clear divide between inland and coastal Portugal. Municipalities in the Alentejo interior remain relatively affordable — the district median sits at €4.20/m² — while Greater Lisbon has crossed the €14/m² threshold for the first time. The gap has widened every year since 2019.</p>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-box">
-          <div class="stat-value">€9.46</div>
-          <div class="stat-label">National median /m²</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">+9.1%</div>
-          <div class="stat-label">Year over year</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">€17.42</div>
-          <div class="stat-label">Lisbon, highest</div>
-        </div>
-      </div>
-    </div>
-
-    <figure class="databox databox--map" id="rent-map-app" data-reveal>
-      <div class="databox-toolbar">
-        <span class="databox-toolbar-label">Show:</span>
-        <button type="button" class="databox-btn is-active" data-metric-btn="price_m2">Price per m²</button>
-        <button type="button" class="databox-btn" data-metric-btn="rent_t1_45m2">Rent for a 1-bedroom (45 m²)</button>
-      </div>
-      <div class="databox-legend"></div>
-      <div class="databox-frame">
-        <svg class="databox-svg" viewBox="0 0 640 760" role="img" aria-label="Choropleth map of Portugal showing median rent by municipality"></svg>
-      </div>
-      <figcaption class="databox-caption">Median rent by municipality, first quarter of 2026. Use the buttons to switch between price per m² and the rent for a one-bedroom flat; hover a municipality to see its value. Municipalities without their own figure use the price of their sub-region (NUTS III); a one-bedroom flat is assumed to be 45 m². Source: INE.</figcaption>
-    </figure>
-    <div class="databox-tooltip" id="rent-map-tooltip" aria-hidden="true"></div>
-  </section>
-  </main>
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-name">Afonso Rodrigues</div>
-        <p class="footer-bio">Documentary photography and data-driven investigations. Based in Lisbon, working worldwide.</p>
-        <svg viewBox="0 0 220 60" style="width:150px; height:auto; margin-top:18px; opacity:.85;">
-          <g stroke="#F0F3F5" stroke-width="1">
-            <circle cx="20"  cy="30" r="6"  fill="#2E5A8C"></circle>
-            <circle cx="44"  cy="22" r="9"  fill="#2E5A8C"></circle>
-            <circle cx="70"  cy="38" r="5"  fill="#DDE5EE"></circle>
-            <circle cx="92"  cy="26" r="11" fill="#10243E"></circle>
-            <circle cx="120" cy="40" r="6"  fill="#10243E"></circle>
-            <circle cx="146" cy="24" r="5"  fill="#DDE5EE"></circle>
-            <circle cx="170" cy="36" r="8"  fill="#2E5A8C"></circle>
-            <circle cx="198" cy="28" r="6"  fill="#10243E"></circle>
-          </g>
-        </svg>
-      </div>
-      <div>
-        <div class="footer-nav-label">Navigate</div>
-        <div class="footer-links">
-          <a href="/photography.html">Photography</a>
-          <a href="/investigations.html">Investigations</a>
-          <a href="/about.html">About</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-nav-label">Investigations</div>
-        <div class="footer-links">
-          <a href="/investigations/house-prices-vs-construction-costs.html">Prices vs. Construction Costs</a>
-          <a href="/investigations/innovation-boom.html">Portugal's Innovation Boom</a>
-          <a href="/investigations/housing-crisis.html">The Price of a Home</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-nav-label">Contact</div>
-        <div class="footer-links">
-          <a href="mailto:afonsoajrodrigues@gmail.com">afonsoajrodrigues@gmail.com</a>
-          <a href="https://www.instagram.com/afonsoajrodrigues/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© MMXXVI Afonso Rodrigues</span>
-      <span>Lisbon · 38.72° N, 9.14° W</span>
-      <span class="lang-switch" aria-label="Language">
-        <span class="lang-btn is-active">EN</span>&nbsp;·&nbsp;<a class="lang-btn" href="/pt/investigations/housing-crisis.html">PT</a>
-      </span>
-    </div>
-  </footer>
-
+<div class="utility-bar">
+  <span>Afonso Rodrigues — Lisbon · 38.72° N, 9.14° W</span>
+  <span><span class="accent-text">EN</span> · <a href="/pt/investigations/housing-crisis.html">PT</a></span>
 </div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/" class="wordmark-block"><span class="wordmark">Afonso Rodrigues</span><span class="wordmark-tag">Data Journalist</span></a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/investigations.html" class="is-current" aria-current="page">Investigations</a>
+        <a href="/photography.html">Photography</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
+    <div class="header-controls">
+      <button type="button" class="ctrl-btn ctrl-btn--wide" data-theme-toggle aria-label="Toggle dark mode">Dark</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article>
+    <div class="back-bar"><a href="/investigations.html">← All investigations</a></div>
+
+    <header class="article-header">
+      <div class="article-header-grid">
+        <div>
+          <p class="kicker">Investigation · Interactive map</p>
+          <h1 class="article-title">Portugal's housing crisis reaches new <em>extremes</em></h1>
+          <p class="article-dek">An interactive map of median rent by Portuguese municipality, drawn from INE's quarterly rent index, showing a widening gap between inland and coastal Portugal.</p>
+        </div>
+        <ul class="meta-list">
+          <li><span class="muted-text">Reporting &amp; graphics</span><span>Afonso Rodrigues</span></li>
+          <li><span class="muted-text">Published</span><span>June 2026</span></li>
+          <li><span class="muted-text">Source</span><span>INE · quarterly rent index</span></li>
+          <li><span class="muted-text">Reading time</span><span class="accent-text">5 min</span></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="article-body-wrap">
+      <div class="article-layout">
+        <nav aria-label="Contents" class="toc">
+          <p class="toc-heading">Contents</p>
+          <ul>
+            <li><a href="#s-divide">01 Inland–coastal divide</a></li>
+            <li><a href="#s-map">02 The map</a></li>
+            <li><a href="#s-method">03 Method &amp; caveats</a></li>
+          </ul>
+        </nav>
+
+        <div class="prose">
+          <p class="lede">The median rent for a one-bedroom flat in Lisbon now stands at around €784 a month — swallowing 85% of a minimum-wage pay check.</p>
+          <p>The median rent on new lease agreements in Portugal reached €9.46 per square metre in the first quarter of 2026, a year-over-year rise of 9.1% that accelerated from 7.9% in the previous quarter, according to INE's local-level Housing Rent Statistics — a total of 39,395 new lease agreements, itself up 0.7% on the same quarter last year.</p>
+
+          <h2 id="s-divide">01 The inland–coastal divide</h2>
+          <p>The data, drawn from INE's quarterly rent index, shows a clear divide between inland and coastal Portugal. The cheapest region, Terras de Trás-os-Montes in the interior North, sits at €4.24/m² — while Greater Lisbon has crossed the €14/m² threshold for the first time, and Lisbon itself, the Autonomous Region of Madeira, the Setúbal Peninsula, the Algarve and Greater Porto make up the five most expensive areas in the country.</p>
+          <p>The median rent rose year-over-year in all 24 municipalities with more than 100,000 inhabitants. Vila Nova de Famalicão saw the sharpest increase, up 15.1%, while Lisbon — already the country's most expensive municipality at €17.42/m² — actually grew more slowly than the national average, at 8.2%.</p>
+
+          <div class="stat-grid">
+            <div><span class="stat-value--sm">€9.46</span><span class="stat-label">National median /m²</span></div>
+            <div><span class="stat-value--sm">+9.1%</span><span class="stat-label">Year over year</span></div>
+            <div><span class="stat-value--sm">€17.42</span><span class="stat-label">Lisbon, highest</span></div>
+          </div>
+
+          <h2 id="s-map">02 The map</h2>
+          <figure class="map-figure databox databox--map" id="rent-map-app">
+            <div class="toggle-group databox-toolbar">
+              <button type="button" class="toggle-btn databox-btn is-active" data-metric-btn="price_m2">Price per m²</button>
+              <button type="button" class="toggle-btn databox-btn" data-metric-btn="rent_t1_45m2">Rent for a 1-bedroom (45 m²)</button>
+            </div>
+            <div class="databox-legend"></div>
+            <div class="databox-frame">
+              <svg class="databox-svg" viewBox="0 0 640 760" role="img" aria-label="Choropleth map of Portugal showing median rent by municipality"></svg>
+            </div>
+            <figcaption>Median rent by municipality, first quarter of 2026. Use the buttons to switch between price per m² and the rent for a one-bedroom flat; hover a municipality to see its value. Source: INE.</figcaption>
+          </figure>
+          <div class="databox-tooltip" id="rent-map-tooltip" aria-hidden="true"></div>
+
+          <div class="bar-list article-bar-list" data-bar-list>
+            <div class="bar-row" data-value-m2="17.42">
+              <span class="bar-label">Lisbon (highest)</span>
+              <span class="bar-track"><span class="bar-fill"></span></span>
+              <span class="bar-value"></span>
+            </div>
+            <div class="bar-row" data-value-m2="14.00">
+              <span class="bar-label">Greater Lisbon</span>
+              <span class="bar-track"><span class="bar-fill"></span></span>
+              <span class="bar-value"></span>
+            </div>
+            <div class="bar-row" data-value-m2="9.46">
+              <span class="bar-label">National median</span>
+              <span class="bar-track"><span class="bar-fill"></span></span>
+              <span class="bar-value"></span>
+            </div>
+            <div class="bar-row" data-value-m2="4.24">
+              <span class="bar-label">Terras de Trás-os-Montes (lowest)</span>
+              <span class="bar-track"><span class="bar-fill"></span></span>
+              <span class="bar-value"></span>
+            </div>
+          </div>
+
+          <h2 id="s-method">03 Method &amp; caveats</h2>
+          <p>Municipalities without their own published figure inherit the price of their sub-region (NUTS III). A one-bedroom flat is assumed to be 45 m². All values are medians of new lease contracts, not of the existing stock — the figures therefore describe what a tenant entering the market pays today.</p>
+
+          <div class="credits-box">
+            <p class="credits-heading">Data &amp; credits</p>
+            <p class="credits-row">Reporting, analysis and graphics: Afonso Rodrigues. Source: INE, quarterly rent index (Q1 2026).</p>
+          </div>
+        </div>
+
+        <aside class="side-rail">
+          <div class="related-box">
+            <p class="related-heading">More investigations</p>
+            <a href="/investigations/house-prices-vs-construction-costs.html">Prices vs. Construction Costs</a>
+            <a href="/investigations/innovation-boom.html">Portugal's Innovation Boom</a>
+          </div>
+          <p class="muted-text">Questions about the data? <a href="/about.html" class="accent-text">Get in touch</a>.</p>
+        </aside>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-wordmark">Afonso Rodrigues</span>
+      <span class="footer-blurb">Documentary photography and data-driven investigations. Based in Lisbon, working worldwide.</span>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">Navigate</span>
+      <a href="/photography.html">Photography</a>
+      <a href="/investigations.html">Investigations</a>
+      <a href="/about.html">About</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">Investigations</span>
+      <a href="/investigations/house-prices-vs-construction-costs.html">Prices vs. Construction Costs</a>
+      <a href="/investigations/innovation-boom.html">Portugal's Innovation Boom</a>
+      <a href="/investigations/housing-crisis.html">The Price of a Home</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:afonsoajrodrigues@gmail.com">afonsoajrodrigues@gmail.com</a>
+      <a href="https://www.instagram.com/afonsoajrodrigues/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© MMXXVI Afonso Rodrigues</span>
+    <span>Lisbon · 38.72° N, 9.14° W</span>
+    <span>EN · <a href="/pt/investigations/housing-crisis.html">PT</a></span>
+  </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="/js/rent-map.js"></script>
-<script src="/motion.js"></script>
+<script src="/js/chrome.js"></script>
 <script>
   initRentMap('rent-map-app', {
     tooltipId: 'rent-map-tooltip',

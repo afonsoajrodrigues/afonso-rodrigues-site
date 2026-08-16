@@ -122,53 +122,115 @@ def main():
         def flat(locator):
             return locator.evaluate(FLATTEN_JS)
 
-        section = page.locator(".article-section").first
+        header = page.locator(".article-header").first
         canonical = page.locator('link[rel="canonical"]').get_attribute("href")
         chart_idx = 0
 
-        children = section.locator(":scope > *")
+        md.append(f"# {flat(header.locator('.article-title'))}\n")
+        if header.locator(".kicker").count():
+            md.append(f"*{flat(header.locator('.kicker'))}*\n")
+        meta_rows = header.locator(".meta-list li")
+        meta = {}
+        for j in range(meta_rows.count()):
+            row = meta_rows.nth(j)
+            spans = row.locator("span")
+            meta[flat(spans.nth(0))] = flat(spans.nth(1))
+        byline = meta.get("Reporting & graphics") or meta.get("Reportagem & gráficos", "")
+        date = meta.get("Published") or meta.get("Publicado", "")
+        if byline or date:
+            md.append(f"*{byline} — {date}*\n")
+
+        # Prose is a flat, mixed sequence (paragraphs, h2 section headers, the
+        # stat grid, chart/map figures, an illustrative bar list, sources and
+        # credits) — walking it top to bottom keeps export order identical to
+        # the page regardless of how a given investigation mixes these.
+        prose = page.locator(".prose").first
+        children = prose.locator(":scope > *")
         for i in range(children.count()):
             child = children.nth(i)
             cls = child.get_attribute("class") or ""
             tag = child.evaluate("e => e.tagName.toLowerCase()")
 
-            if "article-body" in cls:
-                md.append(f"# {flat(child.locator('.article-title'))}\n")
-                if child.locator(".article-label").count():
-                    md.append(f"*{flat(child.locator('.article-label'))}*\n")
-                byline = flat(child.locator(".byline-name"))
-                date = flat(child.locator(".article-date"))
-                md.append(f"*{byline} — {date}*\n")
-                for j in range(child.locator(".article-text p").count()):
-                    md.append(flat(child.locator(".article-text p").nth(j)) + "\n")
-                if child.locator(".stat-grid").count():
-                    md.append(f"{L['key_numbers']}\n")
-                    boxes = child.locator(".stat-box")
-                    for j in range(boxes.count()):
-                        box = boxes.nth(j)
-                        md.append(f"- **{flat(box.locator('.stat-value'))}** — {flat(box.locator('.stat-label'))}")
-                    md.append("")
-                    child.locator(".stat-grid").screenshot(path=str(img_dir / "00-stat-grid.png"))
-                    md.append(f"![stat grid](images-{lang}/00-stat-grid.png)\n")
+            if tag == "h2":
+                md.append(f"## {flat(child)}\n")
 
-            elif tag == "p" and "chart-intro" in cls:
+            elif tag == "p":
                 md.append(flat(child) + "\n")
 
-            elif "chart-figure" in cls or "databox--map" in cls:
+            elif "stat-grid" in cls:
+                md.append(f"{L['key_numbers']}\n")
+                boxes = child.locator(":scope > div")
+                for j in range(boxes.count()):
+                    box = boxes.nth(j)
+                    md.append(f"- **{flat(box.locator('.stat-value--sm'))}** — {flat(box.locator('.stat-label'))}")
+                md.append("")
+                child.screenshot(path=str(img_dir / "00-stat-grid.png"))
+                md.append(f"![stat grid](images-{lang}/00-stat-grid.png)\n")
+
+            elif "chart-figure" in cls or "map-figure" in cls or "databox--map" in cls:
                 chart_idx += 1
-                kind = "map" if "databox--map" in cls else "chart"
+                kind = "map" if "databox--map" in cls or "map-figure" in cls else "chart"
                 fname = f"{chart_idx:02d}-{kind}.png"
                 child.scroll_into_view_if_needed()
-                child.screenshot(path=str(img_dir / fname))
+                # .chart-figure .databox-frame scrolls horizontally on screen (the
+                # chart's min-width, e.g. 860px, is wider than the 64ch prose
+                # column) — fine for an interactive page, but screenshotting the
+                # outer <figure> only captures its own (column-width) box, silently
+                # cropping the scrolled-off right edge: the final data point, the
+                # line-end labels. Maps don't have this (they zoom/pan inside a
+                # fixed viewBox instead of scrolling), so this only fires for
+                # line/bar charts. Fix: widen the frame to its full content width,
+                # then screenshot the frame itself rather than the figure — an
+                # element's own screenshot is its own box, not clipped by a
+                # non-overflowing ancestor the way a child screenshot would be.
+                target = child
+                widened = child.evaluate("""
+                  el => {
+                    const frame = el.querySelector('.databox-frame');
+                    if (!frame || getComputedStyle(frame).overflowX !== 'auto') return false;
+                    // scrollWidth (measured before touching overflow/width) is the
+                    // frame's true content width, incl. the scrolled-off part.
+                    const fullWidth = frame.scrollWidth + 24;
+                    frame.dataset.exportOverflow = frame.style.overflow;
+                    frame.dataset.exportWidth = frame.style.width;
+                    frame.style.overflow = 'visible';
+                    frame.style.width = fullWidth + 'px';
+                    // <svg> defaults to overflow: hidden itself, independent of
+                    // the frame around it — widening the frame reveals the full
+                    // viewBox, but a line-end label whose glyphs run a few px past
+                    // that viewBox (e.g. "Construction-cost index") was still
+                    // getting clipped by the svg's own box. Open that up too.
+                    const svg = frame.querySelector('svg');
+                    if (svg) {
+                      svg.dataset.exportOverflow = svg.style.overflow;
+                      svg.style.overflow = 'visible';
+                    }
+                    return true;
+                  }
+                """)
+                if widened:
+                    target = child.locator(".databox-frame")
+                target.screenshot(path=str(img_dir / fname))
+                if widened:
+                    child.evaluate("""
+                      el => {
+                        const frame = el.querySelector('.databox-frame');
+                        frame.style.overflow = frame.dataset.exportOverflow;
+                        frame.style.width = frame.dataset.exportWidth;
+                        delete frame.dataset.exportOverflow;
+                        delete frame.dataset.exportWidth;
+                        const svg = frame.querySelector('svg');
+                        if (svg) {
+                          svg.style.overflow = svg.dataset.exportOverflow;
+                          delete svg.dataset.exportOverflow;
+                        }
+                      }
+                    """)
                 md.append(f"![{kind} {chart_idx}](images-{lang}/{fname})")
                 caption = child.locator("figcaption")
                 if caption.count():
                     md.append(f"*{flat(caption)}*\n")
                 print("saved", fname)
-
-            elif "article-text" in cls:
-                for j in range(child.locator("p").count()):
-                    md.append(flat(child.locator("p").nth(j)) + "\n")
 
             elif "article-sources" in cls:
                 md.append(f"{L['sources']}\n")
@@ -176,6 +238,14 @@ def main():
                 for j in range(items.count()):
                     md.append(f"{j + 1}. {flat(items.nth(j))}")
                 md.append("")
+
+            elif "credits-box" in cls:
+                for j in range(child.locator(".credits-row").count()):
+                    md.append(f"*{flat(child.locator('.credits-row').nth(j))}*\n")
+
+            # .article-bar-list (the illustrative rent-by-area bars) and the
+            # hidden .databox-tooltip are decorative/redundant with the map
+            # and stat grid above, so they're intentionally skipped here.
 
         browser.close()
 
