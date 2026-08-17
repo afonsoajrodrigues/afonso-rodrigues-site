@@ -532,7 +532,15 @@ button { font: inherit; }
 .toc a { display: block; padding: 11px 0; line-height: 1.5; letter-spacing: 0.04em; text-transform: uppercase; }
 .toc a:hover { color: var(--accent); }
 
-.prose { font-family: var(--font-display); font-size: calc(18px * var(--fs)); line-height: 1.7; }
+/* min-width:0 overrides the grid item's implicit min-width:auto — without it,
+   a CSS Grid item's automatic minimum size is its content's min-content size,
+   and the 860px-min-width chart SVGs nested inside (.chart-figure .databox-
+   frame svg, several levels down) push that min-content size past 860px even
+   though .databox-frame's own overflow-x:auto is supposed to contain them.
+   Left unset, .article-layout--notoc's track — and .prose along with it —
+   gets forced to ~890px on every viewport, including mobile, blowing the
+   whole page out to a horizontal scroll no matter how narrow the screen is. */
+.prose { font-family: var(--font-display); font-size: calc(18px * var(--fs)); line-height: 1.7; min-width: 0; }
 .prose p { margin: 0 0 22px; text-wrap: pretty; }
 .prose .lede { font-weight: 500; }
 .prose h2 {
