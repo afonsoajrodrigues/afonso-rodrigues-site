@@ -112,6 +112,13 @@ button { font: inherit; }
      only min-height, a wrapped 2-line block exceeds 64px and sits flush
      against the header's top/bottom borders with zero breathing room. */
   padding: 16px 0;
+  /* .header-inner's grid gives this the 1fr track next to header-controls'
+     auto one, but a grid item's implicit minimum width is its content's
+     min-content — the widest thing flex-wrap can't break — not 0. On phones
+     around 360px that min-content (wordmark + nav) is wider than the 1fr
+     track actually has room for, so the grid overflowed its own container by
+     ~10-25px instead of letting flex-wrap fold the nav onto a second line. */
+  min-width: 0;
 }
 .wordmark-block { display: flex; flex-direction: column; justify-content: center; gap: 3px; line-height: 1; }
 .wordmark {
@@ -338,10 +345,15 @@ button { font: inherit; }
 .databox-tooltip .price { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; margin: 4px 0; }
 .databox-tooltip .meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: .04em; text-transform: uppercase; color: var(--rule); }
 
-/* D3 line/bar charts (innovation-boom, house-prices-vs-construction-costs) */
+/* D3 line/bar charts (innovation-boom, house-prices-vs-construction-costs).
+   These used to render at a fixed 860px canvas regardless of container width,
+   so .databox-frame's overflow-x:auto was load-bearing — the chart never fit
+   its own box, on desktop's ~700-800px .prose column as much as on mobile.
+   js/chart-responsive.js + js/innovation-charts.js / housing-cost-charts.js
+   now draw each chart at the frame's actual width and redraw it on resize, so
+   the chart always fits; overflow-x:auto stays only as a defensive fallback. */
 .chart-figure { margin: 8px 0 40px; }
 .chart-figure .databox-frame { overflow-x: auto; }
-.chart-figure .databox-frame svg { min-width: 860px; }
 .chart-figure figcaption { font-family: var(--font-mono); font-size: 11px; line-height: 1.7; color: var(--muted); margin-top: 12px; max-width: 76ch; }
 .chart-figure .axis text { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
 .chart-figure .axis line, .chart-figure .axis path { stroke: var(--rule); }
@@ -419,7 +431,13 @@ button { font: inherit; }
 .series-jump a { color: var(--muted); }
 .series-jump a:hover { color: var(--accent); }
 
-.series-section { padding: 32px 20px; border-bottom: 1px solid var(--line); margin: 0 -20px; }
+/* No margin here: unlike .series-header below (nested inside this section's
+   own 20px padding, so it needs -20px to go edge-to-edge), .series-section
+   itself is a direct child of <main> with no padded ancestor to counteract —
+   the -20px it carried before had nothing to cancel out, so it just pushed
+   the section 20px past the right edge of the viewport on every screen
+   wider than the 560px breakpoint (which happened to reset it to 0). */
+.series-section { padding: 32px 20px; border-bottom: 1px solid var(--line); }
 .series-header {
   display: flex; align-items: flex-end; justify-content: space-between;
   padding: 0 20px 14px; margin: 0 -20px 28px; border-bottom: 1px solid var(--line);
@@ -528,12 +546,12 @@ button { font: inherit; }
 
 /* min-width:0 overrides the grid item's implicit min-width:auto — without it,
    a CSS Grid item's automatic minimum size is its content's min-content size,
-   and the 860px-min-width chart SVGs nested inside (.chart-figure .databox-
-   frame svg, several levels down) push that min-content size past 860px even
-   though .databox-frame's own overflow-x:auto is supposed to contain them.
-   Left unset, .article-layout--notoc's track — and .prose along with it —
-   gets forced to ~890px on every viewport, including mobile, blowing the
-   whole page out to a horizontal scroll no matter how narrow the screen is. */
+   so any wide unbreakable content nested inside .prose (a table, a code
+   block, or — as used to happen before the chart JS drew to the frame's real
+   width — a chart SVG hardcoded wider than the column) forces the whole
+   .article-layout--notoc track out to that content's width on every
+   viewport, including mobile, rather than letting the content scroll inside
+   its own box. Kept as a standing safety net for the next wide element. */
 .prose { font-family: var(--font-display); font-size: calc(18px * var(--fs)); line-height: 1.7; min-width: 0; }
 .prose p { margin: 0 0 22px; text-wrap: pretty; }
 .prose .lede { font-weight: 500; }
@@ -611,7 +629,7 @@ button { font: inherit; }
   .header-inner, .page-header, .lead-section, .desk-section, .data-section,
   .gallery-section, .about-section, .article-header, .article-body-wrap,
   .back-bar, .photo-teaser { padding-left: 16px; padding-right: 16px; }
-  .series-section { padding-left: 16px; padding-right: 16px; margin: 0; }
+  .series-section { padding-left: 16px; padding-right: 16px; }
   .series-header { padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; }
   .essay-caption { padding-left: 16px; padding-right: 16px; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -645,19 +663,4 @@ button { font: inherit; }
   .databox-zoom-btn:not(.databox-zoom-btn--reset) { width: 40px; height: 40px; font-size: 16px; }
   .databox-zoom-btn--reset { height: 40px; }
   .lightbox-close { padding: 13px 16px; }
-
-  /* Visual + textual cue that the dense D3 charts (innovation-boom,
-     house-prices-vs-construction-costs) scroll sideways — the figcaption
-     already sits outside the scrolling .databox-frame, so this can't be
-     scrolled away with the chart itself. EN default; :lang(pt) below swaps
-     the wording for the Portuguese page copies of the same markup. */
-  .chart-figure figcaption::before {
-    content: '◂ Scroll to see full chart ▸';
-    display: block; margin-bottom: 8px;
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--accent);
-  }
-  html:lang(pt) .chart-figure figcaption::before {
-    content: '◂ Deslizar para ver o gráfico completo ▸';
-  }
 }
