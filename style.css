@@ -94,17 +94,6 @@ button { font: inherit; }
 }
 .skip-link:focus { left: 8px; top: 8px; }
 
-/* Utility bar */
-.utility-bar {
-  border-bottom: 1px solid var(--line);
-  padding: 7px 20px;
-  display: flex; justify-content: space-between; gap: 16px;
-  font-family: var(--font-mono); font-size: 10px;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--muted);
-}
-.utility-bar a:hover { color: var(--accent); }
-
 /* Header */
 .site-header {
   position: sticky; top: 0; z-index: 40;
@@ -118,6 +107,11 @@ button { font: inherit; }
 .header-left {
   display: flex; align-items: center; gap: 40px;
   min-height: 64px; flex-wrap: wrap;
+  /* Padding (not just min-height) so the name keeps clean air above/below
+     it even when nav wraps under it on narrow widths (~360–400px) — with
+     only min-height, a wrapped 2-line block exceeds 64px and sits flush
+     against the header's top/bottom borders with zero breathing room. */
+  padding: 16px 0;
 }
 .wordmark-block { display: flex; flex-direction: column; justify-content: center; gap: 3px; line-height: 1; }
 .wordmark {
@@ -597,13 +591,7 @@ button { font: inherit; }
 .footer-blurb { opacity: 0.7; max-width: 34ch; }
 .footer-col { display: grid; gap: 4px; align-content: start; }
 .footer-heading { letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.6; }
-.footer-col a:hover, .footer-bottom a:hover { color: var(--accent); }
-.footer-bottom {
-  padding: 14px 20px; border-top: 1px solid rgba(255,255,255,0.18);
-  display: flex; flex-wrap: wrap; gap: 18px; justify-content: space-between;
-  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  opacity: 0.75;
-}
+.footer-col a:hover { color: var(--accent); }
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -620,7 +608,6 @@ button { font: inherit; }
 }
 
 @media (max-width: 560px) {
-  .utility-bar { padding: 7px 16px; font-size: 9px; }
   .header-inner, .page-header, .lead-section, .desk-section, .data-section,
   .gallery-section, .about-section, .article-header, .article-body-wrap,
   .back-bar, .photo-teaser { padding-left: 16px; padding-right: 16px; }
@@ -629,7 +616,6 @@ button { font: inherit; }
   .essay-caption { padding-left: 16px; padding-right: 16px; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
-  .footer-bottom { padding-left: 16px; padding-right: 16px; flex-direction: column; }
 
   /* Nav vs. wordmark get tight around ~360–400px — no hamburger, just less
      air between items so both fit on one wrapped line instead of two. */
