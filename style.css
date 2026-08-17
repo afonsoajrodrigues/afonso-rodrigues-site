@@ -529,11 +529,20 @@ button { font: inherit; }
 .meta-list li:last-child { border-bottom: none; }
 
 .article-body-wrap { padding: 0 20px; }
+/* Centered, edge-to-edge-friendly article grid — replaces a fixed
+   210px-toc + 64ch-prose + `1fr`-sidebar layout that, on any screen wider
+   than ~1100px, left the sidebar track stretched to whatever pixels were
+   left over: a "More investigations" box several hundred pixels wide and
+   three lines tall, with a wall of dead white space beside it. `1fr` is
+   gone; the whole grid caps at max-width and centers on the page instead,
+   like a newspaper's article column, and .side-rail moves below the prose
+   (see below) rather than beside it. */
 .article-layout {
-  display: grid; grid-template-columns: 210px minmax(0, 64ch) 1fr; gap: 44px;
+  display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 44px;
+  max-width: 1136px; margin: 0 auto;
   padding: 40px 0 80px; align-items: start;
 }
-.article-layout--notoc { grid-template-columns: minmax(0, 64ch) 1fr; }
+.article-layout--notoc { grid-template-columns: minmax(0, 1fr); }
 .toc { position: sticky; top: 78px; font-family: var(--font-mono); font-size: 11px; }
 .toc-heading {
   letter-spacing: 0.16em; text-transform: uppercase; font-size: 10px; color: var(--muted);
@@ -552,8 +561,13 @@ button { font: inherit; }
    .article-layout--notoc track out to that content's width on every
    viewport, including mobile, rather than letting the content scroll inside
    its own box. Kept as a standing safety net for the next wide element. */
-.prose { font-family: var(--font-display); font-size: calc(18px * var(--fs)); line-height: 1.7; min-width: 0; }
-.prose p { margin: 0 0 22px; text-wrap: pretty; }
+/* .prose itself carries the "full" width — up to 880px, used by charts,
+   the stat grid, the sources list, credit boxes — so graphics get the room
+   the old 64ch column never gave them. Paragraphs cap back down to a 68ch
+   reading measure and center within that, so body copy still reads like a
+   newspaper column instead of stretching edge to edge. */
+.prose { font-family: var(--font-display); font-size: calc(18px * var(--fs)); line-height: 1.7; min-width: 0; max-width: 880px; margin: 0 auto; }
+.prose p { max-width: 68ch; margin: 0 auto 22px; text-wrap: pretty; }
 .prose .lede { font-weight: 500; }
 .prose h2 {
   font-family: var(--font-display); font-weight: 700;
@@ -575,7 +589,7 @@ button { font: inherit; }
 
 .article-sources { margin: 40px 0 0; padding-top: 24px; border-top: 1px solid var(--line); }
 .article-sources-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-.article-sources ol { list-style: none; counter-reset: source; padding: 0; margin: 0; max-width: 70ch; }
+.article-sources ol { list-style: none; counter-reset: source; padding: 0; margin: 0 auto; max-width: 70ch; }
 .article-sources li { counter-increment: source; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--muted); padding: 9px 0; border-top: 1px dotted var(--rule); }
 .article-sources li:first-child { border-top: none; }
 .article-sources li::before { content: counter(source) '. '; color: var(--accent); }
@@ -591,11 +605,20 @@ button { font: inherit; }
 .credits-row { margin: 0; padding: 15px 18px; border-bottom: 1px dotted var(--rule); }
 .credits-row:last-child { border-bottom: none; }
 
-.side-rail { position: sticky; top: 78px; font-family: var(--font-mono); font-size: 11px; line-height: 1.7; display: grid; gap: 16px; }
-.related-box { border: 1px solid var(--line); }
-.related-heading { margin: 0; padding: 11px 14px; border-bottom: 1px solid var(--line); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
-.related-box a { display: block; padding: 11px 14px; border-bottom: 1px dotted var(--rule); }
-.related-box a:last-child { border-bottom: none; }
+/* Moved below the prose instead of stickied beside it — see .article-layout
+   above. Spans the full grid row (toc column included) and lays its two-ish
+   "more investigations" links out as a card row rather than a single
+   stretched-thin vertical box, so it reads as an end-of-article "related"
+   strip, the way newspaper sites place it, instead of dead sidebar space. */
+.side-rail {
+  grid-column: 1 / -1; position: static; margin-top: 8px; padding-top: 32px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: 11px; line-height: 1.7; display: grid; gap: 16px;
+}
+.related-box { border: 1px solid var(--line); display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.related-heading { grid-column: 1 / -1; margin: 0; padding: 11px 14px; border-bottom: 1px solid var(--line); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.related-box a { display: block; padding: 11px 14px; border-right: 1px dotted var(--rule); }
+.related-box a:last-child { border-right: none; }
 .related-box a:hover { background: var(--card); color: inherit; }
 
 /* Footer */
@@ -623,6 +646,19 @@ button { font: inherit; }
   /* Once .data-grid stacks (chart above map), the chart column's 40px right
      padding — sized to sit next to .map-col — is dead space at full width. */
   .chart-col { padding: 24px 0; }
+
+  /* Chart/map figures inside article prose go full-bleed on mobile — flush
+     to the viewport edges instead of boxed inside .article-body-wrap's 20px
+     side padding, so a phone gets a chart as wide as its screen, not a
+     chart squeezed into the screen minus 40px of padding plus the frame's
+     own 28px of internal padding on each side. Only the container's width
+     and edges move; interactivity (D3 tooltips, the map's zoom/pan
+     controls, chart-responsive.js's resize-redraw) is untouched. */
+  .chart-figure .databox-frame,
+  .map-figure .databox-frame {
+    margin-left: -20px; margin-right: -20px;
+    border-left: none; border-right: none;
+  }
 }
 
 @media (max-width: 560px) {
@@ -655,6 +691,11 @@ button { font: inherit; }
      is already at 100% of a narrow screen. */
   .databox-frame { padding: 14px; }
   .databox-zoom-controls { right: 10px; bottom: 10px; }
+
+  /* Match the full-bleed negative margin above to this breakpoint's
+     narrower .article-body-wrap padding (16px, not 20px). */
+  .chart-figure .databox-frame,
+  .map-figure .databox-frame { margin-left: -16px; margin-right: -16px; }
 
   /* 30px zoom buttons and the lightbox close button sit under the ~44px
      touch-target floor; grow the tap area without changing the desktop
