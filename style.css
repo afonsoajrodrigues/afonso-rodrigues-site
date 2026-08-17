@@ -646,19 +646,6 @@ button { font: inherit; }
   /* Once .data-grid stacks (chart above map), the chart column's 40px right
      padding — sized to sit next to .map-col — is dead space at full width. */
   .chart-col { padding: 24px 0; }
-
-  /* Chart/map figures inside article prose go full-bleed on mobile — flush
-     to the viewport edges instead of boxed inside .article-body-wrap's 20px
-     side padding, so a phone gets a chart as wide as its screen, not a
-     chart squeezed into the screen minus 40px of padding plus the frame's
-     own 28px of internal padding on each side. Only the container's width
-     and edges move; interactivity (D3 tooltips, the map's zoom/pan
-     controls, chart-responsive.js's resize-redraw) is untouched. */
-  .chart-figure .databox-frame,
-  .map-figure .databox-frame {
-    margin-left: -20px; margin-right: -20px;
-    border-left: none; border-right: none;
-  }
 }
 
 @media (max-width: 560px) {
@@ -691,11 +678,6 @@ button { font: inherit; }
      is already at 100% of a narrow screen. */
   .databox-frame { padding: 14px; }
   .databox-zoom-controls { right: 10px; bottom: 10px; }
-
-  /* Match the full-bleed negative margin above to this breakpoint's
-     narrower .article-body-wrap padding (16px, not 20px). */
-  .chart-figure .databox-frame,
-  .map-figure .databox-frame { margin-left: -16px; margin-right: -16px; }
 
   /* 30px zoom buttons and the lightbox close button sit under the ~44px
      touch-target floor; grow the tap area without changing the desktop
