@@ -83,10 +83,21 @@ function initHousingCostMap(rootId, config) {
     });
 
     geo.features.forEach(f => { f.data = byCode.get(f.properties.code); });
-
-    const path = d3.geoPath(d3.geoMercator().fitSize([width, height], geo));
     const withData = geo.features.filter(f => f.data);
     const withoutData = geo.features.filter(f => !f.data);
+
+    // Fits the projection to the 8 countries actually in the comparison
+    // (Portugal to Austria, Netherlands to Italy), not the full 35-country
+    // basemap — which stretches from Iceland to Cyprus. Fitting to
+    // everything left the story's own countries as a small cluster in one
+    // corner of the frame, tiny enough on a phone that reading a country's
+    // colour meant pinch-zooming in first. Grey no-data countries (Nordics,
+    // UK, Eastern Europe) still draw for geographic context; some now run
+    // past the frame's edge and get clipped there, same as any map cropped
+    // to its story's region rather than its full basemap. fitExtent (not
+    // fitSize) leaves a margin so borders/labels at the fitted edge aren't
+    // clipped along with the frame.
+    const path = d3.geoPath(d3.geoMercator().fitExtent([[16, 16], [width - 16, height - 16]], { type: 'FeatureCollection', features: withData }));
     const values = withData.map(f => f.data.growth_pct);
     const colour = d3.scaleQuantize().domain([d3.min(values), d3.max(values)]).range(colorRange);
 
