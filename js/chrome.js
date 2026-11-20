@@ -89,6 +89,48 @@
       btn.addEventListener('click', function () { setFs(parseFloat(getComputedStyle(root).getPropertyValue('--fs')) + FS_STEP); });
     });
 
+    // Header slides away while reading down, returns on any upward scroll.
+    var header = document.querySelector('.site-header');
+    var prose = document.querySelector('article .prose');
+    var bar = null;
+    if (prose) {
+      bar = document.createElement('div');
+      bar.className = 'read-progress';
+      bar.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(bar);
+    }
+    var lastY = window.scrollY, ticking = false;
+    function onScroll() {
+      var y = window.scrollY;
+      if (header) header.classList.toggle('is-hidden', y > 160 && y > lastY && !header.contains(document.activeElement));
+      lastY = y;
+      if (bar) {
+        var r = prose.getBoundingClientRect();
+        var p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - window.innerHeight)));
+        bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
+
+    // Table of contents follows the section being read.
+    var tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+    if (tocLinks.length && 'IntersectionObserver' in window) {
+      var byId = {};
+      tocLinks.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          tocLinks.forEach(function (a) { a.classList.remove('is-active'); a.removeAttribute('aria-current'); });
+          var a = byId[en.target.id];
+          if (a) { a.classList.add('is-active'); a.setAttribute('aria-current', 'location'); }
+        });
+      }, { rootMargin: '-15% 0px -70% 0px' });
+      Object.keys(byId).forEach(function (id) { var h = document.getElementById(id); if (h) io.observe(h); });
+    }
+
     document.querySelectorAll('[data-bar-list]').forEach(function (list) {
       renderBars(list, 'm2');
     });
