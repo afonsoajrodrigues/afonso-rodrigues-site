@@ -34,7 +34,7 @@
     var isDark = root.getAttribute('data-theme') === 'dark';
     var fill = getComputedStyle(root).getPropertyValue('--accent-fill').trim() || '#1c4b8a';
     root.style.removeProperty('--accent');
-    var bg = getComputedStyle(root).getPropertyValue('--paper').trim() || (isDark ? '#0e1116' : '#fafbfc');
+    var bg = getComputedStyle(root).getPropertyValue('--paper').trim() || (isDark ? '#0e1116' : '#ffffff');
     root.style.setProperty('--accent', readableAccent(fill, bg, isDark));
   }
 
@@ -46,7 +46,7 @@
       btn.setAttribute('aria-pressed', String(dark));
     });
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', dark ? '#0e1116' : '#fafbfc');
+    if (meta) meta.setAttribute('content', dark ? '#0e1116' : '#ffffff');
     try { localStorage.setItem('ar-theme', dark ? 'dark' : 'light'); } catch (e) {}
     applyAccent();
   }
@@ -103,6 +103,7 @@
     function onScroll() {
       var y = window.scrollY;
       if (header) header.classList.toggle('is-hidden', y > 160 && y > lastY && !header.contains(document.activeElement));
+      if (header) header.classList.toggle('is-scrolled', y > 8);
       lastY = y;
       if (bar) {
         var r = prose.getBoundingClientRect();
