@@ -22,28 +22,20 @@ function initRentMap(rootId, config) {
     tip.style('left', left + 'px').style('top', top + 'px');
   }
 
-  const css = getComputedStyle(document.documentElement);
-  const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
-  const light = cssVar('--map-light', '#a9bdaf');
-  const accent = cssVar('--accent-fill', '#24503f');
-  const deep = cssVar('--map-deep', '#143027');
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-
-  // Sequential single-hue blue ramp (Névoa Azulada → Cobalto Suave → Azul Tinta),
-  // stretched past --ink to a near-black navy so the lightness step alone still
-  // reads clearly as "cheap → expensive" across all 6 bins. --map-light (not
-  // --card — reusing the panel colour made the lowest-value municipalities
-  // disappear into it) is a dedicated pale/dark tint of the same blue per
-  // theme, so light mode reads light → accent → map-deep → near-black, a
-  // monotonic descent. In dark mode the same navy/near-black stops would
-  // bounce non-monotonically off a dark low anchor and the top of the scale
-  // would sit at ~1:1 contrast against the panel — invisible. Use --accent
-  // instead, the same accent-fill already lightened for dark-mode readability
-  // by js/chrome.js, as the bright end, so the top of the scale reads as
-  // clearly in the dark as the bottom does in the light.
-  const colorRange = isDark
-    ? d3.quantize(d3.interpolateRgbBasis([light, accent, cssVar('--accent', '#6ea2e0')]), 6)
-    : d3.quantize(d3.interpolateRgbBasis([light, accent, deep, '#0a1812']), 6);
+  // Sequential single-hue ramp read fresh from the theme tokens, so a theme
+  // switch (chrome.js fires 'themechange') can recolour without a reload.
+  // Light: --map-light → --accent-fill → --map-deep (monotonic descent).
+  // Dark: the deep end would vanish into the panel, so the bright end is
+  // --accent (the dark-theme ink) instead.
+  function mapRamp(n) {
+    const cs = getComputedStyle(document.documentElement);
+    const v = (k, f) => cs.getPropertyValue(k).trim() || f;
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const stops = dark
+      ? [v('--map-light', '#4a6555'), v('--accent-fill', '#3d7f65'), v('--accent', '#ede8de')]
+      : [v('--map-light', '#8aa392'), v('--accent-fill', '#24503f'), v('--map-deep', '#143027')];
+    return d3.quantize(d3.interpolateRgbBasis(stops), n);
+  }
 
   let metric = 'price_m2';
 
@@ -74,7 +66,7 @@ function initRentMap(rootId, config) {
 
     function draw() {
       const values = geo.features.map(f => f.data[metric]);
-      colour = d3.scaleQuantize().domain([d3.min(values), d3.max(values)]).range(colorRange);
+      colour = d3.scaleQuantize().domain([d3.min(values), d3.max(values)]).range(mapRamp(6));
 
       svg.selectAll('path')
         .data(geo.features)
@@ -116,11 +108,20 @@ function initRentMap(rootId, config) {
     root.querySelectorAll('[data-metric-btn]').forEach(btn => {
       btn.addEventListener('click', () => {
         metric = btn.getAttribute('data-metric-btn');
-        root.querySelectorAll('[data-metric-btn]').forEach(b => b.classList.toggle('is-active', b === btn));
+        root.querySelectorAll('[data-metric-btn]').forEach(b => {
+          b.classList.toggle('is-active', b === btn);
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
         draw();
       });
     });
 
+    root.querySelectorAll('[data-metric-btn]').forEach(b => b.setAttribute('aria-pressed', String(b.classList.contains('is-active'))));
+    document.addEventListener('themechange', draw);
+    // Touch: a tapped tooltip would otherwise float over the text while scrolling.
+    window.addEventListener('scroll', () => tooltip.style('opacity', 0), { passive: true });
     draw();
+  }).catch(() => {
+    root.querySelector('.databox-frame').insertAdjacentHTML('beforeend', `<p class="fine-print">${strings.loadError || 'The map could not load. The data is available as a CSV:'} <a href="${config.dataUrls.csv}">${config.dataUrls.csv.split('/').pop()}</a></p>`);
   });
 }

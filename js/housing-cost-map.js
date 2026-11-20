@@ -24,22 +24,21 @@ function initHousingCostMap(rootId, config) {
 
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
-  const light = cssVar('--map-light', '#a9bdaf');
-  const accent = cssVar('--accent-fill', '#24503f');
-  const deep = cssVar('--map-deep', '#143027');
-  const hair = cssVar('--rule', '#C9C6BF');
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  // Sequential single-hue ramp read fresh from the theme tokens, so a theme
+  // switch (chrome.js fires 'themechange') can recolour without a reload.
+  // Light: --map-light → --accent-fill → --map-deep (monotonic descent).
+  // Dark: the deep end would vanish into the panel, so the bright end is
+  // --accent (the dark-theme ink) instead.
+  function mapRamp(n) {
+    const cs = getComputedStyle(document.documentElement);
+    const v = (k, f) => cs.getPropertyValue(k).trim() || f;
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const stops = dark
+      ? [v('--map-light', '#4a6555'), v('--accent-fill', '#3d7f65'), v('--accent', '#ede8de')]
+      : [v('--map-light', '#8aa392'), v('--accent-fill', '#24503f'), v('--map-deep', '#143027')];
+    return d3.quantize(d3.interpolateRgbBasis(stops), n);
+  }
 
-  // See js/rent-map.js for why this ramp branches by theme and reads
-  // --map-light instead of --card: reusing the panel colour made the
-  // lowest-growth countries disappear into the panel, and in dark mode the
-  // fixed navy/near-black stops that read as a clean light→dark descent in
-  // light mode would go non-monotonic on top of a dark low anchor — use
-  // --accent (already lightened for dark-mode readability) as the bright end
-  // so the top of the scale stays legible against the dark panel.
-  const colorRange = isDark
-    ? d3.quantize(d3.interpolateRgbBasis([light, accent, cssVar('--accent', '#6ea2e0')]), 5)
-    : d3.quantize(d3.interpolateRgbBasis([light, accent, deep, '#0a1812']), 5);
   const width = 640, height = 600;
 
   const zoomLayer = svg.append('g').attr('class', 'zoom-layer');
@@ -99,14 +98,14 @@ function initHousingCostMap(rootId, config) {
     // clipped along with the frame.
     const path = d3.geoPath(d3.geoMercator().fitExtent([[16, 16], [width - 16, height - 16]], { type: 'FeatureCollection', features: withData }));
     const values = withData.map(f => f.data.growth_pct);
-    const colour = d3.scaleQuantize().domain([d3.min(values), d3.max(values)]).range(colorRange);
+    const colour = d3.scaleQuantize().domain([d3.min(values), d3.max(values)]).range(mapRamp(5));
 
     noDataLayer.selectAll('path')
       .data(withoutData)
       .join('path')
         .attr('class', 'country no-data')
         .attr('d', path)
-        .attr('fill', hair)
+        .attr('fill', cssVar('--rule', '#ebe8e2'))
         .on('mousemove', showTooltip)
         .on('click', showTooltip)
         .on('mouseleave', hideTooltip);
@@ -130,12 +129,24 @@ function initHousingCostMap(rootId, config) {
         .attr('transform', f => `translate(${f._cx},${f._cy})`)
         .text(f => f.properties.code);
 
-    colour.range().forEach(c => {
-      const [a, b] = colour.invertExtent(c);
-      legend.append('div')
-        .attr('class', 'databox-legend-item')
-        .html(`<span class="databox-legend-swatch" style="background:${c}"></span>+${Math.round(a)}–${Math.round(b)}%`);
+    function drawLegend() {
+      legend.html('');
+      colour.range().forEach(c => {
+        const [a, b] = colour.invertExtent(c);
+        legend.append('div')
+          .attr('class', 'databox-legend-item')
+          .html(`<span class="databox-legend-swatch" style="background:${c}"></span>+${Math.round(a)}–${Math.round(b)}%`);
+      });
+    }
+    drawLegend();
+
+    document.addEventListener('themechange', () => {
+      colour.range(mapRamp(5));
+      dataLayer.selectAll('path').attr('fill', f => colour(f.data.growth_pct));
+      noDataLayer.selectAll('path').attr('fill', getComputedStyle(document.documentElement).getPropertyValue('--rule').trim());
+      drawLegend();
     });
+    window.addEventListener('scroll', hideTooltip, { passive: true });
 
     function showTooltip(event, f) {
       const name = strings.countryNames[f.properties.code] || f.properties.name;
@@ -158,9 +169,11 @@ function initHousingCostMap(rootId, config) {
   // Toolbar toggles for the labels / no-data layers — independent on/off
   // buttons, unlike the exclusive metric buttons on the rent map.
   root.querySelectorAll('[data-toggle-btn]').forEach(btn => {
+    btn.setAttribute('aria-pressed', String(btn.classList.contains('is-active')));
     btn.addEventListener('click', () => {
       const layer = btn.getAttribute('data-toggle-btn') === 'labels' ? labelLayer : noDataLayer;
       const isActive = btn.classList.toggle('is-active');
+      btn.setAttribute('aria-pressed', String(isActive));
       layer.style('display', isActive ? null : 'none');
     });
   });
