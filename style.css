@@ -5,17 +5,17 @@
    tokens) are load-bearing — keep them. */
 
 :root {
-  --paper: #fafbfc;
-  --surface: #ffffff;
-  --ink: #12161d;
-  --muted: #535a65;
-  --line: #c9cfd8;
-  --rule: #e2e6eb;
-  --card: #eef1f5;
-  --accent-fill: #1c4b8a;
-  --accent: #1c4b8a; /* recomputed for 4.5:1 against --paper by js/chrome.js */
-  --map-deep: #10243e;
-  --map-light: #99acc8; /* low end of the choropleth ramp — never --card (1:1, buckets vanish) */
+  --paper: #faf7f0;
+  --surface: #fffdf8;
+  --ink: #1b1915;
+  --muted: #6a645a;
+  --line: #d9d2c4;
+  --rule: #ebe5d9;
+  --card: #f2ede2;
+  --accent-fill: #24503f;
+  --accent: #24503f; /* recomputed for 4.5:1 against --paper by js/chrome.js */
+  --map-deep: #143027;
+  --map-light: #a9bdaf; /* low end of the choropleth ramp — never --card (1:1, buckets vanish) */
   --data-1: #25588f;
   --data-2: #0f8c73;
   --data-3: #a66d00;
@@ -29,15 +29,15 @@
 }
 
 :root[data-theme="dark"] {
-  --paper: #0e1116;
-  --surface: #141820;
-  --ink: #e9ecf1;
-  --muted: #9aa3af;
-  --line: #333b47;
-  --rule: #232a34;
-  --card: #171c24;
-  --accent: #79a7e3;
-  --map-light: #2d3d53;
+  --paper: #15140f;
+  --surface: #1c1a15;
+  --ink: #ede8de;
+  --muted: #a49d90;
+  --line: #3b372e;
+  --rule: #2a2721;
+  --card: #1f1d18;
+  --accent: #8fc2a8;
+  --map-light: #2b3b32;
   --data-1: #1e70c1; /* --data-1 alone needs a lighter step to clear 3:1 on dark --card */
   color-scheme: dark;
 }
@@ -651,7 +651,6 @@ em { font-style: normal; }
 @media (max-width: 560px) { .photo-strip { gap: 8px; } }
 
 /* ---------- v4.2: clean pass — white paper, fewer boxes and rules, lighter type ---------- */
-:root:not([data-theme="dark"]) { --paper: #ffffff; --card: #f3f5f8; --rule: #eceff3; --line: #d5dae1; }
 h1, h2, h3, .wordmark, .footer-wordmark { font-weight: 500; }
 .lead-title { font-weight: 500; letter-spacing: -0.02em; line-height: 1.04; }
 .page-title, .article-title { font-weight: 500; }

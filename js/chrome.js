@@ -32,9 +32,9 @@
 
   function applyAccent() {
     var isDark = root.getAttribute('data-theme') === 'dark';
-    var fill = getComputedStyle(root).getPropertyValue('--accent-fill').trim() || '#1c4b8a';
+    var fill = getComputedStyle(root).getPropertyValue('--accent-fill').trim() || '#24503f';
     root.style.removeProperty('--accent');
-    var bg = getComputedStyle(root).getPropertyValue('--paper').trim() || (isDark ? '#0e1116' : '#ffffff');
+    var bg = getComputedStyle(root).getPropertyValue('--paper').trim() || (isDark ? '#15140f' : '#faf7f0');
     root.style.setProperty('--accent', readableAccent(fill, bg, isDark));
   }
 
@@ -46,7 +46,7 @@
       btn.setAttribute('aria-pressed', String(dark));
     });
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', dark ? '#0e1116' : '#ffffff');
+    if (meta) meta.setAttribute('content', dark ? '#15140f' : '#faf7f0');
     try { localStorage.setItem('ar-theme', dark ? 'dark' : 'light'); } catch (e) {}
     applyAccent();
   }

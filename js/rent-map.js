@@ -24,9 +24,9 @@ function initRentMap(rootId, config) {
 
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
-  const light = cssVar('--map-light', '#99acc8');
-  const accent = cssVar('--accent-fill', '#1c4b8a');
-  const deep = cssVar('--map-deep', '#10243E');
+  const light = cssVar('--map-light', '#a9bdaf');
+  const accent = cssVar('--accent-fill', '#24503f');
+  const deep = cssVar('--map-deep', '#143027');
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
   // Sequential single-hue blue ramp (Névoa Azulada → Cobalto Suave → Azul Tinta),
@@ -43,7 +43,7 @@ function initRentMap(rootId, config) {
   // clearly in the dark as the bottom does in the light.
   const colorRange = isDark
     ? d3.quantize(d3.interpolateRgbBasis([light, accent, cssVar('--accent', '#6ea2e0')]), 6)
-    : d3.quantize(d3.interpolateRgbBasis([light, accent, deep, '#081527']), 6);
+    : d3.quantize(d3.interpolateRgbBasis([light, accent, deep, '#0a1812']), 6);
 
   let metric = 'price_m2';
 
