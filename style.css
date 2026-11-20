@@ -649,3 +649,56 @@ em { font-style: normal; }
   .lightbox-img { max-height: 72vh; }
 }
 @media (max-width: 560px) { .photo-strip { gap: 8px; } }
+
+/* ---------- v4.2: clean pass — white paper, fewer boxes and rules, lighter type ---------- */
+:root:not([data-theme="dark"]) { --paper: #ffffff; --card: #f3f5f8; --rule: #eceff3; --line: #d5dae1; }
+h1, h2, h3, .wordmark, .footer-wordmark { font-weight: 500; }
+.lead-title { font-weight: 500; letter-spacing: -0.02em; line-height: 1.04; }
+.page-title, .article-title { font-weight: 500; }
+
+.site-header { border-bottom-color: transparent; }
+.site-header.is-scrolled, .site-header:focus-within { border-bottom-color: var(--rule); }
+.ctrl-btn, .lang-link { border-color: var(--rule); }
+
+.hero { padding-top: 96px; padding-bottom: 104px; gap: 88px; }
+.hero-chart { background: none; border: none; box-shadow: none; padding: 0; }
+.hero-chart-title { font-weight: 500; font-size: 20px; }
+.hbar { margin-bottom: 20px; }
+.hbar-track { height: 12px; border-radius: 6px; }
+.hbar-fill { border-radius: 6px; }
+.hero-chart figcaption { border-top: none; padding-top: 4px; }
+
+.home-section { border-top: none; padding-top: 72px; padding-bottom: 88px; }
+.section-head { margin-bottom: 32px; }
+.section-label { font-weight: 500; }
+
+.inv-row, .inv-list li:first-child .inv-row { border: none; }
+.inv-row { padding: 20px 0; gap: 48px; grid-template-columns: 300px minmax(0, 1fr) 200px; }
+.inv-list li + li .inv-row { margin-top: 24px; }
+.inv-thumb, .card-image { border: none; }
+.inv-row h3 { font-weight: 500; }
+.inv-figure b { font-weight: 500; font-size: clamp(32px, 3.4vw, 44px); }
+
+.photo-strip { gap: 16px; }
+.photo-strip a { border-radius: 4px; }
+
+.home-about { background: var(--card); }
+.contact-block { background: none; padding: 4px 0 4px 28px; border-left: 1px solid var(--line); border-radius: 0; }
+.about-actions { gap: 24px; }
+.about-actions .btn-outline { padding: 0; border: none; background: none; font-weight: 600; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 5px; }
+.about-actions .btn-outline:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+.site-footer { background: var(--paper); }
+.footer-legal { border-top: none; padding-top: 0; padding-bottom: 32px; }
+.databox-frame { border: none; }
+.related-box a, .stat-grid > div, .credits-box { border-radius: 8px; }
+
+@media (max-width: 900px) {
+  .inv-row { grid-template-columns: 240px minmax(0, 1fr); gap: 28px; }
+  .contact-block { border-left: none; padding: 24px 0 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 720px) {
+  .hero { padding-top: 48px; padding-bottom: 64px; gap: 48px; }
+  .inv-row { grid-template-columns: 1fr; gap: 16px; }
+  .home-section { padding-top: 56px; padding-bottom: 64px; }
+}
