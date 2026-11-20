@@ -45,7 +45,21 @@ function niceTickValues(scale, maxCount) {
   const values = scale.ticks(maxCount);
   let step = 1;
   while (Math.ceil(values.length / step) > maxCount) step++;
-  return values.filter((d, i) => i % step === 0);
+  const out = values.filter((d, i) => i % step === 0);
+  // Thinning can drop the last tick, leaving bars that run past the end of
+  // the axis. Extend the scale to the next thinned tick so the axis always
+  // covers the data. Call before drawing marks with this scale.
+  if (values.length > 1 && out[out.length - 1] !== values[values.length - 1]) {
+    const end = out[out.length - 1] + (values[1] - values[0]) * step;
+    scale.domain([scale.domain()[0], Math.max(scale.domain()[1], end)]);
+    out.push(end);
+  }
+  return out;
+}
+
+// Signed number with a true minus sign (U+2212), e.g. +2.3 / −2.2.
+function signed(v) {
+  return (v > 0 ? '+' : v < 0 ? '\u2212' : '') + Math.abs(v);
 }
 
 // Breaks a y-axis tick label into as many tspans as it needs to fit inside

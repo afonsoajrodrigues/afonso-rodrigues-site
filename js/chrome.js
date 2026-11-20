@@ -10,7 +10,7 @@
       btn.setAttribute('aria-pressed', String(dark));
     });
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', dark ? '#15140f' : '#ffffff');
+    if (meta) meta.setAttribute('content', dark ? '#121212' : '#ffffff');
     try { localStorage.setItem('ar-theme', dark ? 'dark' : 'light'); } catch (e) {}
     document.dispatchEvent(new Event('themechange')); // maps recolour themselves
   }
