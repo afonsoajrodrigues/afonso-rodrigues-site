@@ -80,6 +80,7 @@ function initInnovationCharts(data) {
   }
 
   function drawBarChart(selector, rows, unit, highlightLabel) {
+    const fmt = typeof unit === 'function' ? unit : (v => v + unit);
     const container = document.querySelector(selector);
 
     observeChartResize(container, () => {
@@ -91,7 +92,7 @@ function initInnovationCharts(data) {
       // Measured, not guessed: a breakpoint-constant right margin either
       // wasted space on short labels or clipped the widest one (e.g.
       // "1950.8 M€" lost its unit at a margin sized for "42.5%").
-      const rightMargin = Math.ceil(measureLabelWidth(svg, rows.map(d => d.value + unit), 'bar-label')) + 16;
+      const rightMargin = Math.ceil(measureLabelWidth(svg, rows.map(d => fmt(d.value)), 'bar-label')) + 16;
       const margin = {
         top: 20,
         right: rightMargin,
@@ -109,7 +110,7 @@ function initInnovationCharts(data) {
       const x = d3.scaleLinear().domain([0, maxValue]).nice().range([0, innerWidth]);
       const y = d3.scaleBand().domain(rows.map(d => d.label)).range([0, height]).padding(0.3);
 
-      g.append('g').attr('class', 'axis').call(d3.axisTop(x).tickValues(niceTickValues(x, compact ? 3 : narrow ? 4 : 5)).tickFormat(d => d + unit));
+      g.append('g').attr('class', 'axis').call(d3.axisTop(x).tickValues(niceTickValues(x, compact ? 3 : narrow ? 4 : 5)).tickFormat(fmt));
       const leftAxis = g.append('g').attr('class', 'axis').call(d3.axisLeft(y).tickSize(0)).call(axis => axis.select('.domain').remove());
       if (narrow) wrapAxisLabel(leftAxis.selectAll('.tick text'), margin.left - 16);
 
@@ -129,7 +130,7 @@ function initInnovationCharts(data) {
         .attr('y', d => y(d.label) + y.bandwidth() / 2)
         .attr('dy', '0.35em')
         .attr('x', d => x(d.value) + 6)
-        .text(d => d.value + unit);
+        .text(d => fmt(d.value));
     });
   }
 
@@ -146,7 +147,7 @@ function initInnovationCharts(data) {
       // Measured, not guessed — see drawBarChart above. A negative label
       // that doesn't fit inside its bar (below) also renders past zero using
       // this same margin, so the probe set covers both signs.
-      const rightMargin = Math.ceil(measureLabelWidth(svg, sectorChange.map(d => (d.value > 0 ? '+' : '') + d.value + ' p.p.'), 'bar-label')) + 16;
+      const rightMargin = Math.ceil(measureLabelWidth(svg, sectorChange.map(d => signed(d.value) + ' p.p.'), 'bar-label')) + 16;
       const margin = {
         top: 20,
         right: rightMargin,
@@ -161,7 +162,6 @@ function initInnovationCharts(data) {
       const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
 
       const x = d3.scaleLinear().domain([-10, 4]).range([0, innerWidth]);
-      const zeroX = x(0);
       const y = d3.scaleBand().domain(sectorChange.map(d => d.label)).range([0, height]).padding(0.3);
 
       // This axis's own labels ("-10 p.p.") are wider than the ones on the
@@ -170,7 +170,8 @@ function initInnovationCharts(data) {
       // than 50px apart against ~53px-wide labels, so they overlapped. 2
       // ticks (domain min + zero) always resolves to comfortably-spaced,
       // meaningful reference points.
-      g.append('g').attr('class', 'axis').call(d3.axisTop(x).tickValues(niceTickValues(x, compact ? 2 : narrow ? 4 : 7)).tickFormat(d => d + ' p.p.'));
+      g.append('g').attr('class', 'axis').call(d3.axisTop(x).tickValues(niceTickValues(x, compact ? 2 : narrow ? 4 : 7)).tickFormat(d => signed(d) + ' p.p.'));
+      const zeroX = x(0); // after the axis: niceTickValues may extend the domain
       const leftAxis = g.append('g').attr('class', 'axis').call(d3.axisLeft(y).tickSize(0)).call(axis => axis.select('.domain').remove());
       if (narrow) wrapAxisLabel(leftAxis.selectAll('.tick text'), margin.left - 16);
 
@@ -199,7 +200,7 @@ function initInnovationCharts(data) {
         .attr('y', d => y(d.label) + y.bandwidth() / 2)
         .attr('dy', '0.35em')
         .attr('text-anchor', 'start')
-        .text(d => (d.value > 0 ? '+' : '') + d.value + ' p.p.')
+        .text(d => signed(d.value) + ' p.p.')
         .each(function (d) {
           const el = d3.select(this);
           if (d.value >= 0) {
@@ -220,6 +221,9 @@ function initInnovationCharts(data) {
   drawTrendChart();
   drawBarChart('#chart-segments', data.whoInnovates, '%', data.highlights.segments);
   drawChangeChart();
-  drawBarChart('#chart-spending', data.spendingByRegion, ' M€', data.highlights.spending);
+  const millions = document.documentElement.lang.indexOf('pt') === 0
+    ? (v => d3.formatLocale({ decimal: ',', thousands: '\u00a0', grouping: [3], currency: ['', '€'] }).format(',.1~f')(v) + '\u00a0M€')
+    : (v => '€' + d3.format(',.1~f')(v) + 'M');
+  drawBarChart('#chart-spending', data.spendingByRegion, millions, data.highlights.spending);
   drawBarChart('#chart-ip', data.ipInstruments, '%', data.highlights.ip);
 }

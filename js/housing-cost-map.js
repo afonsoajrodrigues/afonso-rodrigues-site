@@ -34,7 +34,7 @@ function initHousingCostMap(rootId, config) {
     const v = (k, f) => cs.getPropertyValue(k).trim() || f;
     const dark = document.documentElement.getAttribute('data-theme') === 'dark';
     const stops = dark
-      ? [v('--map-light', '#4a6555'), v('--accent-fill', '#3d7f65'), v('--accent', '#ede8de')]
+      ? [v('--map-light', '#4a6555'), v('--accent-fill', '#3d7f65'), v('--map-top', '#a9d4bd')]
       : [v('--map-light', '#8aa392'), v('--accent-fill', '#24503f'), v('--map-deep', '#143027')];
     return d3.quantize(d3.interpolateRgbBasis(stops), n);
   }
