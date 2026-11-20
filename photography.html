@@ -566,80 +566,16 @@
 
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="lightbox-close" id="lightbox-close">Close ×</button>
-  <img id="lightbox-img" class="lightbox-img" src="" alt="">
-  <span id="lightbox-caption" class="lightbox-caption"></span>
+  <button class="lightbox-close" id="lightbox-close" type="button">Close</button>
+  <button class="lightbox-nav lightbox-nav--prev" id="lightbox-prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <figure class="lightbox-figure">
+    <img id="lightbox-img" class="lightbox-img" alt="">
+    <figcaption class="lightbox-caption"><span id="lightbox-caption"></span> <span id="lightbox-count" class="lightbox-count" aria-live="polite"></span></figcaption>
+  </figure>
+  <button class="lightbox-nav lightbox-nav--next" id="lightbox-next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
 </div>
 
 <script src="/js/chrome.js"></script>
-<script>
-  function toggleSeries(header) {
-    const section = header.closest('.series-section');
-    const btn = header.querySelector('.series-toggle-btn');
-    const isCollapsed = section.classList.toggle('is-collapsed');
-    btn.setAttribute('aria-expanded', String(!isCollapsed));
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const lb        = document.getElementById('lightbox');
-    const lbImg      = document.getElementById('lightbox-img');
-    const lbCap      = document.getElementById('lightbox-caption');
-    const lbCloseBtn = document.getElementById('lightbox-close');
-    let lastTrigger  = null;
-
-    function openLb(el) {
-      lbImg.src         = el.dataset.lightbox;
-      lbImg.alt         = el.dataset.alt || '';
-      lbCap.textContent = el.dataset.caption || '';
-      lastTrigger = el;
-      lb.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-      lbCloseBtn.focus();
-    }
-
-    function closeLb() {
-      lb.classList.remove('is-open');
-      document.body.style.overflow = '';
-      lbImg.src = '';
-      if (lastTrigger) {
-        lastTrigger.focus();
-        lastTrigger = null;
-      }
-    }
-
-    document.querySelectorAll('[data-lightbox]').forEach(el => {
-      el.setAttribute('tabindex', '0');
-      el.setAttribute('role', 'button');
-      if (!el.hasAttribute('aria-label')) {
-        el.setAttribute('aria-label', (el.dataset.alt || 'Photo') + ' — open full size');
-      }
-      el.addEventListener('click', () => openLb(el));
-      el.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          openLb(el);
-        }
-      });
-    });
-
-    lbCloseBtn.addEventListener('click', e => {
-      e.stopPropagation();
-      closeLb();
-    });
-
-    lb.addEventListener('click', closeLb);
-    lbImg.addEventListener('click', e => e.stopPropagation());
-
-    document.addEventListener('keydown', e => {
-      if (!lb.classList.contains('is-open')) return;
-      if (e.key === 'Escape') closeLb();
-      // Only the close button is focusable inside the dialog — keep focus trapped there.
-      if (e.key === 'Tab') {
-        e.preventDefault();
-        lbCloseBtn.focus();
-      }
-    });
-  });
-</script>
+<script src="/js/gallery.js"></script>
 </body>
 </html>
