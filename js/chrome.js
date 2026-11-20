@@ -2,42 +2,6 @@
   var root = document.documentElement;
   var FS_MIN = 0.85, FS_MAX = 1.4, FS_STEP = 0.1;
 
-  // Contrast-safe accent blend: mixes accent toward white/black until ~4.5:1 against bg
-  function toRgb(hex) {
-    var h = hex.replace('#', '');
-    if (h.length === 3) h = h.split('').map(function (c) { return c + c; }).join('');
-    return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
-  }
-  function lum(rgb) {
-    var a = rgb.map(function (v) {
-      var s = v / 255;
-      return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
-    });
-    return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
-  }
-  function contrastRatio(a, b) {
-    var l1 = lum(a), l2 = lum(b);
-    return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
-  }
-  function readableAccent(hex, bgHex, towardWhite) {
-    var base = toRgb(hex), bg = toRgb(bgHex);
-    var target = towardWhite ? [255, 255, 255] : [0, 0, 0];
-    var out = base;
-    for (var t = 0; t <= 1.001; t += 0.05) {
-      out = base.map(function (c, i) { return Math.round(c + (target[i] - c) * t); });
-      if (contrastRatio(out, bg) >= 4.5) break;
-    }
-    return '#' + out.map(function (c) { return c.toString(16).padStart(2, '0'); }).join('');
-  }
-
-  function applyAccent() {
-    var isDark = root.getAttribute('data-theme') === 'dark';
-    var fill = getComputedStyle(root).getPropertyValue('--accent-fill').trim() || '#24503f';
-    root.style.removeProperty('--accent');
-    var bg = getComputedStyle(root).getPropertyValue('--paper').trim() || (isDark ? '#15140f' : '#faf7f0');
-    root.style.setProperty('--accent', readableAccent(fill, bg, isDark));
-  }
-
   // Theme toggle (persisted) — data-theme is already set pre-paint by the inline
   // snippet in <head>; this just wires up the button and keeps --accent in sync.
   function setTheme(dark) {
@@ -46,9 +10,8 @@
       btn.setAttribute('aria-pressed', String(dark));
     });
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', dark ? '#15140f' : '#faf7f0');
+    if (meta) meta.setAttribute('content', dark ? '#15140f' : '#fdfcf8');
     try { localStorage.setItem('ar-theme', dark ? 'dark' : 'light'); } catch (e) {}
-    applyAccent();
   }
 
   // Text size (persisted)
