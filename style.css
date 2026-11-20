@@ -5,14 +5,15 @@
    tokens) are load-bearing — keep them. */
 
 :root {
-  --paper: #fdfcf8;
+  --paper: #ffffff;
   --surface: #ffffff;
-  --ink: #141414;
+  --ink: #0d0d0d;
   --muted: #5f5b54;
   --line: #d6d2c9;
-  --rule: #ebe8e1;
-  --card: #f5f3ee;
+  --rule: #ebe8e2;
+  --card: #f6f4ef;
   --accent-fill: #24503f;
+  --gold: #8c6a35; /* brass — the one premium colour (4.9:1 on white) */
   --accent: var(--ink); /* UI accent = ink (Lighthouse / New Yorker restraint); colour lives in the data */
   --map-deep: #143027;
   --map-light: #a9bdaf; /* low end of the choropleth ramp — never --card (1:1, buckets vanish) */
@@ -39,6 +40,7 @@
   --card: #1f1d18;
   --accent: var(--ink);
   --map-light: #2b3b32;
+  --gold: #c9a467;
   --data-1: #1e70c1; /* --data-1 alone needs a lighter step to clear 3:1 on dark --card */
   color-scheme: dark;
 }
@@ -754,3 +756,21 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
   .section-head { flex-wrap: wrap; }
   .section-head::after { display: none; }
 }
+
+/* ---------- v4.5: black & white sections, one brass accent ---------- */
+.hero, .home-section[aria-labelledby="photo-h"], .site-footer, body:has(.gallery-section) {
+  --paper: #0b0b0b; --surface: #141414; --ink: #f4f1ea; --muted: #a8a295;
+  --line: #3a3732; --rule: #24221f; --card: #171614; --gold: #c9a467;
+  background: var(--paper); color: var(--ink);
+}
+:root[data-theme="dark"] :is(.hero, .home-section[aria-labelledby="photo-h"], .site-footer) { --paper: #000; }
+.site-header { background: color-mix(in srgb, var(--paper) 92%, transparent); }
+
+.kicker, .page-kicker, .series-label, .essay-label { color: var(--gold); }
+.inv-figure b, .stat-value--sm { color: var(--gold); }
+.hbar--top .hbar-fill { background: var(--gold); }
+.hbar-fill { background: color-mix(in srgb, var(--gold) 45%, var(--card)); }
+.hbar--ref .hbar-fill { background: var(--muted); opacity: .6; }
+.btn-primary:hover { background: var(--gold); color: #0b0b0b; }
+.section-head::after { background: var(--ink); }
+.read-progress { background: var(--gold); }
