@@ -23,9 +23,9 @@ function initRentMap(rootId, config) {
   }
 
   // Warm sequential ramp (yellow → orange → red): more intense = redder.
-  // Starts at 0.15 so the lowest bucket doesn't vanish into the panel.
+  // Starts at 0.08 so the lowest bucket doesn't vanish into the panel.
   function mapRamp(n) {
-    return d3.quantize(t => d3.interpolateYlOrRd(0.15 + t * 0.8), n);
+    return d3.quantize(t => d3.interpolateYlOrRd(0.08 + t * 0.92), n);
   }
 
   let metric = 'price_m2';
@@ -57,7 +57,7 @@ function initRentMap(rootId, config) {
 
     function draw() {
       const values = geo.features.map(f => f.data[metric]);
-      colour = d3.scaleQuantize().domain([d3.min(values), d3.max(values)]).range(mapRamp(6));
+      colour = d3.scaleQuantize().domain([d3.min(values), d3.max(values)]).range(mapRamp(10));
 
       svg.selectAll('path')
         .data(geo.features)

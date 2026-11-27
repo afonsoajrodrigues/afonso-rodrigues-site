@@ -25,9 +25,9 @@ function initHousingCostMap(rootId, config) {
   const css = getComputedStyle(document.documentElement);
   const cssVar = (name, fallback) => (css.getPropertyValue(name).trim() || fallback);
   // Warm sequential ramp (yellow → orange → red): more intense = redder.
-  // Starts at 0.15 so the lowest bucket doesn't vanish into the panel.
+  // Starts at 0.08 so the lowest bucket doesn't vanish into the panel.
   function mapRamp(n) {
-    return d3.quantize(t => d3.interpolateYlOrRd(0.15 + t * 0.8), n);
+    return d3.quantize(t => d3.interpolateYlOrRd(0.08 + t * 0.92), n);
   }
 
   const width = 640, height = 600;
@@ -89,7 +89,7 @@ function initHousingCostMap(rootId, config) {
     // clipped along with the frame.
     const path = d3.geoPath(d3.geoMercator().fitExtent([[16, 16], [width - 16, height - 16]], { type: 'FeatureCollection', features: withData }));
     const values = withData.map(f => f.data.growth_pct);
-    const colour = d3.scaleQuantize().domain([d3.min(values), d3.max(values)]).range(mapRamp(5));
+    const colour = d3.scaleQuantize().domain([d3.min(values), d3.max(values)]).range(mapRamp(10));
 
     noDataLayer.selectAll('path')
       .data(withoutData)
@@ -132,7 +132,7 @@ function initHousingCostMap(rootId, config) {
     drawLegend();
 
     document.addEventListener('themechange', () => {
-      colour.range(mapRamp(5));
+      colour.range(mapRamp(10));
       dataLayer.selectAll('path').attr('fill', f => colour(f.data.growth_pct));
       noDataLayer.selectAll('path').attr('fill', getComputedStyle(document.documentElement).getPropertyValue('--rule').trim());
       drawLegend();
