@@ -45,6 +45,12 @@
       btn.addEventListener('click', function () { setTheme(root.getAttribute('data-theme') !== 'dark'); });
     });
 
+    // External links open a new tab: say so to screen readers.
+    var newTab = root.lang.indexOf('pt') === 0 ? ' (abre num novo separador)' : ' (opens in a new tab)';
+    document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
+      var s = document.createElement('span'); s.className = 'visually-hidden'; s.textContent = newTab; a.appendChild(s);
+    });
+
     setFs(parseFloat(localStorage.getItem('ar-fs')) || 1);
     document.querySelectorAll('[data-font-smaller]').forEach(function (btn) {
       btn.addEventListener('click', function () { setFs(parseFloat(getComputedStyle(root).getPropertyValue('--fs')) - FS_STEP); });

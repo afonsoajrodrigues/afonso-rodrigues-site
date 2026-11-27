@@ -22,8 +22,8 @@
   --data-2: #0f8c73;
   --data-3: #a66d00;
   --fs: 1;
-  --font-display: 'Libre Caslon Text', 'Iowan Old Style', Georgia, serif;
-  --font-headline: 'Libre Caslon Display', 'Libre Caslon Text', Georgia, serif;
+  --font-display: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+  --font-headline: 'Source Serif 4', Georgia, serif;
   --font-ui: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: var(--font-ui); /* legacy alias — inline styles & chart CSS still reference it */
   --gutter: max(20px, calc((100% - 1200px) / 2));
@@ -1000,21 +1000,6 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
    square corners, text tabs instead of pill toggles, an end mark. */
 :root { --radius: 2px; }
 
-/* Masthead: name centred, sections beneath it, controls tucked right */
-@media (min-width: 721px) {
-  .header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding-top: 18px; min-height: 0; }
-  .header-left { grid-column: 2; flex-direction: column; align-items: center; gap: 6px; flex: none; }
-  .wordmark-block { align-items: center; text-align: center; }
-  .wordmark { font-family: var(--font-headline); font-size: 36px; line-height: 1.05; }
-  .wordmark-tag { font-family: var(--font-display); font-style: italic; font-size: 14px; }
-  .main-nav { margin: 4px 0 0; padding: 0; border: none; gap: 28px; font-size: 14.5px; }
-  .main-nav a { padding: 10px 0 12px; }
-  .header-controls { grid-column: 3; justify-self: end; align-self: start; }
-  .site-header .wordmark, .site-header .wordmark-tag { transition: font-size .2s; }
-  .site-header.is-scrolled .wordmark { font-size: 26px; }
-  .site-header.is-scrolled .wordmark-tag { display: none; }
-}
-
 /* Front page: white, one centred lead, the chart beneath it like an illustration */
 :root .hero.hero.hero {
   --paper: inherit; --surface: inherit; --ink: inherit; --muted: inherit; --line: inherit;
@@ -1077,3 +1062,13 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
   background: none; border-radius: 0; padding: 8px 0; border-bottom: 2px solid transparent; color: var(--muted);
 }
 .toggle-btn:not([data-toggle-btn]).is-active, .databox-btn.is-active { background: none; color: var(--ink); border-bottom-color: var(--ink); }
+
+/* a11y pass (27/11/2026): no visual redesign, only legibility fixes */
+.lightbox-count { color: rgba(255,255,255,.7); } /* was .45 — under 4.5:1 on the dark viewer */
+.muted-text a, a.accent-text { text-decoration: underline; text-underline-offset: 3px; } /* links in grey text were colour-only */
+
+/* 27/11/2026: masthead back to name-left / nav-right; name in the UI sans, not Caslon */
+.wordmark, .footer-wordmark { font-family: var(--font-ui); font-weight: 600; letter-spacing: -0.01em; }
+.wordmark { font-size: 19px; }
+.footer-wordmark { font-size: 20px; }
+.lead-title, .article-title, .prose h2, .section-label, .related-heading { font-weight: 500; letter-spacing: -0.015em; }
