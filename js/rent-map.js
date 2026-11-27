@@ -22,19 +22,10 @@ function initRentMap(rootId, config) {
     tip.style('left', left + 'px').style('top', top + 'px');
   }
 
-  // Sequential single-hue ramp read fresh from the theme tokens, so a theme
-  // switch (chrome.js fires 'themechange') can recolour without a reload.
-  // Light: --map-light → --accent-fill → --map-deep (monotonic descent).
-  // Dark: the deep end would vanish into the panel, so the bright end is
-  // --accent (the dark-theme ink) instead.
+  // Warm sequential ramp (yellow → orange → red): more intense = redder.
+  // Starts at 0.15 so the lowest bucket doesn't vanish into the panel.
   function mapRamp(n) {
-    const cs = getComputedStyle(document.documentElement);
-    const v = (k, f) => cs.getPropertyValue(k).trim() || f;
-    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const stops = dark
-      ? [v('--map-light', '#4a6555'), v('--accent-fill', '#3d7f65'), v('--map-top', '#a9d4bd')]
-      : [v('--map-light', '#8aa392'), v('--accent-fill', '#24503f'), v('--map-deep', '#143027')];
-    return d3.quantize(d3.interpolateRgbBasis(stops), n);
+    return d3.quantize(t => d3.interpolateYlOrRd(0.15 + t * 0.8), n);
   }
 
   let metric = 'price_m2';
