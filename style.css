@@ -1075,3 +1075,5 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
 /* 27/11/2026: running text in Literata (built for long reading), shorter line */
 .prose { line-height: 1.65; }
 .prose p { max-width: 62ch; }
+/* Hyphenation follows each page's lang (en / pt-PT); only words of 7+ letters, 3+ on each side */
+.prose p { hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 7 3 3; }
