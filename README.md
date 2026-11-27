@@ -53,30 +53,25 @@ página irmã no outro idioma.
 
 ## Sistema de design
 
-Ver a secção "Sistema de design" em `CLAUDE.md` para o racional completo
-(tokens claro/escuro, tipografia, layout edge-to-edge, controlos de leitura).
-Resumo rápido:
+Tokens em `:root` (claro) e `:root[data-theme="dark"]` (escuro) no topo de `style.css`.
 
 | Token | Claro | Escuro |
 |---|---|---|
-| `--accent-fill` | `#1C4B8A` | `#1C4B8A` |
-| `--accent` (texto, contraste recalculado em runtime) | `#1C4B8A` | `#6EA2E0` |
-| `--paper` | `#FFFFFF` | `#0D0D0C` |
-| `--ink` | `#0B0B0B` | `#F2F0EA` |
-| `--muted` | `#55524D` | `#9C978E` |
-| `--line` | `#0B0B0B` | `#3A3833` |
-| `--rule` | `#C9C6BF` | `#2B2924` |
-| `--card` | `#F1EFE9` | `#171614` |
+| `--paper` | `#ffffff` | `#121212` |
+| `--ink` | `#0d0d0d` | `#ede8de` |
+| `--muted` | `#5f5b54` | `#a49d90` |
+| `--card` | `#f6f4ef` | `#1b1b1b` |
+| `--accent-fill` (dados/mapas) | `#24503f` | `#3d7f65` |
 
-Display + corpo: **Archivo**. Metadados/nav/UI: **IBM Plex Mono**.
+Interface a preto e branco; a cor fica nos gráficos, mapas e fotografias.
+Tipografia: **Source Serif 4** (títulos), **Literata** (texto corrido),
+**Public Sans** (nome, menus, legendas e texto dos gráficos).
 
 ## O que está feito
 
-- Layout editorial edge-to-edge completo: header sticky, hero + lead com mapa
-  interativo, "More from the desk", secção de fotografia + ensaio em
-  destaque, secção "About", rodapé escuro
-- Dark mode e escala de tamanho de texto (Aa−/Aa+), persistidos em
-  `localStorage` (`js/chrome.js`)
+- Homepage com a investigação em destaque e o gráfico do INE, outras
+  investigações, uma faixa de fotografia e "About"
+- Tema claro/escuro, persistido em `localStorage` (`js/chrome.js`)
 - Totalmente responsivo: breakpoints ≤ 900 px e ≤ 560 px
 - Duas versões de idioma com URLs próprios (`/` em inglês, `/pt/` em
   português), ligadas por `hreflang`

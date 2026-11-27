@@ -1,9 +1,7 @@
-/* Afonso Rodrigues — v4.6. White paper with black sections, ink UI, one brass
-   accent (--gold). Libre Caslon Display (headlines ≥28px) + Libre Caslon Text
-   (reading) + Public Sans (UI, chart text). Charts and maps keep their own
-   colours (--accent-fill green ramp, --data-*). Later "v4.x" layers at the end
-   of this file override the base rules above them. Class names used by
-   js/*.js (databox-*, chart-figure, bar-*, map tokens) are load-bearing. */
+/* Afonso Rodrigues. White paper, ink UI, colour only in charts, maps and photos.
+   Source Serif 4 (headlines) + Literata (reading) + Public Sans (UI, chart text).
+   Later layers at the end of this file override the base rules above them.
+   Class names used by js/*.js (databox-*, chart-figure, bar-*, map tokens) are load-bearing. */
 
 :root {
   --paper: #ffffff;
@@ -135,7 +133,7 @@ em { font-style: normal; }
 .link-underline:hover { text-decoration-color: var(--accent); }
 
 /* ---------- Labels ---------- */
-.kicker, .page-kicker {
+.kicker {
   font-size: 14px; font-weight: 600; color: var(--accent); margin: 0 0 14px;
 }
 .section-label {
@@ -148,8 +146,7 @@ em { font-style: normal; }
   display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: center;
   padding: 72px var(--gutter) 80px;
 }
-.hero-intro { font-size: 15px; color: var(--muted); margin: 0 0 36px; max-width: 46ch; }
-.hero-intro strong { color: var(--ink); font-weight: 600; }
+
 .lead-title {
   font-size: clamp(38px, 5.4vw, 68px); line-height: 1.02; letter-spacing: -0.025em;
   margin: 0 0 22px; font-weight: 600;
@@ -203,14 +200,6 @@ em { font-style: normal; }
 .inv-row .inv-meta { font-size: 13.5px; margin-top: 12px; }
 .inv-row:hover { color: inherit; }
 .inv-row:hover h3 { color: var(--accent); }
-.inv-figure { text-align: right; }
-.inv-figure b {
-  display: block; font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(36px, 4vw, 52px); line-height: 1; letter-spacing: -0.02em; color: var(--accent);
-  font-variant-numeric: lining-nums;
-}
-.inv-figure span { text-wrap: balance; display: block; font-size: 13px; color: var(--muted); margin-top: 6px; }
-
 
 /* ---------- Interior page header ---------- */
 .page-header { padding: 64px var(--gutter) 40px; }
@@ -220,9 +209,6 @@ em { font-style: normal; }
   font-family: var(--font-display); font-size: calc(21px * var(--fs)); line-height: 1.5;
   color: var(--muted); margin: 18px 0 0; max-width: 58ch;
 }
-.back-bar { padding: 20px var(--gutter) 0; font-size: 14px; font-weight: 500; }
-.back-bar a { color: var(--muted); }
-.back-bar a:hover { color: var(--accent); }
 
 /* ---------- Investigations index ---------- */
 .desk-section { padding: 0 var(--gutter) 72px; }
@@ -251,21 +237,10 @@ em { font-style: normal; }
 }
 .desk-card:hover .card-image { background: color-mix(in srgb, var(--accent-fill) 12%, var(--card)); }
 .card-image img { width: 100%; height: 100%; object-fit: cover; }
-.card-image--icon { display: flex; align-items: center; justify-content: center; }
-.card-image--icon svg { width: 42%; height: 62%; transition: transform .35s ease; }
-.desk-card:hover .card-image--icon svg { transform: translateY(-4px); }
+
 .desk-card .kicker { margin: 0; font-size: 13.5px; }
 .card-title { font-size: calc(26px * var(--fs)); line-height: 1.15; letter-spacing: -0.015em; margin: 0; transition: color .15s; }
 .card-meta { font-size: 14px; margin: 0; color: var(--muted); }
-
-/* Single-stroke illustrations for the data investigations */
-.icon-stroke { fill: none; stroke: var(--ink); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
-.icon-stroke-thin { stroke-width: 3.5; }
-.icon-muted { fill: none; stroke: var(--muted); stroke-width: 3; stroke-linecap: round; }
-.icon-solid { fill: var(--ink); }
-.icon-dot { fill: var(--accent-fill); }
-.icon-fill-a { fill: var(--map-light); }
-.icon-fill-b { fill: var(--surface); }
 
 .fine-print { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 18px 0 0; max-width: 72ch; }
 
@@ -367,7 +342,7 @@ em { font-style: normal; }
 .series-section.is-collapsed .series-toggle-btn { transform: rotate(-90deg); }
 .series-body { overflow: hidden; max-height: 9000px; transition: max-height .5s ease, opacity .3s ease; opacity: 1; }
 .series-section.is-collapsed .series-body { max-height: 0; opacity: 0; }
-.series-label { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+
 .series-title { font-size: clamp(28px, 3.4vw, 40px); margin: 0; line-height: 1.05; letter-spacing: -0.02em; }
 
 .location-group { margin-top: 32px; }
@@ -382,7 +357,7 @@ em { font-style: normal; }
 .contact-img-wrap { aspect-ratio: 4 / 3; overflow: hidden; margin-bottom: 10px; background: var(--card); border-radius: var(--radius); }
 .contact-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
 .contact-item:hover .contact-img-wrap img { transform: scale(1.035); }
-.contact-caption { font-size: 13px; color: var(--muted); margin-bottom: 3px; }
+
 .contact-desc { font-family: var(--font-display); font-size: calc(16px * var(--fs)); line-height: 1.45; margin: 0; }
 
 .essay-section { padding: 40px var(--gutter) 72px; border-top: 1px solid var(--rule); }
@@ -555,7 +530,6 @@ em { font-style: normal; }
   .site-header { position: sticky; }
   .header-inner { position: relative; }
   .inv-row { grid-template-columns: 1fr; gap: 14px; }
-  .inv-figure { text-align: left; order: -1; }
   .hero { padding-bottom: 56px; }
   .home-section { padding-top: 48px; padding-bottom: 48px; }
   .card-grid, .card-grid--2 { grid-template-columns: 1fr; gap: 36px; }
@@ -643,12 +617,10 @@ em { font-style: normal; }
 
 @media (max-width: 900px) {
   .inv-row { grid-template-columns: 200px minmax(0, 1fr); }
-  .inv-row .inv-figure { grid-column: 2; text-align: left; }
   .photo-strip { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
   .inv-row { grid-template-columns: 1fr; }
-  .inv-row .inv-figure { grid-column: auto; order: 0; }
   .lightbox-nav { top: auto; bottom: 18px; transform: none; }
   .lightbox-nav--prev { left: calc(50% - 64px); }
   .lightbox-nav--next { right: calc(50% - 64px); }
@@ -682,7 +654,6 @@ h1, h2, h3, .wordmark, .footer-wordmark { font-weight: 500; }
 .inv-list li + li .inv-row { margin-top: 24px; }
 .inv-thumb, .card-image { border: none; }
 .inv-row h3 { font-weight: 500; }
-.inv-figure b { font-weight: 500; font-size: clamp(32px, 3.4vw, 44px); }
 
 .photo-strip { gap: 16px; }
 .photo-strip a { border-radius: 4px; }
@@ -710,9 +681,8 @@ h1, h2, h3, .wordmark, .footer-wordmark { font-weight: 500; }
 
 /* ---------- v4.4: Lighthouse / New Yorker restraint ----------
    Near-white ivory paper, black ink, no UI colour: colour is reserved for the
-   charts, maps and photographs. Libre Caslon (OFL) for headlines and reading. */
-.lead-title, .page-title, .article-title, .series-title, .essay-title, .section-label,
-.wordmark, .footer-wordmark, .home-about .about-lead, .inv-figure b, .stat-value--sm {
+   charts, maps and photographs. */
+.lead-title, .page-title, .article-title, .series-title, .essay-title, .section-label, .wordmark, .footer-wordmark, .home-about .about-lead, .stat-value--sm {
   font-family: var(--font-headline); font-weight: 400;
 }
 h1, h2, h3, .card-title, .hero-chart-title, .related-heading, .related-box a { font-weight: 400; }
@@ -727,7 +697,7 @@ strong, b { font-weight: 700; }
 a:hover { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .inv-row:hover, .desk-card:hover, .photo-strip a:hover, .wordmark-block:hover, .main-nav a:hover, .btn:hover, .lang-link:hover, .related-box a:hover { text-decoration: none; }
 .inv-row:hover h3, .desk-card:hover .card-title { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
-.kicker, .page-kicker, .series-label, .essay-label { color: var(--muted); font-weight: 500; letter-spacing: 0.01em; }
+.kicker, .essay-label { color: var(--muted); font-weight: 500; letter-spacing: 0.01em; }
 .section-head a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 5px; }
 
 .main-nav a.is-current { background: none; color: var(--ink); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 8px; }
@@ -748,8 +718,6 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
 .section-head::after { content: ''; order: 1; flex: 1; height: 2px; background: var(--ink); }
 .section-head a { order: 2; white-space: nowrap; }
 
-/* Key figures in black — the number is the design */
-.inv-figure b { color: var(--ink); font-size: clamp(40px, 4.4vw, 58px); letter-spacing: -0.01em; }
 .stat-value--sm { color: var(--ink); }
 .home-about { background: var(--card); }
 .contact-block .accent-text, .about-subhead { color: var(--ink); }
@@ -769,8 +737,8 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
 :root[data-theme="dark"] :is(.hero, .home-section[aria-labelledby="photo-h"], .site-footer) { --paper: #000; }
 .site-header { background: color-mix(in srgb, var(--paper) 92%, transparent); }
 
-.kicker, .page-kicker, .series-label, .essay-label { color: var(--gold); }
-.inv-figure b, .stat-value--sm { color: var(--gold); }
+.kicker, .essay-label { color: var(--gold); }
+.stat-value--sm { color: var(--gold); }
 .hbar--top .hbar-fill { background: var(--gold); }
 .hbar-fill { background: color-mix(in srgb, var(--gold) 45%, var(--card)); }
 .hbar--ref .hbar-fill { background: var(--muted); opacity: .6; }
@@ -782,7 +750,7 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
 /* Focus ring and links resolve against each section's own ink */
 .hero, .home-section[aria-labelledby="photo-h"], .site-footer, body:has(.gallery-section) { --accent: var(--ink); }
 
-/* Type rhythm. Caslon Display only at ≥28px; Text below. */
+/* Type rhythm */
 .prose { line-height: 1.62; }
 .prose p { max-width: 64ch; }
 .lead-dek, .page-dek, .article-dek, .gallery-intro {
@@ -792,7 +760,7 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
 .section-label { font-size: 32px; }
 .section-head { margin-bottom: 40px; }
 .card-title, .inv-row h3, .related-box a { text-wrap: balance; }
-.inv-figure b, .stat-value--sm, .hbar-value, .bar-value, .meta-list { font-variant-numeric: lining-nums tabular-nums; }
+.stat-value--sm, .hbar-value, .bar-value, .meta-list { font-variant-numeric: lining-nums tabular-nums; }
 
 /* Header: wordmark left, everything actionable right */
 .header-left { flex: 1; }
@@ -887,7 +855,6 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
   .lead-title { font-size: 40px; }
   .lead-actions .btn { width: 100%; justify-content: center; }
   .inv-thumb { display: none; }
-  .inv-row .inv-figure { order: -1; }
   .toggle-btn, .databox-btn { min-height: 44px; }
   .contact-grid > .contact-item:first-child .contact-img-wrap { aspect-ratio: 4 / 3; }
 }
@@ -916,7 +883,7 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
 .ctrl-btn, .lang-link { min-width: 44px; height: 44px; }
 @media (max-width: 720px) {
   .main-nav a { min-height: 44px; display: inline-flex; align-items: center; }
-  .series-jump a, .back-bar a, .footer-col a { min-height: 44px; display: inline-flex; align-items: center; }
+  .series-jump a, .footer-col a { min-height: 44px; display: inline-flex; align-items: center; }
   .footer-col { gap: 0; }
   .series-section { scroll-margin-top: 112px; }
 }
@@ -924,8 +891,8 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
   .bar-row, .article-bar-list .bar-row { grid-template-columns: 104px 1fr 80px; }
 }
 @media (max-width: 400px) { .stat-grid { grid-template-columns: 1fr; } }
-@media (max-width: 900px) { .inv-row { grid-template-columns: 220px minmax(0, 1fr); gap: 28px; } .inv-row .inv-figure { grid-column: 2; } }
-@media (max-width: 720px) { .inv-row { grid-template-columns: 1fr; gap: 14px; } .inv-row .inv-figure { grid-column: auto; } }
+@media (max-width: 900px) { .inv-row { grid-template-columns: 220px minmax(0, 1fr); gap: 28px; } }
+@media (max-width: 720px) { .inv-row { grid-template-columns: 1fr; gap: 14px; } }
 .about-text p.muted-text { letter-spacing: 0 !important; }
 
 /* v4.7: final review fixes */
@@ -1067,7 +1034,7 @@ a:hover { color: inherit; text-decoration: underline; text-decoration-thickness:
 .lightbox-count { color: rgba(255,255,255,.7); } /* was .45 — under 4.5:1 on the dark viewer */
 .muted-text a, a.accent-text { text-decoration: underline; text-underline-offset: 3px; } /* links in grey text were colour-only */
 
-/* 27/11/2026: masthead back to name-left / nav-right; name in the UI sans, not Caslon */
+/* Masthead: name left in the UI sans, nav and controls right */
 .wordmark, .footer-wordmark { font-family: var(--font-ui); font-weight: 600; letter-spacing: -0.01em; }
 .wordmark { font-size: 19px; }
 .footer-wordmark { font-size: 20px; }
